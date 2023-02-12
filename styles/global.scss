@@ -1,75 +1,132 @@
+@use "./partials/mixins" as *;
+
 //regular
 @font-face {
-    font-family: "Avenir";
-    src: url('../assets/font/AvenirNextLTPro-Regular.otf');
+    font-family: "Avenir Regular";
+    src: url('../assets/fonts/AvenirNextLTPro.ttf');
     font-weight: normal;
     font-style: normal;
 }
 //bold
 @font-face {
-    font-family: "Avenir";
-    src: url('../assets/fonts/AvenirNextLTPro-Demi.otf');
+    font-family: "Avenir Demi";
+    src: url('../assets/fonts/AvenirNextLTProDemi.ttf');
     font-weight: bold;
     font-style: normal;
 }
 //semi-bold
 @font-face {
-    font-family: "Avenir";
-    src: url('../assets/font/AvenirNextLTPro-Bold.otf');
+    font-family: "Avenir Bold";
+    src: url('../assets/fonts/AvenirNextLTProBold.ttf');
     font-weight: bolder;
     font-style: normal;
 }
 //page header
 h1{
-    font-family: 'Avenir', sans-serif;
+    @include for--desktop{
+    font-family: 'Avenir Bold', sans-serif;
     font-size: 3.75rem;
     line-height: 4.25rem;
     font-weight: 700;
+    margin: 0 0;
+    }
+    @include for--tablet{
+        font-family: 'Avenir Bold', sans-serif;
+        font-size: 3.75rem;
+        line-height: 4.25rem;
+        font-weight: 700;
+        margin: 0 0;
+    }
+    @include for--mobile{
+        font-family: 'Avenir regular', sans-serif;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        font-weight: 700;
+        margin: 0 0;
+    }
 }
 //section header
 h2{
-    font-family: 'Avenir', sans-serif;
-    font-size:  2.25rem;
+    @include for--desktop{
+    font-family: 'Avenir Bold', sans-serif;
+    font-size: 2.25rem;
     line-height: 2.75rem;
     font-weight: 700;
+    margin: 0 0;
+    }
+    @include for--tablet{
+        font-family: 'Avenir Bold', sans-serif;
+        font-size: 2.25rem;
+        line-height: 2.75rem;
+        font-weight: 700;
+        margin: 0 0;
+    }
+    @include for--mobile{
+        font-family: 'Avenir regular', sans-serif;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        font-weight: 700;
+        margin: 0 0;
+    }
 }
-//sub_header and page-header/section-headerMOB
+//sub_header 
 h3{
-    font-family: 'Avenir', sans-serif;
+    @include for--desktop{
+    font-family: 'Avenir Demi', sans-serif;
     font-size: 1.5rem;
     line-height: 2rem;
     font-weight: 600;
-
-    &font__page-header{
-        font-weight: 700;
+    margin: 0 0;
+    }
+    @include for--tablet{
+        font-family: 'Avenir Demi', sans-serif;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        font-weight: 600;
+        margin: 0 0;
+    }
+    @include for--mobile{
+        font-family: 'Avenir Demi', sans-serif;
+        font-size: 0.875rem;
+        line-height: 1.375rem;
+        font-weight: 600;
+        margin: 0 0;
     }
 }
-//body, footer, and subheaderMOB 
-.font__body {
-    font-family: 'Avenir', sans-serif;
+//body and footer
+.font__body, h4, p {
+
+    @include for--desktop{
+    font-family: 'Avenir Regular', sans-serif;
     font-size: 0.875rem;
     line-height: 1.375rem;
     font-weight: 400;
-
-    &-footer {
-        line-height: 1.25rem;
+    margin: 0 0;
     }
-
-    &-subheader__mobile{
-        font-weight: 600;
+    @include for--tablet{
+        font-family: 'Avenir Regular', sans-serif;
+        font-size: 0.875rem;
+        line-height: 1.375rem;
+        font-weight: 400;
+        margin: 0 0;
+    }
+    @include for--mobile{
+        font-family: 'Avenir Regular', sans-serif;
+        font-size: 0.813rem;
+        line-height: 1.125rem;
+        font-weight: 400;
+        margin: 0 0;
     }
 }
 //labels and buttons
-h4{
-    font-family: 'Avenir', sans-serif;
+a {
+    font-family: 'Avenir regular', sans-serif;
     font-size: 0.75rem;
     line-height: 1.25rem;
-    font-weight: 700;
+    font-weight: 300;
+    margin: 0 0;
 }
-//bodyMOB and footerMOB
-.font__body-mobile{
-    font-family: 'Avenir', sans-serif;
-    font-size: 0.813rem;
-    line-height: 1.125rem;
-    font-weight: 400;
+ul {
+    margin: 0;
+    padding: 0;
 }
