@@ -15,6 +15,7 @@ html body .navbar__fix {
   width: 100%;
   background-color: #323232;
   box-shadow: 0px 0px 10px #000;
+  z-index: 9999;
   overflow: hidden;
 }
 @media (max-width: 767px) {
@@ -39,24 +40,25 @@ html body .navbar__list--item {
   list-style: none;
   min-width: 50%;
 }
-html body .navbar__list--item :hover {
-  border-bottom: 5px;
-  border-color: #fff;
-  border-style: none none solid none;
-  font-family: "Avenir Demi";
-}
-html body .navbar__list--item :active {
-  border-bottom: 5px;
-  border-color: #fff;
-  border-style: none none solid none;
-  font-family: "Avenir Bold";
-}
 html body .navbar__list--item li, html body .navbar__list a {
   color: #fff;
   text-decoration: none;
   display: flex;
   justify-content: center;
   padding-bottom: 5px;
+  transition: all 0.5s ease-in-out;
+}
+html body .navbar__list--item li:hover, html body .navbar__list a:hover {
+  border-bottom: 5px;
+  border-color: #fff;
+  border-style: none none solid none;
+  font-family: "Avenir Demi";
+}
+html body .navbar__list--item li:active, html body .navbar__list a:active {
+  border-bottom: 5px;
+  border-color: #fff;
+  border-style: none none solid none;
+  font-family: "Avenir Bold";
 }
 @media (max-width: 767px) {
   html body .navbar__list {
@@ -151,6 +153,11 @@ html body .grid__container--grid-items-container {
 }
 html body .grid__container--grid-items {
   max-width: 92vw;
+  filter: grayscale(1);
+  transition: all 0.5s ease-in-out;
+}
+html body .grid__container--grid-items:hover {
+  filter: grayscale(0);
 }
 html body .footer__container {
   display: flex;
@@ -168,6 +175,19 @@ html body .footer__container--text-modifier, html body .footer__container p {
 }
 html body .footer__container--text-modifier--subtext, html body .footer__container p--subtext {
   margin: 1rem 0rem;
+}
+html body .footer__container--text-modifier--subtext a, html body .footer__container p--subtext a {
+  text-decoration: none;
+  color: #fff;
+  font-family: "Avenir Regular", sans-serif;
+  font-size: 0.813rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+  margin: 0 0;
+  transition: all 0.5s ease-in-out;
+}
+html body .footer__container--text-modifier--subtext a:hover, html body .footer__container p--subtext a:hover {
+  font-family: "Avenir Demi", sans-serif;
 }
 html body .footer__container--text-modifier--items--copyright, html body .footer__container p--items--copyright {
   position: flex-end;

@@ -22,6 +22,7 @@ html {
             width: 100%;
             background-color: $primary__band-gray;
             box-shadow: 0px 0px 10px $secondary__band-black;
+            z-index: 9999;
             overflow: hidden;
                 @include for--mobile{
                     height: 80px;
@@ -43,18 +44,18 @@ html {
                 &--item {
                     list-style: none;
                     min-width: 50%;
-                :hover{
-                        border-bottom: 5px;
-                        border-color: $primary__band-white;
-                        border-style: none none solid none;
-                        font-family: "Avenir Demi";
-                    }
-                    :active{
-                        border-bottom: 5px;
-                        border-color: $primary__band-white;
-                        border-style: none none solid none;
-                        font-family: "Avenir Bold";
-                    }
+                    // &:hover{
+                    //     border-bottom: 5px;
+                    //     border-color: $primary__band-white;
+                    //     border-style: none none solid none;
+                    //     font-family: "Avenir Demi";
+                    // }
+                    // &:active{
+                    //     border-bottom: 5px;
+                    //     border-color: $primary__band-white;
+                    //     border-style: none none solid none;
+                    //     font-family: "Avenir Bold";
+                    // }
                 }
                 &--item li, a {
                     color: $primary__band-white;
@@ -62,6 +63,19 @@ html {
                     display: flex;
                     justify-content: center;
                     padding-bottom: 5px;
+                    transition: all 0.5s ease-in-out;
+                    &:hover{
+                        border-bottom: 5px;
+                        border-color: $primary__band-white;
+                        border-style: none none solid none;
+                        font-family: "Avenir Demi";
+                    }
+                    &:active{
+                        border-bottom: 5px;
+                        border-color: $primary__band-white;
+                        border-style: none none solid none;
+                        font-family: "Avenir Bold";
+                    }
                 }
                 @include for--mobile{
                     display: flex;
@@ -165,6 +179,11 @@ html {
                 }
                 &--grid-items{
                     max-width: 92vw;
+                    filter: grayscale(1);
+                    transition: all 0.5s ease-in-out;
+                &:hover{
+                    filter: grayscale(0);
+                }
                 }
             }
     }
@@ -180,7 +199,20 @@ html {
             &--text-modifier, p{
                 color: $primary__band-white;
                     &--subtext{
-                    margin: 1rem 0rem;
+                        margin: 1rem 0rem;
+                            & a{
+                                text-decoration: none;
+                                color: $primary__band-white;
+                                font-family: 'Avenir Regular', sans-serif;
+                                font-size: 0.813rem;
+                                line-height: 1.125rem;
+                                font-weight: 400;
+                                margin: 0 0;
+                                transition: all 0.5s ease-in-out;
+                                &:hover{
+                                    font-family: 'Avenir Demi', sans-serif;
+                                }
+                            }
                     }
                 &--items{   
                     &--copyright  {
