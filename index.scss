@@ -8,10 +8,11 @@ html {
         overflow-x: hidden;
     .section{
         &__body{
-        padding: 0vw 4vw;
+        padding: 0rem 1rem;
     }
         }
     .navbar{
+        display: flex;
         &__fix {
             position: fixed;
             //display: flex;
@@ -27,12 +28,19 @@ html {
                 @include for--mobile{
                     height: 80px;
                 }
+                @include for--tablet{
+                    display: flex;
+                    align-items: center;
+                    height: 80px;
+                }
     
             }
             &__logo{
-                @include for--desktop{
+                @include for--tablet{
                     display: flex;
                     justify-content: flex-start;
+                    align-items: center;
+                    padding-left: 2rem;
                 }
                 @include for--mobile{
                     display: flex;
@@ -41,38 +49,45 @@ html {
                 }
             }
             &__list{
+                @include for--tablet{
+                    display: flex;
+                    padding: 0rem 2rem;
+                }
                 &--item {
                     list-style: none;
                     min-width: 50%;
-                    // &:hover{
-                    //     border-bottom: 5px;
-                    //     border-color: $primary__band-white;
-                    //     border-style: none none solid none;
-                    //     font-family: "Avenir Demi";
-                    // }
-                    // &:active{
-                    //     border-bottom: 5px;
-                    //     border-color: $primary__band-white;
-                    //     border-style: none none solid none;
-                    //     font-family: "Avenir Bold";
-                    // }
+
                 }
                 &--item li, a {
                     color: $primary__band-white;
                     text-decoration: none;
-                    display: flex;
-                    justify-content: center;
                     padding-bottom: 5px;
                     transition: all 0.5s ease-in-out;
+                    @include for--mobile{
+                        display: flex;
+                        justify-content: center;
+                    }
+                    @include for--tablet{
+                        padding: 0rem 2rem;
+                    }
                     &:hover{
                         border-bottom: 5px;
                         border-color: $primary__band-white;
                         border-style: none none solid none;
                         font-family: "Avenir Demi";
+                        @include for--tablet{
+                            padding-bottom: 28px;
+                        }
                     }
                     &:active{
                         border-bottom: 5px;
                         border-color: $primary__band-white;
+                        border-style: none none solid none;
+                        font-family: "Avenir Bold";
+                    }
+                    &:disabled{
+                        border-bottom: 5px;
+                        border-color: $primary__band-silver;
                         border-style: none none solid none;
                         font-family: "Avenir Bold";
                     }
@@ -95,6 +110,17 @@ html {
             width: 100%;
             margin: 80px 0 0 0;
             height: 50vw;
+            position: relative;
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: rgba(50, 50, 50, 0.5);
+                    z-index: 1;
+                }
         @include for--mobile{
             padding-bottom: 1.5rem;
             margin-bottom: 1.5rem;
@@ -102,23 +128,39 @@ html {
         &--title{
             padding-left: 4vw;
             color: $primary__band-white;
+            position:relative;
+            z-index: 2;
         }
         }
     }
     .about{
+        transition: all 0.5s;
         &__headline{
             display: flex;
             justify-content: flex-start;
         &--title{
             margin:0;
+            @include for--tablet{
+                padding: 3rem 0rem 2rem 1rem;
+            }
         }
         }
         &__image{
+            width: 100%;
+            display: flex;
+            justify-content: center;
         &--band-photo{
             width: 100%;
             height: 50vw;
             @include for--mobile{
                 margin-bottom: 1rem;
+            }
+
+            @include for--tablet{
+                height: 40vw;
+                width: 75vw;
+                margin-bottom: 2rem;
+
             }
         }
         }
@@ -127,35 +169,123 @@ html {
             @include for--mobile{
                 margin-bottom: 1.5rem;
                 }
-        }
-        &--bottom{
-            &--text{
+            @include for--tablet{
+                margin-bottom: 3rem;
+                width: 100%;
                 display: flex;
                 flex-direction: column;
-                &-first{
-                @include for--mobile{
-                    margin-top: 1rem;
+                justify-content: center;
+                align-items: center;
+                }   
+            &-subheader{ 
+                @include for--tablet{
+                width: 75vw;
+                font-family: 'Avenir Regular', sans-serif;
+                font-size: 1.5rem;
+                line-height: 2rem;
+                font-weight: 600;
+                margin: 0 0;
+                padding-bottom: 1rem;
+                }
+                &-author{
+                    &-text{
+                        font-family: 'Avenir Demi', sans-serif;
+                        align-self: flex-start;
+                        @include for--mobile{
+                            padding: 1rem 0rem 2rem 0rem;
+                            font-weight: bold;
+                        }
+                        @include for--tablet{
+                            padding: 0rem 0rem 3rem 0rem;
+                            font-weight: bold;
+                        }
                     }
                 }
-                &-second{
+                &-title{
+                    @include for--mobile{
+                        padding: 0rem 0rem 1rem 0rem;
+                    }
+                    @include for--tablet{
+                        width: 75vw;
+                        font-family: 'Avenir Regular', sans-serif;
+                        font-size: 1.5rem;
+                        line-height: 2rem;
+                        font-weight: 600;
+                        margin: 0 0;
+                        padding: 0rem 0rem 2.25rem 0rem;
+    
+                    }
+                }
+            }
+        }
+    
+        &--bottom{
+            @include for--tablet{
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                
+            }
+            &--modifier{
+                @include for--tablet{
+                    width: 75vw;
+                    display: flex;
+                }
+                
+            }    
+            &--text{
+                display: flex;
+                    @include for--mobile{
+                        flex-direction: column;
+
+                    }
+                    &-first{
                     @include for--mobile{
                         margin-top: 1rem;
-                }
-                }
+                        }
+                    @include for--tablet{
+                        padding: 0rem 1rem 3rem 0rem;
+                    }
+                    }
+                    &-second{
+                        @include for--mobile{
+                            margin: 1rem 0 1rem;
+                    }
+                        @include for--tablet{
+                            padding: 0rem 0rem 3rem 1rem;
+                    }
+                    }
             }
         }
         }
     }
-    .section__photo-gallery{
-        display:flex;
-        width:  100%;
-        &--title{
-            display: flex;
-            width: 100%;
-            @include for--mobile{
-                margin-top: 1.5rem;
+    }
+    .section{
+        &__photo{
+                background-color: $secondary__band-alabaster;
+                @include for--mobile{
+                    padding: 0 1rem;
+                    margin: 0 -1rem;
                 }
+                @include for--tablet{
+                    padding: 0 2rem;
+                }
+            &-gallery{
+                display:flex;
+                width:  100%;
+                &--title{
+                    display: flex;
+                    width: 100%;
+                    @include for--mobile{
+                        margin-top: 1.5rem;
+                        }
+                    @include for--tablet{
+                        margin-top: 3rem;
+                        margin-bottom: 1.5rem;
+                        }
 
+                }
+            }
         }
     }
     .grid{
@@ -167,19 +297,31 @@ html {
             
                 &--grid{
                     display: grid;
-                    grid-template-columns: repeat(1, 1fr);
-                    grid-template-rows: repeat(9, 1fr);
-                    //padding: 2vw 2vw;
+                    justify-content: center;
+                    @include for--mobile{
+                        grid-template-columns: repeat(1, 1fr);
+                        grid-template-rows: repeat(9, 1fr);
+                    }
+                    @include for--tablet{
+                        grid-template-columns: repeat(3, 1fr);
+                        grid-template-rows: repeat(3, 1fr);
+
+                    }
                 }
                 &--grid-items-container{
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    margin: 2vw 0vw;
+                    margin: 1vw 1vw;
                 }
                 &--grid-items{
-                    max-width: 92vw;
                     filter: grayscale(1);
+                        @include for--mobile{
+                            max-width: 90vw;
+                        }
+                        @include for--tablet{
+                            max-width: 30vw;
+                        }
                     transition: all 0.5s ease-in-out;
                 &:hover{
                     filter: grayscale(0);
@@ -188,18 +330,61 @@ html {
             }
     }
     .footer{
+        &__image--wrap {
+            display: inline-block;
+            margin-right: 25px;
+            height: 25px;
+            &--icons {
+                height: 25px;
+            }
+        }
         &__container{
             display: flex;
             list-style: none;
             background-color: $primary__band-gray;
+                & a {
+                    @include for--tablet{
+                    display: flex;
+                    align-items: center;
+                    }
+                }
+
             @include for--mobile{
                 padding-top: 2rem;
                 margin-top: 2vw;
             }
+            &__header{
+                @include for--tablet{
+                    display: flex;
+                    padding: 3rem 0rem 2.25rem 0rem;
+                }
+                &--items{
+                @include for--tablet{
+                    padding-left: 4vw;
+                    display: flex;
+                    align-items: center;
+                }     
+                
+
+                }
+            }
+            &--colum-modifier{
+                @include for--tablet{
+                display: flex;
+                justify-content: space-between;
+                padding-left: 4vw;
+                width: 92vw;
+                }
+            }
             &--text-modifier, p{
                 color: $primary__band-white;
                     &--subtext{
-                        margin: 1rem 0rem;
+                        @include for--mobile{
+                            margin: 1rem 0rem 1rem;
+                        }
+                        @include for--tablet{
+                            margin: 1rem 0rem 2rem;
+                        }
                             & a{
                                 text-decoration: none;
                                 color: $primary__band-white;
@@ -214,11 +399,21 @@ html {
                                 }
                             }
                     }
-                &--items{   
+                &--items{ 
+                    //width: 30vw;  
                     &--copyright  {
                         position:flex-end;
                         padding-top: 2rem;
-                    }  
+                            @include for--tablet{
+                            margin: -4.25rem 0rem 0rem -6rem;
+                            padding-top: 0rem;   
+                            }
+                    }
+                    &--text-wrapper {
+                        @include for--tablet{
+                            font-family: 'Avenir Demi', sans-serif;
+                        }
+                    } 
                 }
             }
             &__social {
@@ -239,5 +434,5 @@ html {
 
         }    
     }
-    }
+    
 }    
