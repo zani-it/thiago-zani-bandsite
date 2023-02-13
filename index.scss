@@ -15,7 +15,6 @@ html {
         display: flex;
         &__fix {
             position: fixed;
-            //display: flex;
             justify-content: start;
             align-items: center;
             top: 0;
@@ -275,11 +274,7 @@ html {
                         width: 70vw;
                         font-family: 'Avenir Demi', sans-serif;
                         font-size: 2rem;
-                        // line-height: 2rem;
-                        // font-weight: 600;
-                        // margin: 0 0;
                         padding: 0rem 0rem 2.25rem 0rem;
-    
                     }
                 }
             }
