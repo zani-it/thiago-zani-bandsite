@@ -33,12 +33,11 @@ html body .navbar__fix {
     height: 80px;
   }
 }
-@media (min-width: 768px) and (max-width: 1279px) {
-  html body .navbar__logo {
+@media (min-width: 1280px) {
+  html body .navbar__fix {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
-    padding-left: 2rem;
+    height: 80px;
   }
 }
 @media (max-width: 767px) {
@@ -49,6 +48,28 @@ html body .navbar__fix {
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
+  html body .navbar__logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 2rem;
+  }
+}
+@media (min-width: 1280px) {
+  html body .navbar__logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 2rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  html body .navbar__list {
+    display: flex;
+    padding: 0rem 2rem;
+  }
+}
+@media (min-width: 1280px) {
   html body .navbar__list {
     display: flex;
     padding: 0rem 2rem;
@@ -75,6 +96,11 @@ html body .navbar__list--item li, html body .navbar__list a {
     padding: 0rem 2rem;
   }
 }
+@media (min-width: 1280px) {
+  html body .navbar__list--item li, html body .navbar__list a {
+    padding: 0rem 2rem;
+  }
+}
 html body .navbar__list--item li:hover, html body .navbar__list a:hover {
   border-bottom: 5px;
   border-color: #fff;
@@ -82,6 +108,11 @@ html body .navbar__list--item li:hover, html body .navbar__list a:hover {
   font-family: "Avenir Demi";
 }
 @media (min-width: 768px) and (max-width: 1279px) {
+  html body .navbar__list--item li:hover, html body .navbar__list a:hover {
+    padding-bottom: 28px;
+  }
+}
+@media (min-width: 1280px) {
   html body .navbar__list--item li:hover, html body .navbar__list a:hover {
     padding-bottom: 28px;
   }
@@ -138,6 +169,11 @@ html body .hero__cover--title {
   position: relative;
   z-index: 2;
 }
+@media (min-width: 1280px) {
+  html body .hero__cover--title {
+    padding-left: 10vw;
+  }
+}
 html body .about {
   transition: all 0.5s;
 }
@@ -151,6 +187,11 @@ html body .about__headline--title {
 @media (min-width: 768px) and (max-width: 1279px) {
   html body .about__headline--title {
     padding: 3rem 0rem 2rem 1rem;
+  }
+}
+@media (min-width: 1280px) {
+  html body .about__headline--title {
+    padding: 3rem 0rem 2rem 7rem;
   }
 }
 html body .about__image {
@@ -174,12 +215,29 @@ html body .about__image--band-photo {
     margin-bottom: 2rem;
   }
 }
+@media (min-width: 1280px) {
+  html body .about__image--band-photo {
+    height: 35vw;
+    width: 70vw;
+    margin-bottom: 2rem;
+  }
+}
 @media (max-width: 767px) {
   html body .about__content--header {
     margin-bottom: 1.5rem;
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
+  html body .about__content--header {
+    margin-bottom: 3rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (min-width: 1280px) {
   html body .about__content--header {
     margin-bottom: 3rem;
     width: 100%;
@@ -200,6 +258,18 @@ html body .about__image--band-photo {
     padding-bottom: 1rem;
   }
 }
+@media (min-width: 1280px) {
+  html body .about__content--header-subheader {
+    width: 60vw;
+    font-family: "Avenir Regular", sans-serif;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 600;
+    margin: 0 0;
+    padding-bottom: 1rem;
+    margin-left: -9vw;
+  }
+}
 html body .about__content--header-subheader-author-text {
   font-family: "Avenir Demi", sans-serif;
   align-self: flex-start;
@@ -214,6 +284,15 @@ html body .about__content--header-subheader-author-text {
   html body .about__content--header-subheader-author-text {
     padding: 0rem 0rem 3rem 0rem;
     font-weight: bold;
+  }
+}
+@media (min-width: 1280px) {
+  html body .about__content--header-subheader-author-text {
+    font-family: "Avenir regular", sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    width: 70vw;
+    padding: 0rem 0rem 3rem 0rem;
   }
 }
 @media (max-width: 767px) {
@@ -232,7 +311,22 @@ html body .about__content--header-subheader-author-text {
     padding: 0rem 0rem 2.25rem 0rem;
   }
 }
+@media (min-width: 1280px) {
+  html body .about__content--header-subheader-title {
+    width: 70vw;
+    font-family: "Avenir Demi", sans-serif;
+    font-size: 2rem;
+    padding: 0rem 0rem 2.25rem 0rem;
+  }
+}
 @media (min-width: 768px) and (max-width: 1279px) {
+  html body .about__content--bottom {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+}
+@media (min-width: 1280px) {
   html body .about__content--bottom {
     display: flex;
     width: 100%;
@@ -242,6 +336,12 @@ html body .about__content--header-subheader-author-text {
 @media (min-width: 768px) and (max-width: 1279px) {
   html body .about__content--bottom--modifier {
     width: 75vw;
+    display: flex;
+  }
+}
+@media (min-width: 1280px) {
+  html body .about__content--bottom--modifier {
+    width: 70vw;
     display: flex;
   }
 }
@@ -263,12 +363,22 @@ html body .about__content--bottom--text {
     padding: 0rem 1rem 3rem 0rem;
   }
 }
+@media (min-width: 1280px) {
+  html body .about__content--bottom--text-first {
+    padding: 0rem 1rem 3rem 0rem;
+  }
+}
 @media (max-width: 767px) {
   html body .about__content--bottom--text-second {
     margin: 1rem 0 1rem;
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
+  html body .about__content--bottom--text-second {
+    padding: 0rem 0rem 3rem 1rem;
+  }
+}
+@media (min-width: 1280px) {
   html body .about__content--bottom--text-second {
     padding: 0rem 0rem 3rem 1rem;
   }
@@ -285,6 +395,11 @@ html .section__photo {
 @media (min-width: 768px) and (max-width: 1279px) {
   html .section__photo {
     padding: 0 2rem;
+  }
+}
+@media (min-width: 1280px) {
+  html .section__photo {
+    padding: 0 10rem;
   }
 }
 html .section__photo-gallery {
@@ -306,6 +421,13 @@ html .section__photo-gallery--title {
     margin-bottom: 1.5rem;
   }
 }
+@media (min-width: 1280px) {
+  html .section__photo-gallery--title {
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+  }
+}
 html .grid__container {
   display: flex;
   justify-content: center;
@@ -322,6 +444,12 @@ html .grid__container--grid {
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
+  html .grid__container--grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1280px) {
   html .grid__container--grid {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -347,6 +475,11 @@ html .grid__container--grid-items {
     max-width: 30vw;
   }
 }
+@media (min-width: 1280px) {
+  html .grid__container--grid-items {
+    max-width: 25vw;
+  }
+}
 html .grid__container--grid-items:hover {
   filter: grayscale(0);
 }
@@ -369,6 +502,12 @@ html .footer__container {
     align-items: center;
   }
 }
+@media (min-width: 1280px) {
+  html .footer__container a {
+    display: flex;
+    align-items: center;
+  }
+}
 @media (max-width: 767px) {
   html .footer__container {
     padding-top: 2rem;
@@ -381,9 +520,22 @@ html .footer__container {
     padding: 3rem 0rem 2.25rem 0rem;
   }
 }
+@media (min-width: 1280px) {
+  html .footer__container__header {
+    display: flex;
+    padding: 3rem 0rem 2.25rem 0rem;
+  }
+}
 @media (min-width: 768px) and (max-width: 1279px) {
   html .footer__container__header--items {
     padding-left: 4vw;
+    display: flex;
+    align-items: center;
+  }
+}
+@media (min-width: 1280px) {
+  html .footer__container__header--items {
+    padding-left: 11vw;
     display: flex;
     align-items: center;
   }
@@ -394,6 +546,14 @@ html .footer__container {
     justify-content: space-between;
     padding-left: 4vw;
     width: 92vw;
+  }
+}
+@media (min-width: 1280px) {
+  html .footer__container--colum-modifier {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 11vw;
+    width: 60vw;
   }
 }
 html .footer__container--text-modifier, html .footer__container p {
@@ -409,6 +569,12 @@ html .footer__container--text-modifier, html .footer__container p {
     margin: 1rem 0rem 2rem;
   }
 }
+@media (min-width: 1280px) {
+  html .footer__container--text-modifier--subtext, html .footer__container p--subtext {
+    margin: 1rem 0rem 2rem;
+    font-size: 1.125rem;
+  }
+}
 html .footer__container--text-modifier--subtext a, html .footer__container p--subtext a {
   text-decoration: none;
   color: #fff;
@@ -419,8 +585,18 @@ html .footer__container--text-modifier--subtext a, html .footer__container p--su
   margin: 0 0;
   transition: all 0.5s ease-in-out;
 }
+@media (min-width: 1280px) {
+  html .footer__container--text-modifier--subtext a, html .footer__container p--subtext a {
+    font-size: 1.125rem;
+  }
+}
 html .footer__container--text-modifier--subtext a:hover, html .footer__container p--subtext a:hover {
   font-family: "Avenir Demi", sans-serif;
+}
+@media (min-width: 1280px) {
+  html .footer__container--text-modifier--subtext a:hover, html .footer__container p--subtext a:hover {
+    font-size: 1.125rem;
+  }
 }
 html .footer__container--text-modifier--items--copyright, html .footer__container p--items--copyright {
   position: flex-end;
@@ -432,9 +608,21 @@ html .footer__container--text-modifier--items--copyright, html .footer__containe
     padding-top: 0rem;
   }
 }
+@media (min-width: 1280px) {
+  html .footer__container--text-modifier--items--copyright, html .footer__container p--items--copyright {
+    margin: -4.25rem 0rem 0rem -6rem;
+    padding-top: 0rem;
+  }
+}
 @media (min-width: 768px) and (max-width: 1279px) {
   html .footer__container--text-modifier--items--text-wrapper, html .footer__container p--items--text-wrapper {
     font-family: "Avenir Demi", sans-serif;
+  }
+}
+@media (min-width: 1280px) {
+  html .footer__container--text-modifier--items--text-wrapper, html .footer__container p--items--text-wrapper {
+    font-family: "Avenir Demi", sans-serif;
+    font-size: 1.125rem;
   }
 }
 html .footer__container__social {

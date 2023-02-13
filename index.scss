@@ -33,23 +33,38 @@ html {
                     align-items: center;
                     height: 80px;
                 }
+                @include for--desktop{
+                    display: flex;
+                    align-items: center;
+                    height: 80px;
+                }
     
             }
             &__logo{
+                @include for--mobile{
+                    display: flex;
+                    justify-content: center;
+                    margin: 1rem 0rem 0.65rem;
+                }
                 @include for--tablet{
                     display: flex;
                     justify-content: flex-start;
                     align-items: center;
                     padding-left: 2rem;
                 }
-                @include for--mobile{
+                @include for--desktop{
                     display: flex;
-                    justify-content: center;
-                    margin: 1rem 0rem 0.65rem;
+                    justify-content: flex-start;
+                    align-items: center;
+                    padding-left: 2rem;
                 }
             }
             &__list{
                 @include for--tablet{
+                    display: flex;
+                    padding: 0rem 2rem;
+                }
+                @include for--desktop{
                     display: flex;
                     padding: 0rem 2rem;
                 }
@@ -70,12 +85,18 @@ html {
                     @include for--tablet{
                         padding: 0rem 2rem;
                     }
+                    @include for--desktop{
+                        padding: 0rem 2rem;
+                    }
                     &:hover{
                         border-bottom: 5px;
                         border-color: $primary__band-white;
                         border-style: none none solid none;
                         font-family: "Avenir Demi";
                         @include for--tablet{
+                            padding-bottom: 28px;
+                        }
+                        @include for--desktop{
                             padding-bottom: 28px;
                         }
                     }
@@ -130,6 +151,9 @@ html {
             color: $primary__band-white;
             position:relative;
             z-index: 2;
+            @include for--desktop{
+                padding-left: 10vw;
+            }
         }
         }
     }
@@ -142,6 +166,9 @@ html {
             margin:0;
             @include for--tablet{
                 padding: 3rem 0rem 2rem 1rem;
+            }
+            @include for--desktop{
+                padding: 3rem 0rem 2rem 7rem;   
             }
         }
         }
@@ -160,7 +187,11 @@ html {
                 height: 40vw;
                 width: 75vw;
                 margin-bottom: 2rem;
-
+            }
+            @include for--desktop{
+                height: 35vw;
+                width: 70vw;
+                margin-bottom: 2rem;
             }
         }
         }
@@ -176,7 +207,15 @@ html {
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                }   
+                } 
+            @include for--desktop{
+                margin-bottom: 3rem;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                }    
             &-subheader{ 
                 @include for--tablet{
                 width: 75vw;
@@ -186,6 +225,17 @@ html {
                 font-weight: 600;
                 margin: 0 0;
                 padding-bottom: 1rem;
+                }
+                @include for--desktop{
+                width: 60vw;
+                font-family: 'Avenir Regular', sans-serif;
+                font-size: 1.5rem;
+                line-height: 2rem;
+                font-weight: 600;
+                margin: 0 0;
+                padding-bottom: 1rem;
+                margin-left: -9vw;
+
                 }
                 &-author{
                     &-text{
@@ -198,6 +248,13 @@ html {
                         @include for--tablet{
                             padding: 0rem 0rem 3rem 0rem;
                             font-weight: bold;
+                        }
+                        @include for--desktop{
+                            font-family: 'Avenir regular', sans-serif;
+                            font-weight: 600;
+                            font-size: 1.25rem;
+                            width: 70vw;
+                            padding: 0rem 0rem 3rem 0rem;
                         }
                     }
                 }
@@ -213,6 +270,15 @@ html {
                         font-weight: 600;
                         margin: 0 0;
                         padding: 0rem 0rem 2.25rem 0rem;
+                    }
+                    @include for--desktop{
+                        width: 70vw;
+                        font-family: 'Avenir Demi', sans-serif;
+                        font-size: 2rem;
+                        // line-height: 2rem;
+                        // font-weight: 600;
+                        // margin: 0 0;
+                        padding: 0rem 0rem 2.25rem 0rem;
     
                     }
                 }
@@ -224,14 +290,21 @@ html {
                 display: flex;
                 width: 100%;
                 justify-content: center;
-                
+            }
+            @include for--desktop{
+                display: flex;
+                width: 100%;
+                justify-content: center;
             }
             &--modifier{
                 @include for--tablet{
                     width: 75vw;
                     display: flex;
                 }
-                
+                @include for--desktop{
+                    width: 70vw;
+                    display: flex;
+                }
             }    
             &--text{
                 display: flex;
@@ -246,12 +319,18 @@ html {
                     @include for--tablet{
                         padding: 0rem 1rem 3rem 0rem;
                     }
+                    @include for--desktop{
+                        padding: 0rem 1rem 3rem 0rem;
+                    }
                     }
                     &-second{
                         @include for--mobile{
                             margin: 1rem 0 1rem;
                     }
                         @include for--tablet{
+                            padding: 0rem 0rem 3rem 1rem;
+                    }
+                        @include for--desktop{
                             padding: 0rem 0rem 3rem 1rem;
                     }
                     }
@@ -270,6 +349,9 @@ html {
                 @include for--tablet{
                     padding: 0 2rem;
                 }
+                @include for--desktop{
+                    padding: 0 10rem;
+                }
             &-gallery{
                 display:flex;
                 width:  100%;
@@ -282,6 +364,11 @@ html {
                     @include for--tablet{
                         margin-top: 3rem;
                         margin-bottom: 1.5rem;
+                        }
+                    @include for--desktop{
+                        margin-top: 3rem;
+                        margin-bottom: 1.5rem;
+                        font-size: 2.5rem;
                         }
 
                 }
@@ -307,6 +394,11 @@ html {
                         grid-template-rows: repeat(3, 1fr);
 
                     }
+                    @include for--desktop{
+                        grid-template-columns: repeat(3, 1fr);
+                        grid-template-rows: repeat(3, 1fr);
+
+                    }
                 }
                 &--grid-items-container{
                     display: flex;
@@ -321,6 +413,9 @@ html {
                         }
                         @include for--tablet{
                             max-width: 30vw;
+                        }
+                        @include for--desktop{
+                            max-width: 25vw;
                         }
                     transition: all 0.5s ease-in-out;
                 &:hover{
@@ -347,6 +442,10 @@ html {
                     display: flex;
                     align-items: center;
                     }
+                    @include for--desktop{
+                        display: flex;
+                        align-items: center;
+                    }
                 }
 
             @include for--mobile{
@@ -358,12 +457,21 @@ html {
                     display: flex;
                     padding: 3rem 0rem 2.25rem 0rem;
                 }
+                @include for--desktop{
+                    display: flex;
+                    padding: 3rem 0rem 2.25rem 0rem;
+                }
                 &--items{
                 @include for--tablet{
                     padding-left: 4vw;
                     display: flex;
                     align-items: center;
-                }     
+                }   
+                @include for--desktop{
+                    padding-left: 11vw;
+                    display: flex;
+                    align-items: center;
+                }   
                 
 
                 }
@@ -375,6 +483,12 @@ html {
                 padding-left: 4vw;
                 width: 92vw;
                 }
+                @include for--desktop{
+                    display: flex;
+                    justify-content: space-between;
+                    padding-left: 11vw;
+                    width: 60vw;
+                }
             }
             &--text-modifier, p{
                 color: $primary__band-white;
@@ -385,6 +499,10 @@ html {
                         @include for--tablet{
                             margin: 1rem 0rem 2rem;
                         }
+                        @include for--desktop{
+                            margin: 1rem 0rem 2rem;
+                            font-size: 1.125rem;
+                        }
                             & a{
                                 text-decoration: none;
                                 color: $primary__band-white;
@@ -394,8 +512,14 @@ html {
                                 font-weight: 400;
                                 margin: 0 0;
                                 transition: all 0.5s ease-in-out;
+                                @include for--desktop{
+                                    font-size: 1.125rem;
+                                }
                                 &:hover{
                                     font-family: 'Avenir Demi', sans-serif;
+                                @include for--desktop{
+                                    font-size: 1.125rem;
+                                }
                                 }
                             }
                     }
@@ -408,10 +532,18 @@ html {
                             margin: -4.25rem 0rem 0rem -6rem;
                             padding-top: 0rem;   
                             }
+                            @include for--desktop{
+                                margin: -4.25rem 0rem 0rem -6rem;
+                                padding-top: 0rem;   
+                            }
                     }
                     &--text-wrapper {
                         @include for--tablet{
                             font-family: 'Avenir Demi', sans-serif;
+                        }
+                        @include for--desktop{
+                            font-family: 'Avenir Demi', sans-serif;
+                            font-size: 1.125rem;
                         }
                     } 
                 }

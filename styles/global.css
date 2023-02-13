@@ -18,7 +18,7 @@
 }
 @media (min-width: 1280px) {
   h1 {
-    font-family: "Avenir Bold", sans-serif;
+    font-family: "Avenir Demi", sans-serif;
     font-size: 3.75rem;
     line-height: 4.25rem;
     font-weight: 700;
@@ -46,7 +46,7 @@
 
 @media (min-width: 1280px) {
   h2 {
-    font-family: "Avenir Bold", sans-serif;
+    font-family: "Avenir Demi", sans-serif;
     font-size: 2.25rem;
     line-height: 2.75rem;
     font-weight: 700;
@@ -138,6 +138,15 @@
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
+  a {
+    font-family: "Avenir Regular", sans-serif;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+    margin: 0 0;
+  }
+}
+@media (min-width: 1280px) {
   a {
     font-family: "Avenir Regular", sans-serif;
     font-size: 1rem;

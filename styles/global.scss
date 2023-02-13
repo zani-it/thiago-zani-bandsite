@@ -24,7 +24,7 @@
 //page header
 h1{
     @include for--desktop{
-    font-family: 'Avenir Bold', sans-serif;
+    font-family: 'Avenir Demi', sans-serif;
     font-size: 3.75rem;
     line-height: 4.25rem;
     font-weight: 700;
@@ -48,7 +48,7 @@ h1{
 //section header
 h2{
     @include for--desktop{
-    font-family: 'Avenir Bold', sans-serif;
+    font-family: 'Avenir Demi', sans-serif;
     font-size: 2.25rem;
     line-height: 2.75rem;
     font-weight: 700;
@@ -128,6 +128,13 @@ a {
         margin: 0 0;
     }
     @include for--tablet{
+        font-family: 'Avenir Regular', sans-serif;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        font-weight: 400;
+        margin: 0 0;
+    }
+    @include for--desktop{
         font-family: 'Avenir Regular', sans-serif;
         font-size: 1rem;
         line-height: 1.5rem;
