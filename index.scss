@@ -139,7 +139,7 @@ html {
                     right: 0;
                     bottom: 0;
                     background-color: rgba(50, 50, 50, 0.5);
-                    z-index: 1;
+                    //z-index: 1;
                 }
         @include for--mobile{
             padding-bottom: 1.5rem;
@@ -373,10 +373,8 @@ html {
     .grid{
         &__container{
             display: flex;
-            // width:  100%;
             justify-content: center;
             align-content: center;
-            
                 &--grid{
                     display: grid;
                     justify-content: center;
@@ -392,7 +390,6 @@ html {
                     @include for--desktop{
                         grid-template-columns: repeat(3, 1fr);
                         grid-template-rows: repeat(3, 1fr);
-
                     }
                 }
                 &--grid-items-container{

@@ -6,21 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/global.css">
     <link rel="stylesheet" href="./index.css">
-
-    <!-- install react -->
-    <!-- <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script> -->
-    <!-- add useGetGallery function -->
-    <!-- <script type="text/javascript" src="./functions/useGetGallery.js"></script>
-    <script>
-      const GetGallery = useGetGallery();
-    </script> -->
-    
     <title>BANDSITE</title>
 </head>
 <body>
-    <!--  navbar section -->
-    
     <nav class="navbar__fix">
         <div class="navbar__logo">
             <a href="./index.html">
@@ -119,36 +107,6 @@
                         </image>
                     </header>   
                 </article>
-
-                <!-- add the gallery to page BEGIN -->
-                <!-- <script>
-                    const GetGallery = useGetGallery();
-                
-                    function PhotoGallery() {
-                    return (
-                        <article>
-                        <header>
-                            <h2>
-                            Photo Gallery
-                            </h2>
-                        </header>
-                        <image>
-                            {GetGallery.map((GetGallery, index) => (
-                            <a href={GetGallery.url} target="_blank" rel="noopener noreferrer" key={index} >
-                                <img src={GetGallery.image} alt={`Sponsor ${index + 1}`} className=""/>
-                            </a>
-                            ))}
-                        </image>
-                        </article>
-                    );
-                    }
-                    
-                    ReactDOM.render(
-                    <PhotoGallery />,
-                    document.querySelector('body')
-                    );
-                </script> -->
-                <!-- add the gallery to page END -->
             </article>
         </main>
         <footer class="footer__container">
