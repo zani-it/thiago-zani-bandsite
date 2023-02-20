@@ -129,26 +129,36 @@ function createShowGrid() {
 const mediaQuery = window.matchMedia('(max-width: 700px)');
 
 // Create a function to handle the media query change
+
 function handleTabletScreenChange(e) {
-  // If the media query is active, show the mobile elements
+  // If the media query is active, show the mobile elements and remove the desktop elements
   if (e.matches) {
+    // Remove the desktop elements
+    const deskShows = container.querySelectorAll('.show-grid');
+    for (let i = 0; i < deskShows.length; i++) {
+      const deskShow = deskShows[i];
+      container.removeChild(deskShow);
+    }
+    // Add the mobile elements
     for (let i = 0; i < shows.length; i++) {
       const show = shows[i];
       const showElement = createMobileElement(show);
       container.appendChild(showElement);
     }
-    for (let i = 0; i < mobileShows.length; i++) {
-      const deskShows = container.querySelectorAll('.show-grid');
-      const deskShow = deskShows[i];
-      container.removeChild(deskShow);
-    }
-  } 
-    else {
-    // If the media query is not active, remove the mobile elements
+  } else {
+    
+    // If the media query is not active, remove the mobile elements and show the desktop elements
+    // Remove the mobile elements
     const mobileShows = container.querySelectorAll('.show-mobile');
     for (let i = 0; i < mobileShows.length; i++) {
       const mobileShow = mobileShows[i];
       container.removeChild(mobileShow);
+    }
+    // Add the desktop elements
+    for (let i = 0; i < shows.length; i++) {
+      const show = shows[i];
+      const showElement = createShowGrid(show);
+      container.appendChild(showElement);
     }
   }
 }
