@@ -11,101 +11,101 @@ const shows = [
   { date: 'Wed Dec 15 2021', venue: 'Press club', location: 'San Francisco, CA' },
 ];
 
-// // Define a function to create a single show element
-// function createShowElement(show) {
-//   const showElement = document.createElement('div');
-//   showElement.classList.add('show');
+// Define a function to create a single show element
+function createShowElement(show) {
+  const showElement = document.createElement('div');
+  showElement.classList.add('show');
 
-//   const dateElement = document.createElement('div');
-//   dateElement.classList.add('show-date');
-//   dateElement.textContent = show.date;
-//   showElement.appendChild(dateElement);
+  const dateElement = document.createElement('div');
+  dateElement.classList.add('show-date');
+  dateElement.textContent = show.date;
+  showElement.appendChild(dateElement);
 
-//   const venueElement = document.createElement('div');
-//   venueElement.classList.add('show-venue');
-//   venueElement.textContent = show.venue;
-//   showElement.appendChild(venueElement);
+  const venueElement = document.createElement('div');
+  venueElement.classList.add('show-venue');
+  venueElement.textContent = show.venue;
+  showElement.appendChild(venueElement);
 
-//   const locationElement = document.createElement('div');
-//   locationElement.classList.add('show-location');
-//   locationElement.textContent = show.location;
-//   showElement.appendChild(locationElement);
+  const locationElement = document.createElement('div');
+  locationElement.classList.add('show-location');
+  locationElement.textContent = show.location;
+  showElement.appendChild(locationElement);
 
-//   const buttonElement = document.createElement('button');
-//   buttonElement.classList.add('button--grid');
-//   buttonElement.textContent = 'BUY TICKETS';
-//   showElement.appendChild(buttonElement);
+  const buttonElement = document.createElement('button');
+  buttonElement.classList.add('button--grid');
+  buttonElement.textContent = 'BUY TICKETS';
+  showElement.appendChild(buttonElement);
 
-//   return showElement;
+  return showElement;
 
-// }
+}
 
-// // Define a function to create desktop the show grid view
+// Define a function to create desktop the show grid view
 
-// function createShowGrid() {
-//   const gridElement = document.createElement('div');
-//   gridElement.classList.add('show-grid');
+function createShowGrid() {
+  const gridElement = document.createElement('div');
+  gridElement.classList.add('show-grid');
 
-//   const dateColumnElement = document.createElement('div');
-//   dateColumnElement.classList.add('show-column');
-//   const dateColumnTitle = document.createElement('h2');
-//   dateColumnTitle.classList.add('show-column-title');
-//   dateColumnTitle.textContent = 'Date';
-//   dateColumnElement.appendChild(dateColumnTitle);
-//   gridElement.appendChild(dateColumnElement);
+  const dateColumnElement = document.createElement('div');
+  dateColumnElement.classList.add('show-column');
+  const dateColumnTitle = document.createElement('h2');
+  dateColumnTitle.classList.add('show-column-title');
+  dateColumnTitle.textContent = 'Date';
+  dateColumnElement.appendChild(dateColumnTitle);
+  gridElement.appendChild(dateColumnElement);
 
-//   const venueColumnElement = document.createElement('div');
-//   venueColumnElement.classList.add('show-column');
-//   const venueColumnTitle = document.createElement('h2');
-//   venueColumnTitle.classList.add('show-column-title');
-//   venueColumnTitle.textContent = 'Venue';
-//   venueColumnElement.appendChild(venueColumnTitle);
-//   gridElement.appendChild(venueColumnElement);
+  const venueColumnElement = document.createElement('div');
+  venueColumnElement.classList.add('show-column');
+  const venueColumnTitle = document.createElement('h2');
+  venueColumnTitle.classList.add('show-column-title');
+  venueColumnTitle.textContent = 'Venue';
+  venueColumnElement.appendChild(venueColumnTitle);
+  gridElement.appendChild(venueColumnElement);
 
-//   const locationColumnElement = document.createElement('div');
-//   locationColumnElement.classList.add('show-column');
-//   const locationColumnTitle = document.createElement('h2');
-//   locationColumnTitle.classList.add('show-column-title');
-//   locationColumnTitle.textContent = 'Location';
-//   locationColumnElement.appendChild(locationColumnTitle);
-//   gridElement.appendChild(locationColumnElement);
+  const locationColumnElement = document.createElement('div');
+  locationColumnElement.classList.add('show-column');
+  const locationColumnTitle = document.createElement('h2');
+  locationColumnTitle.classList.add('show-column-title');
+  locationColumnTitle.textContent = 'Location';
+  locationColumnElement.appendChild(locationColumnTitle);
+  gridElement.appendChild(locationColumnElement);
 
-//   // Add a new column for the buttons
-//   const buttonColumnElement = document.createElement('div');
-//   buttonColumnElement.classList.add('show-column');
-//   const buttonColumnTitle = document.createElement('h2');
-//   buttonColumnTitle.classList.add('show-column-title-ticket');
-//   buttonColumnTitle.textContent = '.';
-//   buttonColumnElement.appendChild(buttonColumnTitle);
-//   gridElement.appendChild(buttonColumnElement);
+  // Add a new column for the buttons
+  const buttonColumnElement = document.createElement('div');
+  buttonColumnElement.classList.add('show-column');
+  const buttonColumnTitle = document.createElement('h2');
+  buttonColumnTitle.classList.add('show-column-title-ticket');
+  buttonColumnTitle.textContent = '.';
+  buttonColumnElement.appendChild(buttonColumnTitle);
+  gridElement.appendChild(buttonColumnElement);
 
-//   // Add the shows to the grid
-//   for (let i = 0; i < shows.length; i++) {
-//     const show = shows[i];
-//     const showElement = createShowElement(show);
-//     const dateElement = showElement.querySelector('.show-date');
-//     const venueElement = showElement.querySelector('.show-venue');
-//     const locationElement = showElement.querySelector('.show-location');
-//     const buttonElement = showElement.querySelector('.button--grid');
+  // Add the shows to the grid
+  for (let i = 0; i < shows.length; i++) {
+    const show = shows[i];
+    const showElement = createShowElement(show);
+    const dateElement = showElement.querySelector('.show-date');
+    const venueElement = showElement.querySelector('.show-venue');
+    const locationElement = showElement.querySelector('.show-location');
+    const buttonElement = showElement.querySelector('.button--grid');
   
 
-//     dateColumnElement.appendChild(dateElement);
-//     venueColumnElement.appendChild(venueElement);
-//     locationColumnElement.appendChild(locationElement);
-//     buttonColumnElement.appendChild(buttonElement);
+    dateColumnElement.appendChild(dateElement);
+    venueColumnElement.appendChild(venueElement);
+    locationColumnElement.appendChild(locationElement);
+    buttonColumnElement.appendChild(buttonElement);
 
-//     if ((i + 1) < shows.length) {
-//       const rowDivider = document.createElement('div');
-//       rowDivider.classList.add('row-divider');
-//       dateColumnElement.appendChild(rowDivider.cloneNode(true));
-//       venueColumnElement.appendChild(rowDivider.cloneNode(true));
-//       locationColumnElement.appendChild(rowDivider.cloneNode(true));
-//       buttonColumnElement.appendChild(rowDivider.cloneNode(true));
-//     }
-//   }
+    if ((i + 1) < shows.length) {
+      const rowDivider = document.createElement('div');
+      rowDivider.classList.add('row-divider');
+      dateColumnElement.appendChild(rowDivider.cloneNode(true));
+      venueColumnElement.appendChild(rowDivider.cloneNode(true));
+      locationColumnElement.appendChild(rowDivider.cloneNode(true));
+      buttonColumnElement.appendChild(rowDivider.cloneNode(true));
+    }
+  }
 
-//   return gridElement;
-// }
+  return gridElement;
+}
 
   //Define a function to add event listeners to the grid
   // function addEventListenersToGrid() {
@@ -137,10 +137,6 @@ function handleTabletScreenChange(e) {
       const showElement = createMobileElement(show);
       container.appendChild(showElement);
     }
-  } else {
-    // If the media query is not active, remove the mobile elements
-    const mobileShows = container.querySelectorAll('.mobile-show');
-    mobileShows.forEach((show) => show.remove());
   }
 }
 
