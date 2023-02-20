@@ -100,7 +100,7 @@ function createShowGrid() {
       dateColumnElement.appendChild(rowDivider.cloneNode(true));
       venueColumnElement.appendChild(rowDivider.cloneNode(true));
       locationColumnElement.appendChild(rowDivider.cloneNode(true));
-      buttonColumnElement.appendChild(rowDivider.cloneNode(true));
+      //buttonColumnElement.appendChild(rowDivider.cloneNode(true));
     }
   }
 
@@ -119,11 +119,11 @@ function createShowGrid() {
   }
   
   // Wait for the DOM to be ready
-  document.addEventListener("DOMContentLoaded", function () {
-    const showGrid = createShowGrid();
-    container.appendChild(showGrid);
-    addEventListenersToGrid();
-  });
+  // document.addEventListener("DOMContentLoaded", function () {
+  //   const showGrid = createShowGrid();
+  //   container.appendChild(showGrid);
+  //   addEventListenersToGrid();
+  // });
     
   // Check if the media query is currently active
 const mediaQuery = window.matchMedia('(max-width: 700px)');
@@ -131,6 +131,7 @@ const mediaQuery = window.matchMedia('(max-width: 700px)');
 // Create a function to handle the media query change
 
 function handleTabletScreenChange(e) {
+  console.log(e)
   // If the media query is active, show the mobile elements and remove the desktop elements
   if (e.matches) {
     // Remove the desktop elements
@@ -154,12 +155,12 @@ function handleTabletScreenChange(e) {
       const mobileShow = mobileShows[i];
       container.removeChild(mobileShow);
     }
+
     // Add the desktop elements
-    for (let i = 0; i < shows.length; i++) {
-      const show = shows[i];
-      const showElement = createShowGrid(show);
-      container.appendChild(showElement);
-    }
+
+    const showGrid = createShowGrid();
+    container.appendChild(showGrid);
+
   }
 }
 
