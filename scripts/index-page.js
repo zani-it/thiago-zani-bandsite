@@ -1,8 +1,9 @@
 const commentForm = document.getElementById('comment-form');
 const nameInput = document.getElementById('name-input');
 const commentInput = document.getElementById('comment-input');
-const comments = JSON.parse(localStorage.getItem('comments')) || [];
+var comments = JSON.parse(localStorage.getItem('comments')) || [];
 const commentList = document.querySelector('.comments');
+var firstSubmit = true;
 
 
 
@@ -43,12 +44,28 @@ function submitComment(event) {
   const timestamp = Date.now();
 
   const comment = { name, timestamp, content };
-  comments.unshift(comment);
+  comments.shift(comment);
   localStorage.setItem('comments', JSON.stringify(comments.slice(0, 3)));
+
+  submitDetection()
 
   displayComment(comment);
   nameInput.value = '';
   commentInput.value = '';
+}
+
+function submitDetection() {
+  if (firstSubmit == true) {
+
+    const elementList = document.querySelector('.comments')
+    console.log(elementList)
+    const childNodes = Array.from(elementList.childNodes);
+    childNodes.reverse();
+    elementList.append(...childNodes);
+
+    firstSubmit = false
+
+  }
 }
 
 function timeSince(timestamp) {
@@ -63,75 +80,48 @@ function timeSince(timestamp) {
   return new Date(timestamp).toLocaleString('en-US', options);
 }
 
-// function timeSince(timestamp) {
-//   const minute = 60 * 1000;
-//   const hour = minute * 60;
-//   const day = hour * 24;
-//   const week = day * 7;
-
-//   const now = new Date().getTime();
-//   const diffTime = now - timestamp;
-
-//   if (diffTime < minute) {
-//     return 'just now';
-//   } else if (diffTime < hour) {
-//     const num = Math.floor(diffTime / minute);
-//     return `${num} minute${num === 1 ? '' : 's'} ago`;
-//   } else if (diffTime < day) {
-//     const num = Math.floor(diffTime / hour);
-//     return `${num} hour${num === 1 ? '' : 's'} ago`;
-//   } else if (diffTime < week) {
-//     const num = Math.floor(diffTime / day);
-//     return `${num} day${num === 1 ? '' : 's'} ago`;
-//   } else {
-//     const options = {
-//       year: 'numeric',
-//       month: 'short',
-//       day: 'numeric',
-//       hour: 'numeric',
-//       minute: 'numeric',
-//       hour12: true
-//     };
-//     return new Date(timestamp).toLocaleString('en-US', options);
-//   }
-// }
-
-
-
-
-// function formatTimestamp(timestamp) {
-//   const currentTime = Date.now();
-//   const diffTime = currentTime - timestamp;
-
-//   const minute = 60 * 1000;
-//   const hour = minute * 60;
-//   const day = hour * 24;
-//   const week = day * 7;
-
-//   if (diffTime < minute) {
-//     return 'just now';
-//   } else if (diffTime < hour) {
-//     const num = Math.floor(diffTime / minute);
-//     return `${num} minute${num === 1 ? '' : 's'} ago`;
-//   } else if (diffTime < day) {
-//     const num = Math.floor(diffTime / hour);
-//     return `${num} hour${num === 1 ? '' : 's'} ago`;
-//   } else if (diffTime < week) {
-//     const num = Math.floor(diffTime / day);
-//     return `${num} day${num === 1 ? '' : 's'} ago`;
-//   } else {
-//     return new Date(timestamp).toLocaleDateString();
-//   }
-// }
-
 function clearComments() {
   commentList.innerHTML = '';
 }
 
-function init() {
+function loadComments() {
+  if (comments.length < 3) {
+    let list =
+      [
+        {
+          "name": "01",
+          "timestamp": 1176866415791,
+          "content": "dasda"
+        },
+        {
+          "name": "02",
+          "timestamp": 1276866415791,
+          "content": "dasda"
+        },
+        {
+          "name": "03",
+          "timestamp": 1576866415791,
+          "content": "dasda"
+        },
+      ]
+
+    comments = list
+
+    console.log(comments)
+  }
+
+
+  //comments.reverse();
   comments.forEach((comment) => displayComment(comment));
+
+
+}
+function init() {
+  loadComments()
+
 
   commentForm.addEventListener('submit', submitComment);
 }
+
 
 init();
