@@ -1,0 +1,261 @@
+@use "./partials/variables" as *;
+@use "./partials/mixins" as *;
+
+.hero{
+  &__cover-b {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      background-image: url(../assets/images/hero-shows.jpg);
+      background-position: center;
+      background-size: cover;
+      width: 100%;
+      margin: 80px 0 0 0;
+      height: 50vw;
+      position: relative;
+
+        &--organizer{
+          
+          display: flex;
+          
+          justify-content: flex-start;
+          
+          color: #fff;
+          align-items: center;
+          
+          height: 45Vw;
+         
+        }
+          &--item{
+            margin-top: 80px;
+            position:relative;
+            z-index: 2;
+            @include for--desktop;
+            padding-left: 10vw;
+
+        }
+          &:before {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background-color: rgba(50, 50, 50, 0.5);
+              //z-index: 1;
+          }
+  @include for--mobile{
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+  }
+  &--title{
+    
+      padding-left: 4vw;
+      color: $primary__band-white;
+      position:relative;
+      z-index: 2;
+      @include for--desktop{
+          padding-left: 10vw;
+      }
+  }
+  }
+}
+.soundcloud {
+  display: flex;
+
+  padding-left: 5vw;
+  padding-right: 15vw;
+  position:relative;
+  z-index: 2;
+ 
+
+
+}
+
+.show {
+  transition: ease-in-out 1s;
+  @include for--tablet {
+    transition: ease-in-out 1s;      
+
+
+    padding: 2.5vw 0vw 0vw 5vw;
+    width: 100%;
+  }
+    
+  @include for--desktop {
+  transition: ease-in-out 1s;      
+  display: flex;
+  flex-direction: row;
+  padding: 5vw 0vw 0vw 10vw;
+  width: 100%;
+}
+
+  &-date, &-venue, &-location {
+    font-size: 1rem;
+    text-align: left;
+    padding: 2rem 2rem 2rem 1rem ;
+    color:black;
+    width: 100%;
+    min-width: 10rem;
+    max-height: 1rem;
+
+    @include for--tablet{
+      font-size: 0.875rem;
+      text-align: left;
+      padding: 2rem 1rem 2rem 1rem;
+      color: black;
+      width: 100%;
+      min-width: 3rem;
+    }
+  }
+  &__title{
+    padding-right: 1rem;
+
+  }
+
+  &-date {
+    font-weight: bold;
+  }
+}
+
+.shows-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 0 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid black;
+  font-size: 18px;
+  max-width: 80vw;
+
+  font-family: 'Avenir Regular', sans-serif;
+  font-size: 1.5rem;
+  line-height: 1rem;
+  font-weight: 300;
+  
+  button, .button--grid {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 1rem;
+    margin: 0.72rem 2rem 0.72rem 2rem ;
+    border: none;
+    font-size: 20px;
+    font-weight: 700;
+    width: 12.5rem;
+    border-radius: 5px;
+    color:#fff;
+    background-color:black
+    
+
+  } 
+  
+  h1 {
+    text-align: left;
+    margin-right: auto;
+  }
+  
+  .show-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60vw;
+    overflow: clip;
+    @include for--tablet{
+      width: 85vw;
+
+    }
+    @include for--desktop{
+      width: 70vw;
+
+    }
+
+    .show-column {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+     
+
+      margin-left: 10px;
+      margin-right: 10px;
+      padding-bottom: 20px;
+
+      @include for--tablet{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-bottom: 20px;
+      }
+
+      &-title {
+        
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        padding-left: 2rem;
+
+        &-ticket{
+          font-size: 1rem;
+          margin-bottom: 1rem;
+          padding-left: 2rem;
+          color:transparent;
+        }
+        
+      }
+      .row-divider {
+        width: 300%;
+        border-bottom: 1px solid black;
+        margin-bottom: 10px;
+
+      }
+    }
+  }
+}
+// .mobile{
+//   @include for--tablet{
+//     &:not(.mobile) {
+//       .show-mobile {
+//         display: flex;
+//         flex-direction: column;
+//         padding: 20px;
+//         border: 1px solid #ccc;
+//         margin-bottom: 20px;
+//         position: relative;
+
+//         &::after {
+//           content: "";
+//           position: absolute;
+//           bottom: 0;
+//           left: 0;
+//           width: 100%;
+//           height: 1px;
+//           background-color: #ccc;
+//         }
+
+//         .show-date {
+//           font-size: 18px;
+//           font-weight: 700;
+//           color: #f4f4f4;
+//           margin-bottom: 10px;
+//         }
+
+//         .show-divider {
+//           margin: 10px 0;
+//         }
+
+//         .show-venue,
+//         .show-location {
+//           font-size: 16px;
+//           color: #fff;
+//           margin-bottom: 10px;
+//         }
+
+//         button {
+//           margin-top: auto;
+//         }
+//       }
+//     }
+//   }
+// }
