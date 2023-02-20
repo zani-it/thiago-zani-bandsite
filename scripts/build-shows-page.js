@@ -108,15 +108,15 @@ function createShowGrid() {
 }
 
   //Define a function to add event listeners to the grid
-  // function addEventListenersToGrid() {
-  //   // Add event listeners to each column header
-  //   const columnHeaders = document.querySelectorAll(".show-column-title");
-  //   columnHeaders.forEach(function (header) {});
+  function addEventListenersToGrid() {
+    // Add event listeners to each column header
+    const columnHeaders = document.querySelectorAll(".show-column-title");
+    columnHeaders.forEach(function (header) {});
   
-  //   // Add event listeners to each row
-  //   const rows = document.querySelectorAll(".show");
-  //   rows.forEach(function (row) {});
-  // }
+    // Add event listeners to each row
+    const rows = document.querySelectorAll(".show");
+    rows.forEach(function (row) {});
+  }
   
   // Wait for the DOM to be ready
   document.addEventListener("DOMContentLoaded", function () {
@@ -130,12 +130,25 @@ const mediaQuery = window.matchMedia('(max-width: 700px)');
 
 // Create a function to handle the media query change
 function handleTabletScreenChange(e) {
-  // If the media query is active, run the code
+  // If the media query is active, show the mobile elements
   if (e.matches) {
     for (let i = 0; i < shows.length; i++) {
       const show = shows[i];
       const showElement = createMobileElement(show);
       container.appendChild(showElement);
+    }
+    for (let i = 0; i < mobileShows.length; i++) {
+      const deskShows = container.querySelectorAll('.show-grid');
+      const deskShow = deskShows[i];
+      container.removeChild(deskShow);
+    }
+  } 
+    else {
+    // If the media query is not active, remove the mobile elements
+    const mobileShows = container.querySelectorAll('.show-mobile');
+    for (let i = 0; i < mobileShows.length; i++) {
+      const mobileShow = mobileShows[i];
+      container.removeChild(mobileShow);
     }
   }
 }
@@ -177,33 +190,4 @@ function createMobileElement(show) {
   showElement.appendChild(dividerElement);
 
   return showElement;
-}
-
-// Add the shows to the container
-for (let i = 0; i < shows.length; i++) {
-  const show = shows[i];
-  const showElement = document.createElement('div');
-  showElement.classList.add('show');
-
-  const dateElement = document.createElement('div');
-  dateElement.classList.add('show-date');
-  dateElement.textContent = show.date;
-  showElement.appendChild(dateElement);
-
-  const venueElement = document.createElement('div');
-  venueElement.classList.add('show-venue');
-  venueElement.textContent = show.venue;
-  showElement.appendChild(venueElement);
-
-  const locationElement = document.createElement('div');
-  locationElement.classList.add('show-location');
-  locationElement.textContent = show.location;
-  showElement.appendChild(locationElement);
-
-  const buttonElement = document.createElement('button');
-  buttonElement.classList.add('button--grid');
-  buttonElement.textContent = 'BUY TICKETS';
-  showElement.appendChild(buttonElement);
-
-  container.appendChild(showElement);
 }
