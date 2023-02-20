@@ -1,0 +1,122 @@
+$font-regular: "Avenir Regular", sans-serif;
+$font-bold: "Avenir Demi", sans-serif;
+$font-semi-bold: "Avenir Bold", sans-serif;
+
+@mixin font-styles($font-family, $font-size, $line-height, $font-weight) {
+  font-family: $font-family;
+  font-size: $font-size;
+  line-height: $line-height;
+  font-weight: $font-weight;
+  margin: 0;
+}
+
+@font-face {
+  font-family: "Avenir Regular";
+  src: url('../assets/fonts/AvenirNextLTPro.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Avenir Demi";
+  src: url('../assets/fonts/AvenirNextLTProDemi.ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Avenir Bold";
+  src: url('../assets/fonts/AvenirNextLTProBold.ttf');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+
+// loading style
+
+.comment-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.comment-section__title {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.comment-section__form-container {
+  margin-bottom: 30px;
+}
+
+.comment-section__label {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.comment-section__input {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.comment-section__error {
+  font-size: 16px;
+  color: #ff0000;
+  margin-top: 5px;
+}
+
+.comment-section__submit-btn {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+}
+
+.comment-section__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.comment-section__item {
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.comment-section__item:first-child {
+  margin-top: 20px;
+}
+
+.comment-section__name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.comment-section__timestamp {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.comment-section__text {
+  font-size: 18px;
+  margin: 0;
+}
+
+.comment-section__no-comments {
+  font-size: 20px;
+  color: #666;
+  margin-top: 20px;
+}
