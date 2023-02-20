@@ -76,19 +76,21 @@
 .show {
   transition: ease-in-out 1s;
   border-bottom: 1px solid #000;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   @include for--tablet {
     transition: ease-in-out 1s;      
-
-
     padding: 2.5vw 0vw 0vw 5vw;
     width: 100%;
+    align-items: flex-start;
   }
     
   @include for--desktop {
   transition: ease-in-out 1s;      
   display: flex;
   flex-direction: row;
-  padding: 5vw 0vw 0vw 10vw;
   width: 100%;
 }
 
@@ -111,6 +113,7 @@
     }
   }
   &__title{
+    
     padding-right: 1rem;
 
   }
@@ -124,12 +127,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   margin: 0 20px;
   padding: 20px 0;
   border-bottom: 1px solid black;
   font-size: 18px;
-  max-width: 80vw;
+  max-width: 100%;
 
   font-family: 'Avenir Regular', sans-serif;
   font-size: 1.5rem;
@@ -140,7 +143,7 @@
     display: flex;
     justify-content: center;
     padding: 1rem 1rem;
-    margin: 0.72rem 2rem 0.72rem 2rem ;
+    margin: 1rem 2rem;
     border: none;
     font-size: 20px;
     font-weight: 700;
@@ -206,7 +209,7 @@
         
       }
       .row-divider {
-        width: 300%;
+        width: 500%;
         border-bottom: 1px solid black;
         margin-bottom: 10px;
 
@@ -214,56 +217,8 @@
     }
   }
 }
-// .mobile{
-//   @include for--tablet{
-//     &:not(.mobile) {
-//       .show-mobile {
-//         display: flex;
-//         flex-direction: column;
-//         padding: 20px;
-//         border: 1px solid #ccc;
-//         margin-bottom: 20px;
-//         position: relative;
-
-//         &::after {
-//           content: "";
-//           position: absolute;
-//           bottom: 0;
-//           left: 0;
-//           width: 100%;
-//           height: 1px;
-//           background-color: #ccc;
-//         }
-
-//         .show-date {
-//           font-size: 18px;
-//           font-weight: 700;
-//           color: #f4f4f4;
-//           margin-bottom: 10px;
-//         }
-
-//         .show-divider {
-//           margin: 10px 0;
-//         }
-
-//         .show-venue,
-//         .show-location {
-//           font-size: 16px;
-//           color: #fff;
-//           margin-bottom: 10px;
-//         }
-
-//         button {
-//           margin-top: auto;
-//         }
-//       }
-//     }
-//   }
-// }
-
-.mobile {
-  @media (max-width: 700px) {
     .show-mobile {
+      @media (max-width: 700px) {
       display: flex;
       flex-direction: column;
       padding: 20px;
@@ -304,4 +259,3 @@
       }
     }
   }
-}
