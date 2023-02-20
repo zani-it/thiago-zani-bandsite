@@ -75,6 +75,7 @@
 
 .show {
   transition: ease-in-out 1s;
+  border-bottom: 1px solid #000;
   @include for--tablet {
     transition: ease-in-out 1s;      
 
@@ -121,7 +122,7 @@
 
 .shows-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   align-items: flex-end;
   margin: 0 20px;
@@ -259,3 +260,48 @@
 //     }
 //   }
 // }
+
+.mobile {
+  @media (max-width: 700px) {
+    .show-mobile {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: #ccc;
+      }
+
+      .show-date {
+        font-size: 18px;
+        font-weight: 700;
+        color: #f4f4f4;
+        margin-bottom: 10px;
+      }
+
+      .show-divider {
+        margin: 10px 0;
+      }
+
+      .show-venue,
+      .show-location {
+        font-size: 16px;
+        color: #fff;
+        margin-bottom: 10px;
+      }
+
+      button {
+        margin-top: auto;
+      }
+    }
+  }
+}
