@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/global.css">
     <link rel="stylesheet" href="./styles/bio.css">
+    <script src="./scripts/index-page.js" defer></script>
+   
     <title>BANDSITE</title>
 </head>
 <body>
     <nav class="navbar__fix">
         <div class="navbar__logo">
             <a href="./index.html">
-                <img src="./assets/logos/logo-bandsite.svg"/>
+                <img src="./assets/logos/logo-bandsite.svg">
             </a>
             </div>
         <ul class="navbar__list">
@@ -21,13 +23,13 @@
         </ul>
     </nav>
     <section class="hero__cover">
-        <image>
+        <hero>
             <div>
                 <h1 class="hero__cover--title">
                     The Bees Knees
                 </h1>
             </div>
-        </image>
+        </hero>
     </section>
         <main class="section__body">
             <header class="about__headline">
@@ -53,8 +55,8 @@
                             The Bees Knees
                         </h3>
                     </div>
+                </div> 
                 <article class="about__content--bottom">
-            
                     <article class="about__content--bottom--modifier">
                         <div class="about__content--bottom--text-first">
                             <h4>
@@ -108,47 +110,83 @@
                     </header>   
                 </article>
             </article>
+            <article class="section__photo">
+                <section>
+  
+                        <h2>Join the Conversation</h2>
+    
+                        <form id="comment-form">
+                            <label>
+                            Name:
+                            <input type="text" id="name-input">
+                            </label>
+                            <br>
+                            <label>
+                            Comment:
+                            <textarea id="comment-input"></textarea>
+                            </label>
+                            <br>
+                            <button type="submit">Submit</button>
+                            <span id="form-error"></span>
+                        </form>
+    
+                        <div class="comments">
+                            <article class="comment">
+                            <h4 class="comment__name">John Doe</h4>
+                            <span class="comment__timestamp">1 day ago</span>
+                            <p class="comment__content">This is the first comment.</p>
+                            </article>
+                            <article class="comment">
+                            <h4 class="comment__name">Jane Smith</h4>
+                            <span class="comment__timestamp">2 days ago</span>
+                            <p class="comment__content">This is the second comment.</p>
+                            </article>
+                            <article class="comment">
+                            <h4 class="comment__name">Bob Johnson</h4>
+                            <span class="comment__timestamp">3 days ago</span>
+                            <p class="comment__content">This is the third comment.</p>
+                            </article>
+                        </div>
+                        
+                </section>
+    
+    
+    
+      
+                        
         </main>
         <footer class="footer__container">
             <section class="footer__container--text-modifier">
                 <article class="footer__container__header">
                     <h2 class="footer__container__header--items">Get in Touch</h2>
                     <div class="footer__container__social footer__container__header--items" >
-                        
-                            <li>
-                                <div class="footer__image--wrap">
-                                    <a target="_blank" href="http://www.instagram.com">
-                                    <img class="footer__image--wrap--icons" src="./assets/icons/svg/Icon-instagram.svg">
-                                    </a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="footer__image--wrap">
-                                    <a target="_blank" href="http://www.facebook.com">
-                                    <img class="footer__image--wrap--icons" src="./assets/icons/svg/Icon-facebook.svg">
-                                    </a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="footer__image--wrap">
-                                    <a target="_blank" href="http://www.twitter.com">
-                                    <img class="footer__image--wrap--icons" src="./assets/icons/svg/Icon-twitter.svg">
-                                    </a>
-                                </div>
-                            </li>
-                        
+                        <div class="footer__image--wrap">
+                            <a target="_blank" href="http://www.instagram.com">
+                            <img class="footer__image--wrap--icons" src="./assets/icons/svg/Icon-instagram.svg">
+                            </a>
+                        </div>
+                        <div class="footer__image--wrap">
+                            <a target="_blank" href="http://www.facebook.com">
+                            <img class="footer__image--wrap--icons" src="./assets/icons/svg/Icon-facebook.svg">
+                            </a>
+                        </div>
+                        <div class="footer__image--wrap">
+                            <a target="_blank" href="http://www.twitter.com">
+                            <img class="footer__image--wrap--icons" src="./assets/icons/svg/Icon-twitter.svg">
+                            </a>
+                        </div>    
                     </div>
                 </article>
                 <article class="footer__container--colum-modifier">
                     <div class="footer__container--text-modifier--items"> 
                         <h3 class="footer__container--text-modifier--items--text-wrapper">
                             Cam Adams 
-                            <br/>
+                            <br>
                             The Bees Knees Management
                         </h3>
                         <p class="footer__container--text-modifier--subtext"> 
                             503 Broadway Penthouse,
-                            <br/> 
+                            <br> 
                             New York, NY 10012, USA
                         </p>
                         <p class="footer__container--text-modifier--subtext">
@@ -156,16 +194,16 @@
                                 info@thebeesknees.com 
                             </a>
                         </p>
-                    </div class="footer__container--text-modifier--items">
-                    <div> 
+                    </div>
+                    <div class="footer__container--text-modifier--items"> 
                         <h3 class="footer__container--text-modifier--items--text-wrapper">
                             Pearl Gregg
-                            <br/>
+                            <br>
                             Limitless Artist Group
                         </h3>
                         <p class="footer__container--text-modifier--subtext">
                             Booking Agent for
-                            <br/>
+                            <br>
                             USA / South America / Japan
                         </p>
                         <p class="footer__container--text-modifier--subtext">
@@ -173,16 +211,16 @@
                                 pearl.gregg@limitlessag.com 
                             </a>
                         </p>
-                    </div class="footer__container--text-modifier--items">  
+                    </div>  
                     <div> 
                         <h3 class="footer__container--text-modifier--items--text-wrapper">    
                             Carson Whyte
-                            <br/>
+                            <br>
                             ARCH Entertainment
                         </h3>
                         <h4 class="footer__container--text-modifier--subtext">
                             Booking Agent for
-                            <br/>
+                            <br>
                             UK / EU / AU
                         </h4>
                         <p class="footer__container--text-modifier--subtext">
@@ -203,6 +241,12 @@
                 </p>
                 </diV>
             </section>
+            
+                </body>
+
+
+            </section>
+
         </footer>
     </section>
 </body>
