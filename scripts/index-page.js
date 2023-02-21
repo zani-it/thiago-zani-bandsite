@@ -85,6 +85,9 @@ function submitComment(event) {
       commentInput.classList.remove('comment__input-error');
     }
 
+
+    
+
     return;
   }
 
@@ -99,6 +102,9 @@ function submitComment(event) {
   displayComment(comment);
   nameInput.value = '';
   commentInput.value = '';
+
+  nameInput.classList.remove('comment__input-error');
+  commentInput.classList.remove('comment__input-error');
 }
 
 function submitDetection() {
@@ -113,6 +119,7 @@ function submitDetection() {
     firstSubmit = false
 
   }
+  
 }
 
 function timeSince(timestamp) {
