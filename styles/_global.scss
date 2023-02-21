@@ -20,7 +20,7 @@ h2 {
     @include font-styles($font-bold, 2.25rem, 2.75rem, 600);
   }
   @include for--mobile {
-    @include font-styles($font-regular, 1.5rem, 2rem, 700);
+    @include font-styles($font-regular, 1.875rem, 2rem, 700);
   }
 }
 
