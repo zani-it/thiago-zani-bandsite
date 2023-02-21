@@ -18,8 +18,8 @@
             </a>
             </div>
         <ul class="navbar__list">
-            <li class ="navbar__list--item"><a role="link" aria-disabled="true">Biography</a></li>
-            <li class ="navbar__list--item"><a role="link" aria-disabled="true">Shows</a></li>
+            <li class ="navbar__list--item"><a href="./index.html">Biography</a></li>
+            <li class ="navbar__list--item"><a href="./pages/shows.html">Shows</a></li>
         </ul>
     </nav>
     <section class="hero__cover">
@@ -110,30 +110,39 @@
                     </header>   
                 </article>
             </article>
-            <article class="section__photo">
+            </article>
                 
                 
-                <section>
-  
-                        <h2>Join the Conversation</h2>
-    
-                        <form id="comment-form">
-                            <label>
-                            Name:
-                            <input type="text" id="name-input">
-                            </label>
-                            <br>
-                            <label>
-                            Comment:
-                            <textarea id="comment-input"></textarea>
-                            </label>
-                            <br>
-                            <button type="submit">Submit</button>
-                            <span id="form-error"></span>
+                <section class="comment__section">
+
+                    <h2 class="comment--title">Join the Conversation</h2>
+
+                    <div class="comment__section--content">
+
+                        <form class="comment__form" id="comment-form">
+                            <div class="comment__form--item">
+                                <img class="comment__avatar--sender">
+                                <div class="comment__form--item--input">
+                                    <label class="comment__label">
+                                    NAME
+                                    </label>
+                                    <input class="comment__text-area--name" type="text" id="name-input" placeholder="Enter your name">
+                                    <br>
+                                    <label class="comment__label">
+                                    COMMENT
+                                    </label>
+                                    <textarea class="comment__text-area" id="comment-input" placeholder="Add new comment"></textarea>
+                                    <br>
+                                    <button class="comment__button" type="submit">COMMENT</button>
+                                    <span id="form-error"></span>
+                                </div>
+                            </div>    
                         </form>
     
                         <div class="comments">
                         </div>
+
+                    </div>
                         
                 </section>
     
