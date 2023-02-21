@@ -41,6 +41,7 @@ function displayComment(comment) {
   const avatarEl = document.createElement('div');
   avatarEl.classList.add('comment__avatar');
   
+  //avatarURL still undefined need a function to pull images from array after array of images is created by another function
   var avatarImg = document.createElement('img');
   avatarImg.setAttribute('src', comment.avatarUrl);
   avatarImg.classList.add('comment__avatar');
