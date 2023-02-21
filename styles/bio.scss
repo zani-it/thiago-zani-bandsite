@@ -1,0 +1,944 @@
+@use "./partials/variables" as *;
+@use "./partials/mixins" as *;
+
+html {
+    body {
+        margin: 0 0;
+        box-sizing: border-box;
+        overflow-x: hidden;
+
+        .section {
+            &__body {
+                padding: 0rem 1rem;
+            }
+        }
+
+        .navbar {
+            display: flex;
+
+            &__fix {
+                position: fixed;
+                justify-content: start;
+                align-items: center;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background-color: $primary__band-gray;
+                box-shadow: 0px 0px 10px $secondary__band-black;
+                z-index: 9999;
+                overflow: hidden;
+
+                @include for--mobile {
+                    height: 80px;
+                }
+
+                @include for--tablet {
+                    display: flex;
+                    align-items: center;
+                    height: 80px;
+                }
+
+                @include for--desktop {
+                    display: flex;
+                    align-items: center;
+                    height: 80px;
+                }
+
+            }
+
+            &__logo {
+                @include for--mobile {
+                    display: flex;
+                    justify-content: center;
+                    margin: 1rem 0rem 0.65rem;
+                }
+
+                @include for--tablet {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    padding-left: 2rem;
+                }
+
+                @include for--desktop {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    padding-left: 2rem;
+                }
+            }
+
+            &__list {
+                @include for--tablet {
+                    display: flex;
+                    padding: 0rem 2rem;
+                }
+
+                @include for--desktop {
+                    display: flex;
+                    padding: 0rem 2rem;
+                }
+
+                &--item {
+                    list-style: none;
+                    min-width: 50%;
+
+                }
+
+                &--item li,
+                a {
+                    color: $primary__band-white;
+                    text-decoration: none;
+                    padding-bottom: 5px;
+                    transition: all 0.5s ease-in-out;
+
+                    @include for--mobile {
+                        display: flex;
+                        justify-content: center;
+                    }
+
+                    @include for--tablet {
+                        padding: 0rem 2rem;
+                    }
+
+                    @include for--desktop {
+                        padding: 0rem 2rem;
+                    }
+
+                    &:hover {
+                        border-bottom: 5px;
+                        border-color: $primary__band-white;
+                        border-style: none none solid none;
+                        font-family: "Avenir Demi";
+
+                        @include for--tablet {
+                            padding-bottom: 28px;
+                        }
+
+                        @include for--desktop {
+                            padding-bottom: 28px;
+                        }
+                    }
+
+                    &:active {
+                        border-bottom: 5px;
+                        border-color: $primary__band-white;
+                        border-style: none none solid none;
+                        font-family: "Avenir Bold";
+                    }
+
+                    &:disabled {
+                        border-bottom: 5px;
+                        border-color: $primary__band-silver;
+                        border-style: none none solid none;
+                        font-family: "Avenir Bold";
+                    }
+                }
+
+                @include for--mobile {
+                    display: flex;
+                    justify-content: center;
+                }
+
+            }
+        }
+
+        .hero {
+            &__cover {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                background-image: url(../assets/images/hero-bio.jpg);
+                background-position: center;
+                background-size: cover;
+                width: 100%;
+                margin: 80px 0 0 0;
+                height: 50vw;
+                position: relative;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: rgba(50, 50, 50, 0.5);
+                    //z-index: 1;
+                }
+
+                @include for--mobile {
+                    padding-bottom: 1.5rem;
+                    margin-bottom: 1.5rem;
+                }
+
+                &--title {
+                    padding-left: 4vw;
+                    color: $primary__band-white;
+                    position: relative;
+                    z-index: 2;
+
+                    @include for--desktop {
+                        padding-left: 10vw;
+                    }
+                }
+            }
+        }
+
+        .about {
+            transition: all 0.5s;
+
+            &__headline {
+                display: flex;
+                justify-content: flex-start;
+
+                &--title {
+                    margin: 0;
+
+                    @include for--tablet {
+                        padding: 3rem 0rem 2rem 1rem;
+                    }
+
+                    @include for--desktop {
+                        padding: 3rem 0rem 2rem 7rem;
+                    }
+                }
+            }
+
+            &__image {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+
+                &--band-photo {
+                    width: 100%;
+                    height: 50vw;
+
+                    @include for--mobile {
+                        margin-bottom: 1rem;
+                    }
+
+                    @include for--tablet {
+                        height: 40vw;
+                        width: 75vw;
+                        margin-bottom: 2rem;
+                    }
+
+                    @include for--desktop {
+                        height: 35vw;
+                        width: 70vw;
+                        margin-bottom: 2rem;
+                    }
+                }
+            }
+
+            &__content {
+                
+                &--header {
+                    @include for--mobile {
+                        margin-bottom: 1.5rem;
+                    }
+
+                    @include for--tablet {
+                        margin-bottom: 3rem;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    @include for--desktop {
+                        margin-bottom: 3rem;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    &-subheader {
+                        @include for--tablet {
+                            width: 75vw;
+                            font-family: 'Avenir Regular', sans-serif;
+                            font-size: 1.5rem;
+                            line-height: 2rem;
+                            font-weight: 600;
+                            margin: 0 0;
+                            padding-bottom: 1rem;
+                        }
+
+                        @include for--desktop {
+                            width: 60vw;
+                            font-family: 'Avenir Regular', sans-serif;
+                            font-size: 1.5rem;
+                            line-height: 2rem;
+                            font-weight: 600;
+                            margin: 0 0;
+                            padding-bottom: 1rem;
+                            margin-left: -9vw;
+
+                        }
+
+                        &-author {
+                            &-text {
+                                font-family: 'Avenir Demi', sans-serif;
+                                align-self: flex-start;
+
+                                @include for--mobile {
+                                    padding: 1rem 0rem 2rem 0rem;
+                                    font-weight: bold;
+                                }
+
+                                @include for--tablet {
+                                    padding: 0rem 0rem 3rem 0rem;
+                                    font-weight: bold;
+                                }
+
+                                @include for--desktop {
+                                    font-family: 'Avenir regular', sans-serif;
+                                    font-weight: 600;
+                                    font-size: 1.25rem;
+                                    width: 70vw;
+                                    padding: 0rem 0rem 3rem 0rem;
+                                }
+                            }
+                        }
+
+                        &-title {
+                            @include for--mobile {
+                                padding: 0rem 0rem 1rem 0rem;
+                            }
+
+                            @include for--tablet {
+                                width: 75vw;
+                                font-family: 'Avenir Regular', sans-serif;
+                                font-size: 1.5rem;
+                                line-height: 2rem;
+                                font-weight: 600;
+                                margin: 0 0;
+                                padding: 0rem 0rem 2.25rem 0rem;
+                            }
+
+                            @include for--desktop {
+                                width: 70vw;
+                                font-family: 'Avenir Demi', sans-serif;
+                                font-size: 2rem;
+                                padding: 0rem 0rem 2.25rem 0rem;
+                            }
+                        }
+                    }
+                }
+
+                &--bottom {
+                    @include for--tablet {
+                        display: flex;
+                        width: 100%;
+                        justify-content: center;
+                    }
+
+                    @include for--desktop {
+                        display: flex;
+                        width: 100%;
+                        justify-content: center;
+                    }
+
+                    &--modifier {
+                        @include for--tablet {
+                            width: 75vw;
+                            display: flex;
+                        }
+
+                        @include for--desktop {
+                            width: 70vw;
+                            display: flex;
+                        }
+                    }
+
+                    &--text {
+                        display: flex;
+
+                        @include for--mobile {
+                            flex-direction: column;
+
+                        }
+
+                        &-first {
+                            @include for--mobile {
+                                margin-top: 1rem;
+                            }
+
+                            @include for--tablet {
+                                padding: 0rem 1rem 3rem 0rem;
+                            }
+
+                            @include for--desktop {
+                                padding: 0rem 1rem 3rem 0rem;
+                            }
+                        }
+
+                        &-second {
+                            @include for--mobile {
+                                margin: 1rem 0 1rem;
+                            }
+
+                            @include for--tablet {
+                                padding: 0rem 0rem 3rem 1rem;
+                            }
+
+                            @include for--desktop {
+                                padding: 0rem 0rem 3rem 1rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .section {
+        &__photo {
+            background-color: $secondary__band-alabaster;
+
+            @include for--mobile {
+                padding: 0 1rem 2rem 1rem;
+                margin: 0 -1rem;
+
+            }
+
+            @include for--tablet {
+                padding: 0 2rem 2rem 2rem;
+            }
+
+            @include for--desktop {
+                padding: 0 10rem 2rem 1F0rem;
+            }
+
+            &-gallery {
+                display: flex;
+                width: 100%;
+
+                &--title {
+                    display: flex;
+                    width: 100%;
+
+                    @include for--mobile {
+                        margin-top: 1.5rem;
+                    }
+
+                    @include for--tablet {
+                        margin-top: 3rem;
+                        margin-bottom: 1.5rem;
+                    }
+
+                    @include for--desktop {
+                        margin-top: 3rem;
+                        margin-bottom: 1.5rem;
+                        font-size: 2.5rem;
+                    }
+
+                }
+            }
+        }
+    }
+
+    .grid {
+        &__container {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+
+            &--grid {
+                display: grid;
+                justify-content: center;
+
+                @include for--mobile {
+                    grid-template-columns: repeat(1, 1fr);
+                    grid-template-rows: repeat(9, 1fr);
+                }
+
+                @include for--tablet {
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-rows: repeat(3, 1fr);
+
+                }
+
+                @include for--desktop {
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-rows: repeat(3, 1fr);
+                }
+            }
+
+            &--grid-items-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 1vw 1vw;
+            }
+
+            &--grid-items {
+                filter: grayscale(1);
+
+                @include for--mobile {
+                    max-width: 90vw;
+                }
+
+                @include for--tablet {
+                    max-width: 30vw;
+                }
+
+                @include for--desktop {
+                    max-width: 25vw;
+                }
+
+                transition: all 0.5s ease-in-out;
+
+                &:hover {
+                    filter: grayscale(0);
+                }
+            }
+        }
+    }
+
+    .comment {
+
+
+        &__section {
+            // display: flex;
+            // flex-direction: column;
+            // justify-content: center;
+            // align-items: center;
+            padding: 5vw 0vw;
+            width: 100%;
+            background-color: #fff;
+
+
+
+            &--content {
+                padding: 5vw;
+                font-family: 'Avenir Regular', sans-serif;
+                line-height: 1.125rem;
+                font-weight: 400;
+
+                @include for--tablet {
+                    width: 45vw;
+                }
+
+
+            }
+
+            @include for--tablet {
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+            }
+        }
+
+        &--title {
+            margin-left: 2vw;
+
+            @include for--tablet {
+                margin: 5vw 0vw 5vw 5vw;
+                align-self: flex-start;
+            }
+        }
+
+        &__label {
+
+            font-weight: 700;
+            font-size: 0.75rem;
+            color: $primary__band-silver;
+        }
+
+        &__text-area {
+
+            justify-content: center;
+            display: flex;
+            outline: none;
+            border: 1px solid $primary__band-silver;
+            font-size: 1rem;
+            min-width: 14rem;
+            min-height: 6rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            width: 100%;
+
+
+
+            &--name {
+                justify-content: center;
+                display: flex;
+                outline: none;
+                border: 1px solid $primary__band-silver;
+                font-size: 1rem;
+                min-width: 14rem;
+                min-height: 36px;
+                margin: 1rem 0;
+                border-radius: 4px;
+                height: 1.5rem;
+                margin-top: 0.5rem;
+                width: 100%;
+
+                &:focus {
+                    border-color: $primary__band-gray;
+                }
+            }
+
+            &:focus {
+                border-color: $primary__band-gray;
+            }
+        }
+
+        &__form {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+
+            @include for--tablet {
+                justify-content: center;
+            }
+
+
+            &--item {
+                display: flex;
+
+                justify-content: flex-start;
+                align-items: flex-start;
+                width: 100%;
+
+                @include for--tablet {
+                    justify-content: center;
+                }
+
+                &--input {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    width: 100%;
+
+                }
+
+
+            }
+        }
+
+        &__name {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        &__text {
+
+            font-family: 'Avenir Regular', sans-serif;
+            font-size: 0.813rem;
+            line-height: 1.125rem;
+            font-weight: 400;
+        }
+
+        &__item {
+
+
+
+
+            &--title {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                
+
+
+            }
+
+        }
+
+        &__wrapper {
+            display: flex;
+            justify-content: flex-start;
+            border-top: 1px solid $primary__band-silver;
+            border-bottom: 1px solid $primary__band-silver;
+            margin-bottom: -1px;
+            padding: 1rem 2rem;
+
+
+
+        }
+
+        &__timestamp {
+
+            color: $primary__band-silver;
+            margin-left: 1rem;
+
+        }
+
+        &__button {
+
+            display: flex;
+            justify-content: center;
+            padding: 1rem 1rem;
+            border: none;
+            margin-bottom: 2rem;
+            font-size: 20px;
+            font-weight: 700;
+            min-width: 14rem;
+            width: 102%;
+            border-radius: 5px;
+            color: #fff;
+            background-color: $primary__band-gray;
+
+            &:hover {
+
+                background-color: $secondary__band-black;
+            }
+
+            @include for--tablet {
+                max-width: 200px;
+                align-self: flex-end;
+            }
+
+
+        }
+
+        &__input-error {
+            border: 1px solid $secondary__band-error;
+        }
+
+        &__content{
+            padding-top: 1.5rem;
+            //display: flex;
+            flex-wrap: wrap;
+            overflow-wrap: break-word;
+            width: 60vw;
+            @include for--tablet{
+
+            width: 35vw;
+        }
+        }
+
+    }
+
+    .comment__avatar {
+
+        border-radius: 50%;
+        margin: 0.5rem 0.5rem 0.5rem 0rem;
+        height: 36px;
+        width: 36px;
+        min-height: 36px;
+        min-width: 36px;
+        background-color: $secondary__band-mercury;
+
+        @include for--tablet {
+            height: 48px;
+            width: 48px;
+            min-height: 48px;
+            min-width: 48px;
+
+        }
+    }
+
+    .comment__avatar--sender {
+
+        background-image: url("../assets/images/mohan-muruge.jpg");
+        background-size: cover;
+        background-color: #ff0000;
+        height: 36px;
+        width: 36px;
+        min-width: 36px;
+        border-radius: 50%;
+        margin: 1.75rem 0.5rem 0.5rem 0rem;
+
+        @include for--tablet {
+            transition: 0.5s;
+            margin: 1.5rem;
+            height: 48px;
+            width: 48px;
+            min-width: 48px;
+
+        }
+
+
+
+    }
+
+    .comments {
+
+        font-family: 'Avenir Regular', sans-serif;
+        font-size: 0.813rem;
+        line-height: 1.125rem;
+        font-weight: 400;
+
+    }
+
+    .footer {
+        &__image--wrap {
+            display: inline-block;
+            margin-right: 25px;
+            height: 25px;
+
+            &--icons {
+                height: 25px;
+            }
+        }
+
+        &__container {
+            display: flex;
+            list-style: none;
+            background-color: $primary__band-gray;
+
+            & a {
+                @include for--tablet {
+                    display: flex;
+                    align-items: center;
+                }
+
+                @include for--desktop {
+                    display: flex;
+                    align-items: center;
+                }
+            }
+
+            @include for--mobile {
+                padding-top: 2rem;
+                margin-top: 2vw;
+            }
+
+            &__header {
+                @include for--tablet {
+                    display: flex;
+                    padding: 3rem 0rem 2.25rem 0rem;
+                }
+
+                @include for--desktop {
+                    display: flex;
+                    padding: 3rem 0rem 2.25rem 0rem;
+                }
+
+                &--items {
+                    @include for--tablet {
+                        padding-left: 4vw;
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    @include for--desktop {
+                        padding-left: 11vw;
+                        display: flex;
+                        align-items: center;
+                    }
+
+
+                }
+            }
+
+            &--colum-modifier {
+                @include for--tablet {
+                    display: flex;
+                    justify-content: space-between;
+                    padding-left: 4vw;
+                    width: 92vw;
+                }
+
+                @include for--desktop {
+                    display: flex;
+                    justify-content: space-between;
+                    padding-left: 11vw;
+                    width: 60vw;
+                }
+            }
+
+            &--text-modifier,
+            p {
+                color: $primary__band-white;
+
+                &--subtext {
+                    @include for--mobile {
+                        margin: 1rem 0rem 1rem;
+                    }
+
+                    @include for--tablet {
+                        margin: 1rem 0rem 2rem;
+                    }
+
+                    @include for--desktop {
+                        margin: 1rem 0rem 2rem;
+                        font-size: 1.125rem;
+                    }
+
+                    & a {
+                        text-decoration: none;
+                        color: $primary__band-white;
+                        font-family: 'Avenir Regular', sans-serif;
+                        font-size: 0.813rem;
+                        line-height: 1.125rem;
+                        font-weight: 400;
+                        margin: 0 0;
+                        transition: all 0.5s ease-in-out;
+
+                        @include for--desktop {
+                            font-size: 1.125rem;
+                        }
+
+                        &:hover {
+                            font-family: 'Avenir Demi', sans-serif;
+
+                            @include for--desktop {
+                                font-size: 1.125rem;
+                            }
+                        }
+                    }
+                }
+
+                &--items {
+
+                    //width: 30vw;  
+                    &--copyright {
+                        position: flex-end;
+                        padding-top: 2rem;
+
+                        @include for--tablet {
+                            margin: -4.25rem 0rem 0rem -6rem;
+                            padding-top: 0rem;
+                        }
+
+                        @include for--desktop {
+                            margin: -4.25rem 0rem 0rem -6rem;
+                            padding-top: 0rem;
+                        }
+                    }
+
+                    &--text-wrapper {
+                        @include for--tablet {
+                            font-family: 'Avenir Demi', sans-serif;
+                        }
+
+                        @include for--desktop {
+                            font-family: 'Avenir Demi', sans-serif;
+                            font-size: 1.125rem;
+                        }
+                    }
+                }
+            }
+
+            &__social {
+                display: flex;
+
+                @include for--mobile {
+                    margin: 1.5rem 0rem;
+                }
+
+                &--list-item {
+                    margin: 0px 30px 0px 0px;
+                    height: 25px;
+                }
+            }
+
+            @include for--mobile {
+                padding-left: 4vw;
+            }
+
+
+        }
+    }
+}

@@ -1,251 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/global.css">
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./styles/bio.css">
+    <script src="./scripts/index-page.js" defer></script>
 
-    <!-- install react -->
-    <!-- <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script> -->
-    <!-- add useGetGallery function -->
-    <!-- <script type="text/javascript" src="./functions/useGetGallery.js"></script>
-    <script>
-      const GetGallery = useGetGallery();
-    </script> -->
-    
     <title>BANDSITE</title>
 </head>
+
 <body>
-    <!--  navbar section -->
-    
     <nav class="navbar__fix">
         <div class="navbar__logo">
             <a href="./index.html">
-                <img src="../assets/logos/logo-bandsite.svg"/>
+                <img src="./assets/logos/logo-bandsite.svg">
             </a>
-            </div>
+        </div>
         <ul class="navbar__list">
-            <li class ="navbar__list--item"><a role="link" aria-disabled="true">Biography</a></li>
-            <li class ="navbar__list--item"><a role="link" aria-disabled="true">Shows</a></li>
+            <li class="navbar__list--item"><a href="./index.html">Biography</a></li>
+            <li class="navbar__list--item"><a href="./pages/shows.html">Shows</a></li>
         </ul>
     </nav>
     <section class="hero__cover">
-        <image>
+        <hero>
             <div>
                 <h1 class="hero__cover--title">
                     The Bees Knees
                 </h1>
             </div>
-        </image>
+        </hero>
     </section>
-        <main class="section__body">
-            <header class="about__headline">
-                <h2 class="about__headline--title">
-                    About the Musicians
-                </h2>
-            </header>
-            <div class="about__image">
-                <img class="about__image--band-photo" src="./assets/images/band.jpg">
-            </div>
-            <article class="about__content">
-                <div class="about__content--header">
-                    <h3 class="about__content--header-subheader">
-                        “We push each other to be the best. 
-                        It’s not uncommon for one of us to say 
-                        ‘this needs to be better, back to the drawing board’”
+    <main class="section__body">
+        <header class="about__headline">
+            <h2 class="about__headline--title">
+                About the Musicians
+            </h2>
+        </header>
+        <div class="about__image">
+            <img class="about__image--band-photo" src="./assets/images/band.jpg">
+        </div>
+        <article class="about__content">
+            <div class="about__content--header">
+                <h3 class="about__content--header-subheader">
+                    “We push each other to be the best.
+                    It’s not uncommon for one of us to say
+                    ‘this needs to be better, back to the drawing board’”
+                </h3>
+                <div class="about__content--header-subheader-author">
+                    <h3 class="about__content--header-subheader-author-text">
+                        - Bryan Teddy, lead vocalist of The Bees Knees
                     </h3>
-                    <div class="about__content--header-subheader-author">
-                        <h3 class="about__content--header-subheader-author-text">
-                            - Bryan Teddy, lead vocalist of The Bees Knees
-                        </h3>
-                        <h3 class="about__content--header-subheader-title">
-                            The Bees Knees
-                        </h3>
-                    </div>
-                <article class="about__content--bottom">
-            
-                    <article class="about__content--bottom--modifier">
-                        <div class="about__content--bottom--text-first">
-                            <h4>
-                                The Bees Knees is a pop rock band originating 
-                                from San Francisco, California. The band consists
-                                of lead vocalist Bryan Teddy, guitarist Mack Tolkens,
-                                guitarist Andrew Green, bassist Kent Zulkee and 
-                                drummer Freddie Fischer. The band achieved its first
-                                commercial success as an unsigned act, drawing attention 
-                                from manager Cam Adams. Having worked with other 
-                                popular acts (The Elephant In The Room, One Trick Pony, 
-                                The Cat’s Meow), Adams was confident the band could succeed 
-                                even further, pushing them to sign with Magenta Records.
-                            </h4>
-                        </div>
-                        <div class="about__content--bottom--text-second">    
-                            <h4>
-                                From there, the band has soared, gaining international
-                                recognition and ranking in the top 10 on the Poster Charts. 
-                                New fans immediately fell in love with the band’s original 
-                                and organic attitude, solidifying their place as one of 
-                                the hottest and fastest up and coming acts of this century. 
-                                Fans affectionately refer to themselves as “The Hive” and 
-                                are drawn to their candid and authentic performances on stage. 
-                                Looking forward to touring in the future, The Bees Knees 
-                                are currently recording their second studio album, looking 
-                                to be released in late 2021.
-                            </h4>
-                        </div>
-                    </article> 
-                </article>
-                <article class="section__photo">
-                    <header class="section__photo-gallery">
-                        <h2 class="section__photo-gallery--title">
-                            Photo Gallery
-                        </h2>
-                    </header>
-                        <image class="grid__container">
-                            <div class="grid__container--grid">
-                                <div class="grid__container--grid-items-container"><a target="_blank" href="./assets/images/gallery/photo-gallery-1.jpg"><img class="grid__container--grid-items" src="./assets/images/gallery/photo-gallery-1.jpg" alt=""></a></div>
-                                <div class="grid__container--grid-items-container"><a target="_blank" href="./assets/images/gallery/photo-gallery-2.jpg"><img class="grid__container--grid-items" src="./assets/images/gallery/photo-gallery-2.jpg" alt=""></a></div>
-                                <div class="grid__container--grid-items-container"><a target="_blank" href="./assets/images/gallery/photo-gallery-3.jpg"><img class="grid__container--grid-items" src="./assets/images/gallery/photo-gallery-3.jpg" alt=""></a></div>
-                                <div class="grid__container--grid-items-container"><a target="_blank" href="./assets/images/gallery/photo-gallery-4.jpg"><img class="grid__container--grid-items" src="./assets/images/gallery/photo-gallery-4.jpg" alt=""></a></div>
-                                <div class="grid__container--grid-items-container"><a target="_blank" href="./assets/images/gallery/photo-gallery-5.jpg"><img class="grid__container--grid-items" src="./assets/images/gallery/photo-gallery-5.jpg" alt=""></a></div>
-                                <div class="grid__container--grid-items-container"><a target="_blank" href="./assets/images/gallery/photo-gallery-6.jpg"><img class="grid__container--grid-items" src="./assets/images/gallery/photo-gallery-6.jpg" alt=""></a></div>
-                                <div class="grid__container--grid-items-container"><a target="_blank" href="./assets/images/gallery/photo-gallery-7.jpg"><img class="grid__container--grid-items" src="./assets/images/gallery/photo-gallery-7.jpg" alt=""></a></div>
-                                <div class="grid__container--grid-items-container"><a target="_blank" href="./assets/images/gallery/photo-gallery-8.jpg"><img class="grid__container--grid-items" src="./assets/images/gallery/photo-gallery-8.jpg" alt=""></a></div>
-                                <div class="grid__container--grid-items-container"><a target="_blank" href="./assets/images/gallery/photo-gallery-9.jpg"><img class="grid__container--grid-items" src="./assets/images/gallery/photo-gallery-9.jpg" alt=""></a></div>
-                            </div>
-                        </image>
-                    </header>   
-                </article>
-
-                <!-- add the gallery to page BEGIN -->
-                <!-- <script>
-                    const GetGallery = useGetGallery();
-                
-                    function PhotoGallery() {
-                    return (
-                        <article>
-                        <header>
-                            <h2>
-                            Photo Gallery
-                            </h2>
-                        </header>
-                        <image>
-                            {GetGallery.map((GetGallery, index) => (
-                            <a href={GetGallery.url} target="_blank" rel="noopener noreferrer" key={index} >
-                                <img src={GetGallery.image} alt={`Sponsor ${index + 1}`} className=""/>
-                            </a>
-                            ))}
-                        </image>
-                        </article>
-                    );
-                    }
-                    
-                    ReactDOM.render(
-                    <PhotoGallery />,
-                    document.querySelector('body')
-                    );
-                </script> -->
-                <!-- add the gallery to page END -->
-            </article>
-        </main>
-        <footer class="footer__container">
-            <section class="footer__container--text-modifier">
-                <article class="footer__container__header">
-                    <h2 class="footer__container__header--items">Get in Touch</h2>
-                    <div class="footer__container__social footer__container__header--items" >
-                        
-                            <li>
-                                <div class="footer__image--wrap">
-                                    <a target="_blank" href="http://www.instagram.com">
-                                    <img class="footer__image--wrap--icons" src="./assets/icons/svg/Icon-instagram.svg">
-                                    </a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="footer__image--wrap">
-                                    <a target="_blank" href="http://www.facebook.com">
-                                    <img class="footer__image--wrap--icons" src="./assets/icons/svg/Icon-facebook.svg">
-                                    </a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="footer__image--wrap">
-                                    <a target="_blank" href="http://www.twitter.com">
-                                    <img class="footer__image--wrap--icons" src="./assets/icons/svg/Icon-twitter.svg">
-                                    </a>
-                                </div>
-                            </li>
-                        
-                    </div>
-                </article>
-                <article class="footer__container--colum-modifier">
-                    <div class="footer__container--text-modifier--items"> 
-                        <h3 class="footer__container--text-modifier--items--text-wrapper">
-                            Cam Adams 
-                            <br/>
-                            The Bees Knees Management
-                        </h3>
-                        <p class="footer__container--text-modifier--subtext"> 
-                            503 Broadway Penthouse,
-                            <br/> 
-                            New York, NY 10012, USA
-                        </p>
-                        <p class="footer__container--text-modifier--subtext">
-                            <a href="mailto:info@thebeesknees.com">
-                                info@thebeesknees.com 
-                            </a>
-                        </p>
-                    </div class="footer__container--text-modifier--items">
-                    <div> 
-                        <h3 class="footer__container--text-modifier--items--text-wrapper">
-                            Pearl Gregg
-                            <br/>
-                            Limitless Artist Group
-                        </h3>
-                        <p class="footer__container--text-modifier--subtext">
-                            Booking Agent for
-                            <br/>
-                            USA / South America / Japan
-                        </p>
-                        <p class="footer__container--text-modifier--subtext">
-                            <a href="mailto:pearl.gregg@limitlessag.com">
-                                pearl.gregg@limitlessag.com 
-                            </a>
-                        </p>
-                    </div class="footer__container--text-modifier--items">  
-                    <div> 
-                        <h3 class="footer__container--text-modifier--items--text-wrapper">    
-                            Carson Whyte
-                            <br/>
-                            ARCH Entertainment
-                        </h3>
-                        <h4 class="footer__container--text-modifier--subtext">
-                            Booking Agent for
-                            <br/>
-                            UK / EU / AU
+                    <h3 class="about__content--header-subheader-title">
+                        The Bees Knees
+                    </h3>
+                </div>
+            </div>
+            <article class="about__content--bottom">
+                <article class="about__content--bottom--modifier">
+                    <div class="about__content--bottom--text-first">
+                        <h4>
+                            The Bees Knees is a pop rock band originating
+                            from San Francisco, California. The band consists
+                            of lead vocalist Bryan Teddy, guitarist Mack Tolkens,
+                            guitarist Andrew Green, bassist Kent Zulkee and
+                            drummer Freddie Fischer. The band achieved its first
+                            commercial success as an unsigned act, drawing attention
+                            from manager Cam Adams. Having worked with other
+                            popular acts (The Elephant In The Room, One Trick Pony,
+                            The Cat’s Meow), Adams was confident the band could succeed
+                            even further, pushing them to sign with Magenta Records.
                         </h4>
-                        <p class="footer__container--text-modifier--subtext">
-                            <a href="mailto:cwhyte@archentertainment.com">
-                                cwhyte@archentertainment.com 
-                            </a>
-                        </p>
                     </div>
-                    <div class="footer__container--text-modifier--items--copyright">
-                        <a href="./index.html">
-                            <img src="./assets/logos/logo-bandsite.svg" alt="">
+                    <div class="about__content--bottom--text-second">
+                        <h4>
+                            From there, the band has soared, gaining international
+                            recognition and ranking in the top 10 on the Poster Charts.
+                            New fans immediately fell in love with the band’s original
+                            and organic attitude, solidifying their place as one of
+                            the hottest and fastest up and coming acts of this century.
+                            Fans affectionately refer to themselves as “The Hive” and
+                            are drawn to their candid and authentic performances on stage.
+                            Looking forward to touring in the future, The Bees Knees
+                            are currently recording their second studio album, looking
+                            to be released in late 2021.
+                        </h4>
+                    </div>
+                </article>
+            </article>
+            <article class="section__photo">
+                <header class="section__photo-gallery">
+                    <h2 class="section__photo-gallery--title">
+                        Photo Gallery
+                    </h2>
+                </header>
+                <image class="grid__container">
+                    <div class="grid__container--grid">
+                        <div class="grid__container--grid-items-container"><a target="_blank"
+                                href="./assets/images/gallery/photo-gallery-1.jpg"><img
+                                    class="grid__container--grid-items"
+                                    src="./assets/images/gallery/photo-gallery-1.jpg" alt=""></a></div>
+                        <div class="grid__container--grid-items-container"><a target="_blank"
+                                href="./assets/images/gallery/photo-gallery-2.jpg"><img
+                                    class="grid__container--grid-items"
+                                    src="./assets/images/gallery/photo-gallery-2.jpg" alt=""></a></div>
+                        <div class="grid__container--grid-items-container"><a target="_blank"
+                                href="./assets/images/gallery/photo-gallery-3.jpg"><img
+                                    class="grid__container--grid-items"
+                                    src="./assets/images/gallery/photo-gallery-3.jpg" alt=""></a></div>
+                        <div class="grid__container--grid-items-container"><a target="_blank"
+                                href="./assets/images/gallery/photo-gallery-4.jpg"><img
+                                    class="grid__container--grid-items"
+                                    src="./assets/images/gallery/photo-gallery-4.jpg" alt=""></a></div>
+                        <div class="grid__container--grid-items-container"><a target="_blank"
+                                href="./assets/images/gallery/photo-gallery-5.jpg"><img
+                                    class="grid__container--grid-items"
+                                    src="./assets/images/gallery/photo-gallery-5.jpg" alt=""></a></div>
+                        <div class="grid__container--grid-items-container"><a target="_blank"
+                                href="./assets/images/gallery/photo-gallery-6.jpg"><img
+                                    class="grid__container--grid-items"
+                                    src="./assets/images/gallery/photo-gallery-6.jpg" alt=""></a></div>
+                        <div class="grid__container--grid-items-container"><a target="_blank"
+                                href="./assets/images/gallery/photo-gallery-7.jpg"><img
+                                    class="grid__container--grid-items"
+                                    src="./assets/images/gallery/photo-gallery-7.jpg" alt=""></a></div>
+                        <div class="grid__container--grid-items-container"><a target="_blank"
+                                href="./assets/images/gallery/photo-gallery-8.jpg"><img
+                                    class="grid__container--grid-items"
+                                    src="./assets/images/gallery/photo-gallery-8.jpg" alt=""></a></div>
+                        <div class="grid__container--grid-items-container"><a target="_blank"
+                                href="./assets/images/gallery/photo-gallery-9.jpg"><img
+                                    class="grid__container--grid-items"
+                                    src="./assets/images/gallery/photo-gallery-9.jpg" alt=""></a></div>
+                    </div>
+                </image>
+                </header>
+            </article>
+        </article>
+        </article>
+
+
+        <section class="comment__section">
+
+            <h2 class="comment--title">Join the Conversation</h2>
+
+            <div class="comment__section--content">
+
+                <form class="comment__form" id="comment-form">
+                    <div class="comment__form--item">
+                        <img class="comment__avatar--sender">
+                        <div class="comment__form--item--input">
+                            <label class="comment__label">
+                                NAME
+                            </label>
+                            <input class="comment__text-area--name" type="text" id="name-input"
+                                placeholder="Enter your name">
+                            <br>
+                            <label class="comment__label">
+                                COMMENT
+                            </label>
+                            <textarea class="comment__text-area" id="comment-input"
+                                placeholder="Add new comment"></textarea>
+                            <br>
+                            <button class="comment__button" type="submit">COMMENT</button>
+                            <span id="form-error"></span>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="comments">
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+
+
+    </main>
+    <footer class="footer__container">
+        <section class="footer__container--text-modifier">
+            <article class="footer__container__header">
+                <h2 class="footer__container__header--items">Get in Touch</h2>
+                <div class="footer__container__social footer__container__header--items">
+                    <div class="footer__image--wrap">
+                        <a target="_blank" href="http://www.instagram.com">
+                            <img class="footer__image--wrap--icons" src="./assets/icons/svg/Icon-instagram.svg">
                         </a>
                     </div>
-                </article>
-                <diV class="footer__container--colum-modifier">
+                    <div class="footer__image--wrap">
+                        <a target="_blank" href="http://www.facebook.com">
+                            <img class="footer__image--wrap--icons" src="./assets/icons/svg/Icon-facebook.svg">
+                        </a>
+                    </div>
+                    <div class="footer__image--wrap">
+                        <a target="_blank" href="http://www.twitter.com">
+                            <img class="footer__image--wrap--icons" src="./assets/icons/svg/Icon-twitter.svg">
+                        </a>
+                    </div>
+                </div>
+            </article>
+            <article class="footer__container--colum-modifier">
+                <div class="footer__container--text-modifier--items">
+                    <h3 class="footer__container--text-modifier--items--text-wrapper">
+                        Cam Adams
+                        <br>
+                        The Bees Knees Management
+                    </h3>
+                    <p class="footer__container--text-modifier--subtext">
+                        503 Broadway Penthouse,
+                        <br>
+                        New York, NY 10012, USA
+                    </p>
+                    <p class="footer__container--text-modifier--subtext">
+                        <a href="mailto:info@thebeesknees.com">
+                            info@thebeesknees.com
+                        </a>
+                    </p>
+                </div>
+                <div class="footer__container--text-modifier--items">
+                    <h3 class="footer__container--text-modifier--items--text-wrapper">
+                        Pearl Gregg
+                        <br>
+                        Limitless Artist Group
+                    </h3>
+                    <p class="footer__container--text-modifier--subtext">
+                        Booking Agent for
+                        <br>
+                        USA / South America / Japan
+                    </p>
+                    <p class="footer__container--text-modifier--subtext">
+                        <a href="mailto:pearl.gregg@limitlessag.com">
+                            pearl.gregg@limitlessag.com
+                        </a>
+                    </p>
+                </div>
+                <div>
+                    <h3 class="footer__container--text-modifier--items--text-wrapper">
+                        Carson Whyte
+                        <br>
+                        ARCH Entertainment
+                    </h3>
+                    <h4 class="footer__container--text-modifier--subtext">
+                        Booking Agent for
+                        <br>
+                        UK / EU / AU
+                    </h4>
+                    <p class="footer__container--text-modifier--subtext">
+                        <a href="mailto:cwhyte@archentertainment.com">
+                            cwhyte@archentertainment.com
+                        </a>
+                    </p>
+                </div>
+                <div class="footer__container--text-modifier--items--copyright">
+                    <a href="./index.html">
+                        <img src="./assets/logos/logo-bandsite.svg" alt="">
+                    </a>
+                </div>
+            </article>
+            <diV class="footer__container--colum-modifier">
                 <p class="footer__container--text-modifier--subtext">
                     Copyright The Bees Knees © 2021 All Rights Reserved
                 </p>
-                </diV>
-            </section>
-        </footer>
-    </section>
+            </diV>
+        </section>
+
 </body>
+
+
+</section>
+
+</footer>
+</section>
+</body>
+
 </html>
