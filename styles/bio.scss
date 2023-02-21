@@ -714,6 +714,7 @@ html {
         width: 36px;
         min-height: 36px;
         min-width: 36px;
+        background-color: $secondary__band-mercury;
 
         @include for--tablet {
             height: 48px;

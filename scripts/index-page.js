@@ -38,11 +38,12 @@ function displayComment(comment) {
 
   commentEl.appendChild(contentEl);
 
+  //will add images to avatar of last comments once assets are provided
   const avatarEl = document.createElement('div');
-  avatarEl.classList.add('comment__avatar');
+  //avatarEl.classList.add('comment__avatar');
   
   var avatarImg = document.createElement('img');
-  avatarImg.setAttribute('src', comment.avatarUrl);
+  //avatarImg.setAttribute('src', comment.avatarUrl);
   avatarImg.classList.add('comment__avatar');
   
   
