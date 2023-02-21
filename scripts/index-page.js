@@ -38,12 +38,13 @@ function displayComment(comment) {
 
   commentEl.appendChild(contentEl);
 
+  //will add images to avatar of last comments once assets are provided
   const avatarEl = document.createElement('div');
-  avatarEl.classList.add('comment__avatar');
+  //avatarEl.classList.add('comment__avatar');
   
   //avatarURL still undefined need a function to pull images from array after array of images is created by another function
   var avatarImg = document.createElement('img');
-  avatarImg.setAttribute('src', comment.avatarUrl);
+  //avatarImg.setAttribute('src', comment.avatarUrl);
   avatarImg.classList.add('comment__avatar');
   
   
@@ -85,6 +86,9 @@ function submitComment(event) {
       commentInput.classList.remove('comment__input-error');
     }
 
+
+    
+
     return;
   }
 
@@ -99,6 +103,9 @@ function submitComment(event) {
   displayComment(comment);
   nameInput.value = '';
   commentInput.value = '';
+
+  nameInput.classList.remove('comment__input-error');
+  commentInput.classList.remove('comment__input-error');
 }
 
 function submitDetection() {
@@ -113,6 +120,7 @@ function submitDetection() {
     firstSubmit = false
 
   }
+  
 }
 
 function timeSince(timestamp) {
