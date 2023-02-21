@@ -79,51 +79,60 @@ html body .navbar__list--item {
   list-style: none;
   min-width: 50%;
 }
-html body .navbar__list--item li, html body .navbar__list a {
+html body .navbar__list--item li,
+html body .navbar__list a {
   color: #fff;
   text-decoration: none;
   padding-bottom: 5px;
   transition: all 0.5s ease-in-out;
 }
 @media (max-width: 767px) {
-  html body .navbar__list--item li, html body .navbar__list a {
+  html body .navbar__list--item li,
+  html body .navbar__list a {
     display: flex;
     justify-content: center;
   }
 }
 @media (min-width: 768px) {
-  html body .navbar__list--item li, html body .navbar__list a {
+  html body .navbar__list--item li,
+  html body .navbar__list a {
     padding: 0rem 2rem;
   }
 }
 @media (min-width: 1280px) {
-  html body .navbar__list--item li, html body .navbar__list a {
+  html body .navbar__list--item li,
+  html body .navbar__list a {
     padding: 0rem 2rem;
   }
 }
-html body .navbar__list--item li:hover, html body .navbar__list a:hover {
+html body .navbar__list--item li:hover,
+html body .navbar__list a:hover {
   border-bottom: 5px;
   border-color: #fff;
   border-style: none none solid none;
   font-family: "Avenir Demi";
 }
 @media (min-width: 768px) {
-  html body .navbar__list--item li:hover, html body .navbar__list a:hover {
+  html body .navbar__list--item li:hover,
+  html body .navbar__list a:hover {
     padding-bottom: 28px;
   }
 }
 @media (min-width: 1280px) {
-  html body .navbar__list--item li:hover, html body .navbar__list a:hover {
+  html body .navbar__list--item li:hover,
+  html body .navbar__list a:hover {
     padding-bottom: 28px;
   }
 }
-html body .navbar__list--item li:active, html body .navbar__list a:active {
+html body .navbar__list--item li:active,
+html body .navbar__list a:active {
   border-bottom: 5px;
   border-color: #fff;
   border-style: none none solid none;
   font-family: "Avenir Bold";
 }
-html body .navbar__list--item li:disabled, html body .navbar__list a:disabled {
+html body .navbar__list--item li:disabled,
+html body .navbar__list a:disabled {
   border-bottom: 5px;
   border-color: #afafaf;
   border-style: none none solid none;
@@ -746,26 +755,31 @@ html .footer__container {
     width: 60vw;
   }
 }
-html .footer__container--text-modifier, html .footer__container p {
+html .footer__container--text-modifier,
+html .footer__container p {
   color: #fff;
 }
 @media (max-width: 767px) {
-  html .footer__container--text-modifier--subtext, html .footer__container p--subtext {
+  html .footer__container--text-modifier--subtext,
+  html .footer__container p--subtext {
     margin: 1rem 0rem 1rem;
   }
 }
 @media (min-width: 768px) {
-  html .footer__container--text-modifier--subtext, html .footer__container p--subtext {
+  html .footer__container--text-modifier--subtext,
+  html .footer__container p--subtext {
     margin: 1rem 0rem 2rem;
   }
 }
 @media (min-width: 1280px) {
-  html .footer__container--text-modifier--subtext, html .footer__container p--subtext {
+  html .footer__container--text-modifier--subtext,
+  html .footer__container p--subtext {
     margin: 1rem 0rem 2rem;
     font-size: 1.125rem;
   }
 }
-html .footer__container--text-modifier--subtext a, html .footer__container p--subtext a {
+html .footer__container--text-modifier--subtext a,
+html .footer__container p--subtext a {
   text-decoration: none;
   color: #fff;
   font-family: "Avenir Regular", sans-serif;
@@ -776,41 +790,49 @@ html .footer__container--text-modifier--subtext a, html .footer__container p--su
   transition: all 0.5s ease-in-out;
 }
 @media (min-width: 1280px) {
-  html .footer__container--text-modifier--subtext a, html .footer__container p--subtext a {
+  html .footer__container--text-modifier--subtext a,
+  html .footer__container p--subtext a {
     font-size: 1.125rem;
   }
 }
-html .footer__container--text-modifier--subtext a:hover, html .footer__container p--subtext a:hover {
+html .footer__container--text-modifier--subtext a:hover,
+html .footer__container p--subtext a:hover {
   font-family: "Avenir Demi", sans-serif;
 }
 @media (min-width: 1280px) {
-  html .footer__container--text-modifier--subtext a:hover, html .footer__container p--subtext a:hover {
+  html .footer__container--text-modifier--subtext a:hover,
+  html .footer__container p--subtext a:hover {
     font-size: 1.125rem;
   }
 }
-html .footer__container--text-modifier--items--copyright, html .footer__container p--items--copyright {
+html .footer__container--text-modifier--items--copyright,
+html .footer__container p--items--copyright {
   position: flex-end;
   padding-top: 2rem;
 }
 @media (min-width: 768px) {
-  html .footer__container--text-modifier--items--copyright, html .footer__container p--items--copyright {
+  html .footer__container--text-modifier--items--copyright,
+  html .footer__container p--items--copyright {
     margin: -4.25rem 0rem 0rem -6rem;
     padding-top: 0rem;
   }
 }
 @media (min-width: 1280px) {
-  html .footer__container--text-modifier--items--copyright, html .footer__container p--items--copyright {
+  html .footer__container--text-modifier--items--copyright,
+  html .footer__container p--items--copyright {
     margin: -4.25rem 0rem 0rem -6rem;
     padding-top: 0rem;
   }
 }
 @media (min-width: 768px) {
-  html .footer__container--text-modifier--items--text-wrapper, html .footer__container p--items--text-wrapper {
+  html .footer__container--text-modifier--items--text-wrapper,
+  html .footer__container p--items--text-wrapper {
     font-family: "Avenir Demi", sans-serif;
   }
 }
 @media (min-width: 1280px) {
-  html .footer__container--text-modifier--items--text-wrapper, html .footer__container p--items--text-wrapper {
+  html .footer__container--text-modifier--items--text-wrapper,
+  html .footer__container p--items--text-wrapper {
     font-family: "Avenir Demi", sans-serif;
     font-size: 1.125rem;
   }

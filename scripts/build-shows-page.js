@@ -1,7 +1,7 @@
 // HTML STARTING TAG (QUERY SELECTOR)
 const container = document.querySelector('.shows-container');
 
-// Define the show data
+// Define show data
 const shows = [
   { date: 'Mon Sept 06 2021', venue: 'Ronald Lane', location: 'San Francisco, CA' },
   { date: 'Tue Sept 21 2021', venue: 'Pier 3 East', location: 'San Francisco, CA' },
@@ -11,7 +11,6 @@ const shows = [
   { date: 'Wed Dec 15 2021', venue: 'Press club', location: 'San Francisco, CA' },
 ];
 
-// 
 function createShowElement(show) {
 
   const showElement = document.createElement('div');
@@ -41,8 +40,7 @@ function createShowElement(show) {
 
 }
 
-// Define a function to create desktop the show grid view
-
+// Define a function to create desktop show grid view
 function createShowGrid() {
 
   const gridElement = document.createElement('div');
@@ -80,7 +78,7 @@ function createShowGrid() {
   buttonColumnElement.appendChild(buttonColumnTitle);
   gridElement.appendChild(buttonColumnElement);
 
-  // Add the shows to the grid
+  // Add shows to grid
   for (let i = 0; i < shows.length; i++) {
     const show = shows[i];
     const showElement = createShowElement(show);
@@ -108,10 +106,10 @@ function createShowGrid() {
 
   //hover-in
   gridElement.addEventListener('mouseover', (event) => {
-    // get the index of the child element that was hovered over
+    // get index of child element that was hovered over
     const index = Array.from(event.target.parentNode.children).indexOf(event.target);
 
-    // find all elements with the same index in their parent element (i.e., same row)
+    // find all elements with same index in their parent element (i.e., same row)
     const rowElements = document.querySelectorAll(`.show-grid > :first-child  > *:not(.show-column-title):not(.button-class):nth-child(${index + 1})`);
 
     // add class to trigger hover effect for each row element
@@ -121,10 +119,10 @@ function createShowGrid() {
   });
   //hover-out
   gridElement.addEventListener('mouseout', (event) => {
-    // get the index of the child element that was hovered over
+    // get index of child element that was hovered over
     const index = Array.from(event.target.parentNode.children).indexOf(event.target);
 
-    // find all elements with the same index in their parent element (i.e., same row)
+    // find all elements with same index in their parent element (i.e., same row)
     const rowElements = document.querySelectorAll(`.show-grid > :first-child  > *:not(.show-column-title):not(.button-class):nth-child(${index + 1})`);
 
     // remove class to remove hover effect for each row element
@@ -134,25 +132,25 @@ function createShowGrid() {
   });
 
   gridElement.addEventListener('click', (event) => {
-    // check if the target element is a child element of the grid row
+    // check if target element is a child element of grid row
     if (event.target.closest('.show-grid' + (event.target.classList.contains('clicked') ? '.clicked' : '') + ' > *')) {
-      // check if any element in the grid has the class 'clicked'
+      // check if any element in grid has class 'clicked'
       const isAnyClicked = document.querySelector('.show-grid .clicked');
       if (isAnyClicked) {
-        // remove the class from all elements in the grid
+        // remove class from all elements in grid
         document.querySelectorAll('.show-grid .clicked').forEach((element) => {
           element.classList.remove('clicked');
         });
 
       }
 
-      // get the index of the child element that was clicked within its own row
+      // get index of child element that was clicked within its own row
       const index = Array.from(event.target.parentElement.children).indexOf(event.target);
 
-      // find all elements with the same index in their parent element (i.e., same row)
+      // find all elements with same index in their parent element (i.e., same row)
       const rowElements = document.querySelectorAll(`.show-grid > :first-child > *:not(.show-column-title):not(.button-class):nth-child(${index + 1})`);
 
-      // toggle the 'clicked' class for each row element
+      // toggle 'clicked' class for each row element
       rowElements.forEach((element) => {
         element.classList.toggle('clicked');
       });
@@ -161,11 +159,10 @@ function createShowGrid() {
 
   return gridElement;
 
-
 }
 
 
-//Define a function to add event listeners to the grid
+//Define a function to add event listeners to grid
 function addEventListenersToGrid() {
   // Add event listeners to each column header
   const columnHeaders = document.querySelectorAll(".show-column-title");
@@ -176,22 +173,22 @@ function addEventListenersToGrid() {
   rows.forEach(function (row) { });
 }
 
-
+//Media Query start>>>
 const mediaQuery = window.matchMedia('(max-width: 767px)');
 
-// Create a function to handle the media query change
+// Create a function to handle media query change
 
 function handleTabletScreenChange(e) {
   console.log(e)
-  // If the media query is active, show the mobile elements and remove the desktop elements
+  // If media query is active, show mobile elements and remove desktop elements
   if (e.matches) {
-    // Remove the desktop elements
+    // Remove desktop elements
     const deskShows = container.querySelectorAll('.show-grid');
     for (let i = 0; i < deskShows.length; i++) {
       const deskShow = deskShows[i];
       container.removeChild(deskShow);
     }
-    // Add the mobile elements
+    // Add mobile elements
     for (let i = 0; i < shows.length; i++) {
       const show = shows[i];
       const showElement = createMobileElement(show);
@@ -199,32 +196,28 @@ function handleTabletScreenChange(e) {
     }
   } else {
 
-    // If the media query is not active, remove the mobile elements and show the desktop elements
-    // Remove the mobile elements
+    // If media query is not active, remove mobile elements and show desktop elements
+    // Remove mobile elements
     const mobileShows = container.querySelectorAll('.show-mobile');
     for (let i = 0; i < mobileShows.length; i++) {
       const mobileShow = mobileShows[i];
       container.removeChild(mobileShow);
     }
 
-    // Add the desktop elements
-
+    // Add desktop elements
     const showGrid = createShowGrid();
     container.appendChild(showGrid);
 
   }
 }
 
-// Add the event listener to the media query
-
+// Add event listener to media query
 mediaQuery.addEventListener('change', handleTabletScreenChange);
 
-// Run the function once to check the initial state of the media query
-
+// Run function once to check initial state of media query
 handleTabletScreenChange(mediaQuery);
 
-//creating the mobile view
-
+//creating mobile view
 function createMobileElement(show) {
 
   const showElement = document.createElement('div');

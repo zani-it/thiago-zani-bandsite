@@ -163,7 +163,8 @@
   line-height: 1rem;
   font-weight: 300;
 }
-.shows-container button, .shows-container .button--grid {
+.shows-container button,
+.shows-container .button--grid {
   display: flex;
   justify-content: center;
   padding: 1rem 1rem;
@@ -177,11 +178,13 @@
   background-color: #323232;
 }
 @media (max-width: 767px) {
-  .shows-container button, .shows-container .button--grid {
+  .shows-container button,
+  .shows-container .button--grid {
     width: 85vw;
   }
 }
-.shows-container button:hover, .shows-container .button--grid:hover {
+.shows-container button:hover,
+.shows-container .button--grid:hover {
   background-color: #000;
 }
 .shows-container h1 {
@@ -299,11 +302,6 @@
     font-size: 1rem;
     color: #323232;
     margin-bottom: 10px;
-  }
-}
-@media (max-width: 767px) {
-  .show-mobile button {
-    margin-top: auto;
   }
 }
 
