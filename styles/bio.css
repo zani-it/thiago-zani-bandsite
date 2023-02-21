@@ -641,6 +641,11 @@ html .comment__button:hover {
 html .comment__input-error {
   border: 1px solid #d22d2d;
 }
+html .comment__input-error--message {
+  color: #ff0000;
+  font-size: 0.75rem;
+  margin-top: -1rem;
+}
 html .comment__content {
   padding-top: 1.5rem;
   flex-wrap: wrap;
