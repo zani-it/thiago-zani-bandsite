@@ -703,6 +703,12 @@ html {
 
         &__input-error {
             border: 1px solid $secondary__band-error;
+            
+            &--message{
+                color:#ff0000;
+                font-size: 0.75rem;
+                margin-top: -1rem
+            }
         }
 
         &__content{

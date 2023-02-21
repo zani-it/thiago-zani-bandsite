@@ -4,6 +4,7 @@ const commentInput = document.getElementById('comment-input');
 var comments = JSON.parse(localStorage.getItem('comments')) || [];
 const commentList = document.querySelector('.comments');
 var firstSubmit = true;
+const formError = document.getElementById('form-error');
 
 
 
@@ -72,17 +73,22 @@ function submitComment(event) {
   if (!name || !content) {
     const formError = document.getElementById('form-error');
     formError.textContent = 'Please fill in both fields';
+    
 
     if (!name) {
       nameInput.classList.add('comment__input-error');
+      formError.classList.add('comment__input-error--message');
     } else {
       nameInput.classList.remove('comment__input-error');
+      formError.classList.remove('comment__input-error--message');
     }
 
     if (!content) {
       commentInput.classList.add('comment__input-error');
+      formError.classList.add('comment__input-error--message');
     } else {
       commentInput.classList.remove('comment__input-error');
+      formError.classList.remove('comment__input-error--message');
     }
 
 
@@ -103,8 +109,13 @@ function submitComment(event) {
   nameInput.value = '';
   commentInput.value = '';
 
+
+  //cleaning error message
+  
   nameInput.classList.remove('comment__input-error');
   commentInput.classList.remove('comment__input-error');
+  formError.classList.remove('comment__input-error--message');
+  formError.textContent = 'Thanks for your comment!';
 }
 
 function submitDetection() {
