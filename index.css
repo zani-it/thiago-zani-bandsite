@@ -155,7 +155,6 @@ html body .hero__cover:before {
   right: 0;
   bottom: 0;
   background-color: rgba(50, 50, 50, 0.5);
-  z-index: 1;
 }
 @media (max-width: 767px) {
   html body .hero__cover {

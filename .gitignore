@@ -1,5 +1,6 @@
 Thumbs.db
 .DS_Store
 *.css.map
+*.css
 assets/.DS_Store
 assets/reference.html
