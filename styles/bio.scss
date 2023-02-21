@@ -337,15 +337,17 @@ html {
     .section{
         &__photo{
                 background-color: $secondary__band-alabaster;
+                
                 @include for--mobile{
-                    padding: 0 1rem;
+                    padding: 0 1rem 2rem 1rem;
                     margin: 0 -1rem;
+                    
                 }
                 @include for--tablet{
-                    padding: 0 2rem;
+                    padding: 0 2rem 2rem 2rem;
                 }
                 @include for--desktop{
-                    padding: 0 10rem;
+                    padding: 0 10rem 2rem 1F0rem;
                 }
             &-gallery{
                 display:flex;
@@ -416,6 +418,256 @@ html {
                 }
             }
     }
+.comment {
+
+  
+    &__section{
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: center;
+        // align-items: center;
+        padding: 5vw 0vw;
+        width: 100%;
+        background-color: #fff;
+
+     
+
+        &--content{
+            padding: 5vw;
+            font-family: 'Avenir Regular', sans-serif;
+            line-height: 1.125rem;
+            font-weight: 400;
+            @include for--tablet{
+                width: 45vw;
+            }
+            
+
+        }
+
+        @include for--tablet {
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+    }
+    &--title{
+        margin-left: 2vw;
+        @include for--tablet{
+        margin: 5vw 0vw 5vw 5vw;
+        align-self: flex-start;
+        }
+    }
+    
+    &__label {
+
+        font-weight: 700;
+        font-size: 0.75rem;
+        color: $primary__band-silver;
+    }
+     
+    &__text-area {
+        
+        justify-content: center;
+        display: flex; 
+        outline: none;
+        border: 1px solid $primary__band-silver;
+        font-size: 1rem;
+        min-width: 14rem;
+        min-height: 6rem;
+        margin: 1rem 0;
+        border-radius: 4px;
+        width: 100%;
+        
+
+      
+        &--name {
+        justify-content: center;
+        display: flex;
+        outline: none;
+        border: 1px solid $primary__band-silver;
+        font-size: 1rem;
+        min-width: 14rem;
+        min-height: 36px;
+        margin: 1rem 0;
+        border-radius: 4px;
+        height: 1.5rem;
+        margin-top: 0.5rem;
+        width: 100%;
+        &:focus {
+            border-color: $primary__band-gray;
+          }
+        }
+
+        &:focus {
+            border-color: $primary__band-gray;
+          }
+      }
+ 
+    &__form{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        @include for--tablet{
+            justify-content: center;
+        }
+
+
+            &--item{
+            display: flex;
+           
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 100%;
+            @include for--tablet{
+                justify-content: center;
+            }
+
+                &--input {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    width: 100%;
+
+                }
+
+
+            }
+    }
+
+    &__name{
+        font-weight: 700;
+        font-size: 1rem;
+    }
+    &__text{
+        
+        font-family: 'Avenir Regular', sans-serif;
+        font-size: 0.813rem;
+        line-height: 1.125rem;
+        font-weight: 400;
+    }
+    &__item{
+   
+      
+        
+        
+        &--title{
+            display: flex;
+            justify-content: space-between;
+
+
+        }
+
+    }
+
+    &__wrapper{
+        display: flex;
+        justify-content: flex-start;
+        border-top: 1px solid $primary__band-silver;
+        border-bottom: 1px solid $primary__band-silver;
+        margin-bottom: -1px;
+        padding: 1rem 2rem;
+        
+       
+
+    }
+
+    &__timestamp{
+
+        color: $primary__band-silver;
+        margin-left: 1rem;
+        margin-bottom: 1.5rem;
+     
+    }
+    
+    &__button {
+
+        display: flex;
+        justify-content: center;
+        padding: 1rem 1rem;
+        border: none;
+        margin-bottom: 2rem;
+        font-size: 20px;
+        font-weight: 700;
+        min-width: 14rem;
+        width: 102%;
+        border-radius: 5px;
+        color:#fff;
+        background-color:$primary__band-gray;
+
+        &:hover{
+
+            background-color: $secondary__band-black;
+        }
+
+        @include for--tablet{
+            max-width: 200px;
+            align-self: flex-end;
+        }
+        
+    
+    } 
+
+    &__input-error{
+        border: 1px solid $secondary__band-error;
+    }
+    
+
+}
+
+.comment__avatar {
+
+    border-radius: 50%;
+    margin: 0.5rem 0.5rem 0.5rem 0rem;
+    height: 36px;
+    width: 36px;
+    min-height: 36px;
+    min-width: 36px;
+
+    @include for--tablet{
+        height: 48px;
+        width: 48px;
+        min-height: 48px;
+        min-width: 48px;
+
+    }
+  }
+
+.comment__avatar--sender{
+                        
+    background-image: url("../assets/images/mohan-muruge.jpg");
+    background-size: cover;
+    background-color: #ff0000;
+    height: 36px;
+    width: 36px;
+    min-width: 36px;
+    border-radius: 50%;
+    margin: 1.75rem 0.5rem 0.5rem 0rem;
+
+        @include for--tablet{
+            transition: 0.5s;
+            margin: 1.5rem;
+            height: 48px;
+            width: 48px;
+            min-width: 48px;
+
+        }
+
+
+    
+}
+
+.comments{
+
+    font-family: 'Avenir Regular', sans-serif;
+    font-size: 0.813rem;
+    line-height: 1.125rem;
+    font-weight: 400;
+
+}
+
     .footer{
         &__image--wrap {
             display: inline-block;
