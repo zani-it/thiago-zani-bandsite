@@ -5,34 +5,48 @@
   &__cover-b {
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
+      justify-content: center;
       align-items: center;
       background-image: url(../assets/images/hero-shows.jpg);
       background-position: center;
       background-size: cover;
       width: 100%;
       margin: 80px 0 0 0;
-      height: 50vw;
+      height: 80vw;
       position: relative;
+      @include for--tablet{
+        height: 50vw;
+      }
 
         &--organizer{
-          
           display: flex;
-          
           justify-content: flex-start;
-          
           color: #fff;
-          align-items: center;
+          align-items: flex-start;
+          width: 90vw;
+
+          @include for--mobile{
+
+            flex-direction: column;
           
-          height: 45Vw;
+          }
+
+          @include for--tablet {
+            display: flex;
+            justify-content: center;
+            color: #fff;
+            align-items: center;
+            width: 90vw;
+          }
          
-        }
+        
           &--item{
-            margin-top: 80px;
+            margin-top: 20px;
             position:relative;
             z-index: 2;
-            @include for--desktop;
-            padding-left: 10vw;
+            @include for--desktop{
+
+          }
 
         }
           &:before {
@@ -49,25 +63,46 @@
       padding-bottom: 1.5rem;
       margin-bottom: 1.5rem;
   }
+}
   &--title{
     
-      padding-left: 4vw;
+      padding-top: 2vw;
       color: $primary__band-white;
       position:relative;
       z-index: 2;
-      @include for--desktop{
-          padding-left: 10vw;
+      @include for--tablet{
+
+      }
+      &--pre-hero{
+        position:relative;
+        z-index: 2;
+        font-size: 1rem;
+        font-weight: 300;
+        @include for--tablet{
+
+        }
+
+
+
       }
   }
   }
 }
 .soundcloud {
-  display: flex;
 
-  padding-left: 5vw;
-  padding-right: 15vw;
+  margin: 5vw 0vw 0vw 0vw;
+  display: flex;
   position:relative;
   z-index: 2;
+
+  @include for--tablet{
+
+    height: 180px;
+    width: 400px;
+    padding-left: 10vw;
+
+  }
+
  
 
 
@@ -75,8 +110,8 @@
 
 .show {
   transition: ease-in-out 1s;
-  border-bottom: 1px solid #000;
   margin: 0;
+  padding-top: 5vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -97,7 +132,7 @@
   &-date, &-venue, &-location {
     font-size: 1rem;
     text-align: left;
-    padding: 2rem 2rem 2rem 1rem ;
+    
     color:black;
     width: 100%;
     min-width: 10rem;
@@ -110,17 +145,32 @@
       color: black;
       width: 100%;
       min-width: 3rem;
+      padding: 2rem 2rem 2rem 1rem ;
     }
   }
   &__title{
-    
-    padding-right: 1rem;
+    width: 50vw;
+
+    @include for--mobile{
+      font-family: "Avenir Demi";
+      font-size: 2rem;
+      margin-left: -3rem;
+    }
+    @include for--tablet{
+      width: 20vw;
+
+    }
+
 
   }
 
   &-date {
     font-weight: bold;
+    color:#000
   }
+    &-date:hover {
+      color: #000;
+    }
 }
 
 .shows-container {
@@ -130,7 +180,7 @@
   align-items: center;
   margin: 0 20px;
   padding: 20px 0;
-  border-bottom: 1px solid black;
+
   font-size: 18px;
   max-width: 100%;
 
@@ -140,17 +190,27 @@
   font-weight: 300;
   
   button, .button--grid {
+    @include for--mobile{
+      width: 85vw;
+    }
+  
+
     display: flex;
     justify-content: center;
     padding: 1rem 1rem;
-    margin: 1rem 2rem;
+    margin: 1.05rem 0rem;
     border: none;
     font-size: 20px;
     font-weight: 700;
     width: 12.5rem;
     border-radius: 5px;
     color:#fff;
-    background-color:black
+    background-color: $primary__band-gray;
+
+    &:hover {
+      background-color: $secondary__band-black;
+      
+    }
     
 
   } 
@@ -184,6 +244,8 @@
       margin-left: 10px;
       margin-right: 10px;
       padding-bottom: 20px;
+      z-index: 1 ;
+  
 
       @include for--tablet{
         display: flex;
@@ -195,10 +257,14 @@
       }
 
       &-title {
-        
+
+        @include for--tablet{
         font-size: 1rem;
         margin-bottom: 1rem;
         padding-left: 2rem;
+        color: $secondary__band-mercury;
+      
+      }
 
         &-ticket{
           font-size: 1rem;
@@ -210,21 +276,34 @@
       }
       .row-divider {
         width: 500%;
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid $secondary__band-mercury;
         margin-bottom: 10px;
 
       }
     }
   }
 }
+
     .show-mobile {
-      @media (max-width: 700px) {
+      @include for--mobile {
       display: flex;
       flex-direction: column;
+      justify-content: flex-start;
       padding: 20px;
-      border: 1px solid #ccc;
       margin-bottom: 20px;
       position: relative;
+      width: 85vw;
+
+      .show-column-title {
+        @include for--mobile{
+          color: $primary__band-silver;
+          font-size: 1rem;
+          margin-bottom: 0.2rem;
+          padding-left: 0rem;
+        }
+      }
+
+
 
       &::after {
         content: "";
@@ -237,20 +316,29 @@
       }
 
       .show-date {
-        font-size: 18px;
-        font-weight: 700;
-        color: #f4f4f4;
+        font-size: 1rem;
+        color: $primary__band-gray;
         margin-bottom: 10px;
+
+      
+      }
+      .show-venue {
+
+      font-size: 1rem;
+        color: $primary__band-gray;
+        margin-bottom: 10px;
+
       }
 
       .show-divider {
         margin: 10px 0;
+        color: $primary__band-silver;
+   
       }
 
-      .show-venue,
       .show-location {
-        font-size: 16px;
-        color: #fff;
+        font-size: 1rem;
+        color: $primary__band-gray;
         margin-bottom: 10px;
       }
 
@@ -259,3 +347,20 @@
       }
     }
   }
+
+.hover {
+  transition: 0.5s;
+  z-index: 9999;
+  background-color: $secondary__band-mercury;
+
+  width: 800%;
+  
+
+}
+.clicked {
+  transition: 0.5s;
+  z-index: 99999;
+  background-color: $primary__band-silver;
+  width: 800%;
+  color: $secondary__band-black
+}
