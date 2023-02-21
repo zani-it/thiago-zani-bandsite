@@ -9,24 +9,57 @@ var firstSubmit = true;
 
 function displayComment(comment) {
   const commentEl = document.createElement('article');
-  commentEl.classList.add('comment');
+  commentEl.classList.add('comment__item');
+
+  const titleEl = document.createElement('div');
+  titleEl.classList.add('comment__item--title');
 
   const nameEl = document.createElement('h4');
   nameEl.classList.add('comment__name');
   nameEl.textContent = comment.name;
-  commentEl.appendChild(nameEl);
 
   const timestampEl = document.createElement('span');
   timestampEl.classList.add('comment__timestamp');
   timestampEl.textContent = timeSince(comment.timestamp);
-  commentEl.appendChild(timestampEl);
 
-  const contentEl = document.createElement('p');
-  contentEl.classList.add('comment__content');
-  contentEl.textContent = comment.content;
+  titleEl.appendChild(nameEl);
+  titleEl.appendChild(timestampEl);
+
+  commentEl.appendChild(titleEl);
+
+  const contentEl = document.createElement('div');
+  contentEl.classList.add('textc');
+
+  const textEl = document.createElement('p');
+  textEl.classList.add('comment__content');
+  textEl.textContent = comment.content;
+
+  contentEl.appendChild(textEl);
+
   commentEl.appendChild(contentEl);
 
-  commentList.insertBefore(commentEl, commentList.firstChild);
+  const avatarEl = document.createElement('div');
+  avatarEl.classList.add('comment__avatar');
+  
+  var avatarImg = document.createElement('img');
+  avatarImg.setAttribute('src', comment.avatarUrl);
+  avatarImg.classList.add('comment__avatar');
+  
+  
+  avatarImg.onerror = function() {
+    // set gray background if image not found
+    avatarImg.style.backgroundColor = '#ccc';
+  };
+  
+  avatarEl.appendChild(avatarImg);
+  
+  const commentWrapperEl = document.createElement('div');
+  commentWrapperEl.classList.add('comment__wrapper');
+  
+  commentWrapperEl.appendChild(avatarEl);
+  commentWrapperEl.appendChild(commentEl);
+  
+  commentList.insertBefore(commentWrapperEl, commentList.firstChild);
 }
 
 function submitComment(event) {
@@ -38,6 +71,19 @@ function submitComment(event) {
   if (!name || !content) {
     const formError = document.getElementById('form-error');
     formError.textContent = 'Please fill in both fields';
+
+    if (!name) {
+      nameInput.classList.add('comment__input-error');
+    } else {
+      nameInput.classList.remove('comment__input-error');
+    }
+
+    if (!content) {
+      commentInput.classList.add('comment__input-error');
+    } else {
+      commentInput.classList.remove('comment__input-error');
+    }
+
     return;
   }
 
@@ -47,7 +93,7 @@ function submitComment(event) {
   comments.shift(comment);
   localStorage.setItem('comments', JSON.stringify(comments.slice(0, 3)));
 
-  submitDetection()
+  submitDetection();
 
   displayComment(comment);
   nameInput.value = '';
@@ -89,19 +135,19 @@ function loadComments() {
     let list =
       [
         {
-          "name": "01",
-          "timestamp": 1176866415791,
-          "content": "dasda"
+          "name": "Miles Acosta",
+          "timestamp": '02/17/2021',
+          "content": "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough."
         },
         {
-          "name": "02",
-          "timestamp": 1276866415791,
-          "content": "dasda"
+          "name": "Emilie Beach",
+          "timestamp": '01/09/2021',
+          "content": "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day."
         },
         {
-          "name": "03",
-          "timestamp": 1576866415791,
-          "content": "dasda"
+          "name": "Connor Walton",
+          "timestamp": '02/17/2021',
+          "content": "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains."
         },
       ]
 
