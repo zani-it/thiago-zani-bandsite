@@ -233,6 +233,7 @@ html {
             }
 
             &__content {
+                
                 &--header {
                     @include for--mobile {
                         margin-bottom: 1.5rem;
@@ -645,6 +646,8 @@ html {
             &--title {
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
+                
 
 
             }
@@ -667,7 +670,6 @@ html {
 
             color: $primary__band-silver;
             margin-left: 1rem;
-            margin-bottom: 1.5rem;
 
         }
 
@@ -703,6 +705,17 @@ html {
             border: 1px solid $secondary__band-error;
         }
 
+        &__content{
+            padding-top: 1.5rem;
+            //display: flex;
+            flex-wrap: wrap;
+            overflow-wrap: break-word;
+            width: 60vw;
+            @include for--tablet{
+
+            width: 35vw;
+        }
+        }
 
     }
 

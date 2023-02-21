@@ -601,6 +601,7 @@ html .comment__text {
 html .comment__item--title {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 html .comment__wrapper {
   display: flex;
@@ -613,7 +614,6 @@ html .comment__wrapper {
 html .comment__timestamp {
   color: #afafaf;
   margin-left: 1rem;
-  margin-bottom: 1.5rem;
 }
 html .comment__button {
   display: flex;
@@ -640,6 +640,17 @@ html .comment__button:hover {
 }
 html .comment__input-error {
   border: 1px solid #d22d2d;
+}
+html .comment__content {
+  padding-top: 1.5rem;
+  flex-wrap: wrap;
+  overflow-wrap: break-word;
+  width: 60vw;
+}
+@media (min-width: 768px) {
+  html .comment__content {
+    width: 35vw;
+  }
 }
 html .comment__avatar {
   border-radius: 50%;
