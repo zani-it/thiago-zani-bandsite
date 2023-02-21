@@ -1,20 +1,26 @@
-// Select the container element
+// HTML STARTING TAG (QUERY SELECTOR)
 const container = document.querySelector('.shows-container');
 
 // Define the show data
 const shows = [
   { date: 'Mon Sept 06 2021', venue: 'Ronald Lane', location: 'San Francisco, CA' },
   { date: 'Tue Sept 21 2021', venue: 'Pier 3 East', location: 'San Francisco, CA' },
-  { date: 'Fri Oct 15 2021', venue: 'view Lounge', location: 'San Francisco, CA' },
+  { date: 'Fri Oct 15 2021', venue: 'View Lounge', location: 'San Francisco, CA' },
   { date: 'Sat nov 06 2021', venue: 'Hyatt agency', location: 'San Francisco, CA' },
   { date: 'Fri Nov 26 2021', venue: 'Moscow Center', location: 'San Francisco, CA' },
   { date: 'Wed Dec 15 2021', venue: 'Press club', location: 'San Francisco, CA' },
 ];
 
-// Define a function to create a single show element
+// 
 function createShowElement(show) {
+
   const showElement = document.createElement('div');
   showElement.classList.add('show');
+
+  const buttonElement = document.createElement('button');
+  buttonElement.classList.add('button--grid');
+  buttonElement.textContent = 'BUY TICKETS';
+  showElement.appendChild(buttonElement);
 
   const dateElement = document.createElement('div');
   dateElement.classList.add('show-date');
@@ -31,11 +37,6 @@ function createShowElement(show) {
   locationElement.textContent = show.location;
   showElement.appendChild(locationElement);
 
-  const buttonElement = document.createElement('button');
-  buttonElement.classList.add('button--grid');
-  buttonElement.textContent = 'BUY TICKETS';
-  showElement.appendChild(buttonElement);
-
   return showElement;
 
 }
@@ -43,6 +44,7 @@ function createShowElement(show) {
 // Define a function to create desktop the show grid view
 
 function createShowGrid() {
+
   const gridElement = document.createElement('div');
   gridElement.classList.add('show-grid');
 
@@ -70,7 +72,6 @@ function createShowGrid() {
   locationColumnElement.appendChild(locationColumnTitle);
   gridElement.appendChild(locationColumnElement);
 
-  // Add a new column for the buttons
   const buttonColumnElement = document.createElement('div');
   buttonColumnElement.classList.add('show-column');
   const buttonColumnTitle = document.createElement('h2');
@@ -83,50 +84,100 @@ function createShowGrid() {
   for (let i = 0; i < shows.length; i++) {
     const show = shows[i];
     const showElement = createShowElement(show);
+    const buttonElement = showElement.querySelector('.button--grid');
     const dateElement = showElement.querySelector('.show-date');
     const venueElement = showElement.querySelector('.show-venue');
     const locationElement = showElement.querySelector('.show-location');
-    const buttonElement = showElement.querySelector('.button--grid');
-  
 
+    buttonColumnElement.appendChild(buttonElement);
     dateColumnElement.appendChild(dateElement);
     venueColumnElement.appendChild(venueElement);
     locationColumnElement.appendChild(locationElement);
-    buttonColumnElement.appendChild(buttonElement);
+
 
     if ((i + 1) < shows.length) {
+
       const rowDivider = document.createElement('div');
       rowDivider.classList.add('row-divider');
       dateColumnElement.appendChild(rowDivider.cloneNode(true));
       venueColumnElement.appendChild(rowDivider.cloneNode(true));
       locationColumnElement.appendChild(rowDivider.cloneNode(true));
-      //buttonColumnElement.appendChild(rowDivider.cloneNode(true));
+
     }
   }
 
+  //hover-in
+  gridElement.addEventListener('mouseover', (event) => {
+    // get the index of the child element that was hovered over
+    const index = Array.from(event.target.parentNode.children).indexOf(event.target);
+
+    // find all elements with the same index in their parent element (i.e., same row)
+    const rowElements = document.querySelectorAll(`.show-grid > :first-child  > *:not(.show-column-title):not(.button-class):nth-child(${index + 1})`);
+
+    // add class to trigger hover effect for each row element
+    rowElements.forEach((element) => {
+      element.classList.add('hover');
+    });
+  });
+  //hover-out
+  gridElement.addEventListener('mouseout', (event) => {
+    // get the index of the child element that was hovered over
+    const index = Array.from(event.target.parentNode.children).indexOf(event.target);
+
+    // find all elements with the same index in their parent element (i.e., same row)
+    const rowElements = document.querySelectorAll(`.show-grid > :first-child  > *:not(.show-column-title):not(.button-class):nth-child(${index + 1})`);
+
+    // remove class to remove hover effect for each row element
+    rowElements.forEach((element) => {
+      element.classList.remove('hover');
+    });
+  });
+
+  gridElement.addEventListener('click', (event) => {
+    // check if the target element is a child element of the grid row
+    if (event.target.closest('.show-grid' + (event.target.classList.contains('clicked') ? '.clicked' : '') + ' > *')) {
+      // check if any element in the grid has the class 'clicked'
+      const isAnyClicked = document.querySelector('.show-grid .clicked');
+      if (isAnyClicked) {
+        // remove the class from all elements in the grid
+        document.querySelectorAll('.show-grid .clicked').forEach((element) => {
+          element.classList.remove('clicked');
+        });
+
+      }
+
+      // get the index of the child element that was clicked within its own row
+      const index = Array.from(event.target.parentElement.children).indexOf(event.target);
+
+      // find all elements with the same index in their parent element (i.e., same row)
+      const rowElements = document.querySelectorAll(`.show-grid > :first-child > *:not(.show-column-title):not(.button-class):nth-child(${index + 1})`);
+
+      // toggle the 'clicked' class for each row element
+      rowElements.forEach((element) => {
+        element.classList.toggle('clicked');
+      });
+    }
+  });
+
   return gridElement;
+
+
 }
 
-  //Define a function to add event listeners to the grid
-  function addEventListenersToGrid() {
-    // Add event listeners to each column header
-    const columnHeaders = document.querySelectorAll(".show-column-title");
-    columnHeaders.forEach(function (header) {});
-  
-    // Add event listeners to each row
-    const rows = document.querySelectorAll(".show");
-    rows.forEach(function (row) {});
-  }
-  
-  // Wait for the DOM to be ready
-  // document.addEventListener("DOMContentLoaded", function () {
-  //   const showGrid = createShowGrid();
-  //   container.appendChild(showGrid);
-  //   addEventListenersToGrid();
-  // });
-    
-  // Check if the media query is currently active
-const mediaQuery = window.matchMedia('(max-width: 700px)');
+
+//Define a function to add event listeners to the grid
+function addEventListenersToGrid() {
+  // Add event listeners to each column header
+  const columnHeaders = document.querySelectorAll(".show-column-title");
+  columnHeaders.forEach(function (header) { });
+
+  // Add event listeners to each row
+  const rows = document.querySelectorAll(".show");
+  rows.forEach(function (row) { });
+}
+
+
+const mediaQuery = window.matchMedia('(max-width: 767px)');
 
 // Create a function to handle the media query change
 
@@ -147,7 +198,7 @@ function handleTabletScreenChange(e) {
       container.appendChild(showElement);
     }
   } else {
-    
+
     // If the media query is not active, remove the mobile elements and show the desktop elements
     // Remove the mobile elements
     const mobileShows = container.querySelectorAll('.show-mobile');
@@ -165,30 +216,57 @@ function handleTabletScreenChange(e) {
 }
 
 // Add the event listener to the media query
+
 mediaQuery.addEventListener('change', handleTabletScreenChange);
 
 // Run the function once to check the initial state of the media query
+
 handleTabletScreenChange(mediaQuery);
 
 //creating the mobile view
 
 function createMobileElement(show) {
+
   const showElement = document.createElement('div');
   showElement.classList.add('show-mobile');
+
+  const dateColumnTitle = document.createElement('h2');
+  dateColumnTitle.classList.add('show-column-title');
+  dateColumnTitle.textContent = 'Date';
 
   const dateElement = document.createElement('div');
   dateElement.classList.add('show-date');
   dateElement.textContent = show.date;
+
+  showElement.appendChild(dateColumnTitle);
   showElement.appendChild(dateElement);
+
+  const venueColumnTitle = document.createElement('h2');
+  venueColumnTitle.classList.add('show-column-title');
+  venueColumnTitle.textContent = 'Venue';
 
   const venueElement = document.createElement('div');
   venueElement.classList.add('show-venue');
+  const venueHeading = document.createElement('h2');
+  venueHeading.textContent = 'Venue';
+  venueElement.appendChild(venueHeading);
   venueElement.textContent = show.venue;
+
+  showElement.appendChild(venueColumnTitle);
   showElement.appendChild(venueElement);
+
+  const locationColumnTitle = document.createElement('h2');
+  locationColumnTitle.classList.add('show-column-title');
+  locationColumnTitle.textContent = 'Location';
 
   const locationElement = document.createElement('div');
   locationElement.classList.add('show-location');
+  const locationHeading = document.createElement('h2');
+  locationHeading.textContent = 'Location';
+  locationElement.appendChild(locationHeading);
   locationElement.textContent = show.location;
+
+  showElement.appendChild(locationColumnTitle);
   showElement.appendChild(locationElement);
 
   const buttonElement = document.createElement('button');
@@ -200,5 +278,8 @@ function createMobileElement(show) {
   dividerElement.classList.add('show-divider');
   showElement.appendChild(dividerElement);
 
+
   return showElement;
+
+
 }
