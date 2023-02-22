@@ -1,47 +1,48 @@
+/// https://project-1-api.herokuapp.com/showdates?api_key=%3Cfa33b2ca-0688-4357-bb7c-260f60f456ef%3E
+
 /// https://project-1-api.herokuapp.com/showdates?api_key=<fa33b2ca-0688-4357-bb7c-260f60f456ef>
-
-
-// HTML STARTING TAG (QUERY SELECTOR)
+const apiAddressShows = 'https://project-1-api.herokuapp.com/showdates?api_key=';
+const apiKey = 'd17ee7f2-34f4-4bae-b206-8af2fd2e6731';
 const container = document.querySelector('.shows-container');
 
+
 // Define show data
-const shows = [
-  { date: 'Mon Sept 06 2021', venue: 'Ronald Lane', location: 'San Francisco, CA' },
-  { date: 'Tue Sept 21 2021', venue: 'Pier 3 East', location: 'San Francisco, CA' },
-  { date: 'Fri Oct 15 2021', venue: 'View Lounge', location: 'San Francisco, CA' },
-  { date: 'Sat nov 06 2021', venue: 'Hyatt agency', location: 'San Francisco, CA' },
-  { date: 'Fri Nov 26 2021', venue: 'Moscow Center', location: 'San Francisco, CA' },
-  { date: 'Wed Dec 15 2021', venue: 'Press club', location: 'San Francisco, CA' },
-];
+async function createShowElements() {
+  const response = await fetch(`${apiAddressShows}${apiKey}`);
+  const showsData = await response.json();
 
-function createShowElement(show) {
+  console.log(showsData);
 
-  const showElement = document.createElement('div');
-  showElement.classList.add('show');
+  for (const show of showsData) { 
+    const showElement = document.createElement('div');
+    showElement.classList.add('show');
 
-  const buttonElement = document.createElement('button');
-  buttonElement.classList.add('button--grid');
-  buttonElement.textContent = 'BUY TICKETS';
-  showElement.appendChild(buttonElement);
+    const buttonElement = document.createElement('button');
+    buttonElement.classList.add('button--grid');
+    buttonElement.textContent = 'BUY TICKETS';
+    showElement.appendChild(buttonElement);
 
-  const dateElement = document.createElement('div');
-  dateElement.classList.add('show-date');
-  dateElement.textContent = show.date;
-  showElement.appendChild(dateElement);
+    const dateElement = document.createElement('div');
+    dateElement.classList.add('show-date');
+    dateElement.textContent = new Date(show.date).toLocaleDateString();
+    showElement.appendChild(dateElement);
 
-  const venueElement = document.createElement('div');
-  venueElement.classList.add('show-venue');
-  venueElement.textContent = show.venue;
-  showElement.appendChild(venueElement);
+    const venueElement = document.createElement('div');
+    venueElement.classList.add('show-venue');
+    venueElement.textContent = show.place;
+    showElement.appendChild(venueElement);
 
-  const locationElement = document.createElement('div');
-  locationElement.classList.add('show-location');
-  locationElement.textContent = show.location;
-  showElement.appendChild(locationElement);
+    const locationElement = document.createElement('div');
+    locationElement.classList.add('show-location');
+    locationElement.textContent = show.location;
+    showElement.appendChild(locationElement);
 
-  return showElement;
-
+    container.appendChild(showElement);
+  }
 }
+
+createShowElements();
+
 
 // Define a function to create desktop show grid view
 function createShowGrid() {
@@ -221,7 +222,7 @@ mediaQuery.addEventListener('change', handleTabletScreenChange);
 handleTabletScreenChange(mediaQuery);
 
 //creating mobile view
-function createMobileElement(show) {
+async function createMobileElement(show) {
 
   const showElement = document.createElement('div');
   showElement.classList.add('show-mobile');

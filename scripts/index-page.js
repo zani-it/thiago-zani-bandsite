@@ -4,33 +4,23 @@ const commentInput = document.getElementById('comment-input');
 const commentList = document.querySelector('.comments');
 const formError = document.getElementById('form-error');
 const apiAddressComments = 'https://project-1-api.herokuapp.com/comments?api_key=';
-const apiKey = ('631ae958-2c1c-463d-8425-6e1fe9de5a66');
+const apiKey = 'd17ee7f2-34f4-4bae-b206-8af2fd2e6731';
 
 
 
-async function displayComments(reverse=false) {
+async function displayComments() {
   // Fetch comments from API
   const response = await fetch(`${apiAddressComments}${apiKey}`);
-   comments = await response.json();
-   
-   if (reverse) {
-    comments.reverse();
-    
-  }
-  
-<<<<<<< Updated upstream
-  var avatarImg = document.createElement('img');
-  //avatarImg.setAttribute('src', comment.avatarUrl);
-  avatarImg.classList.add('comment__avatar');
-  
-  
-  avatarImg.onerror = function() {
-    // set gray background if image not found
-=======
-   console.log(comments);
+  comments = await response.json();
+
+  comments.sort(function (x, y) {
+    return x.timestamp - y.timestamp;
+  });
+
+  console.log(comments);
 
   for (const comment of comments) {
-    
+
     const commentEl = document.createElement('article');
     commentEl.classList.add('comment__item');
 
@@ -64,7 +54,6 @@ async function displayComments(reverse=false) {
     avatarEl.classList.add('comment__avatar');
 
     const avatarImg = document.createElement('img');
->>>>>>> Stashed changes
     avatarImg.style.backgroundColor = '#ccc';
 
     avatarEl.appendChild(avatarImg);
@@ -76,7 +65,7 @@ async function displayComments(reverse=false) {
     commentWrapperEl.appendChild(commentEl);
 
     commentList.insertBefore(commentWrapperEl, commentList.firstChild);
-  
+
   }
 }
 
@@ -127,14 +116,14 @@ async function submitComment(event) {
     const comment = await response.json();
     //clear previous loaded comments
     commentList.innerHTML = '';
-    displayComments(true);
-  
+    displayComments();
+
     nameInput.value = '';
     commentInput.value = '';
     formError.textContent = 'Thanks for your comment!';
   } else {
     formError.textContent = 'Error submitting comment. Please try again.';
-  }  
+  }
 }
 
 function submitDetection() {
@@ -155,18 +144,61 @@ function timeSince(timestamp) {
     hour12: true
   };
   return new Date(timestamp).toLocaleString('en-US', options);
+
+}
+
+function timeSince(timestamp) {
+
+  const minute = 60 * 1000;
+  const hour = minute * 60;
+  const day = hour * 24;
+  const week = day * 7;
+  const month = day * 30;
+
+  const now = new Date().getTime();
+  const diffTime = now - timestamp;
+
+  if (diffTime < minute) {
+    return 'just now';
+  }
+  else if (diffTime < hour) {
+    const num = Math.floor(diffTime / minute);
+    return `${num} minute${num === 1 ? '' : 's'} ago`;
+  }
+  else if (diffTime < day) {
+    const num = Math.floor(diffTime / hour);
+    return `${num} hour${num === 1 ? '' : 's'} ago`;
+  }
+  else if (diffTime < week) {
+    const num = Math.floor(diffTime / day);
+    return `${num} day${num === 1 ? '' : 's'} ago`;
+  }
+  else if (diffTime < month) {
+    const num = Math.floor(diffTime / month);
+    return `${num} month${num === 1 ? '' : 's'} ago`;
+  }
+
+  else {
+    const options = {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true
+    };
+    return new Date(timestamp).toLocaleString('en-US', options);
+  }
 }
 
 //load comments
 function init() {
-  displayComments(false);
- 
-  
+  displayComments();
+
+
   commentForm.addEventListener('submit', async (event) => {
     await submitComment(event);
-    
-    displayComments = true; // Only reverse comments after a successful submission
-    
+
   });
 }
 
