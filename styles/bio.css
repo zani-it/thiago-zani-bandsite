@@ -645,6 +645,8 @@ html .comment__input-error--message {
   color: #ff0000;
   font-size: 0.75rem;
   margin-top: -1rem;
+  display: flex;
+  justify-self: start;
 }
 html .comment__content {
   padding-top: 1.5rem;

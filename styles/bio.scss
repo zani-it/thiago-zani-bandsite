@@ -707,7 +707,9 @@ html {
             &--message{
                 color:#ff0000;
                 font-size: 0.75rem;
-                margin-top: -1rem
+                margin-top: -1rem;
+                display: flex;
+                justify-self: start;
             }
         }
 
