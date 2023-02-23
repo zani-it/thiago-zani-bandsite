@@ -1,6 +1,8 @@
 @use "./partials/variables" as *;
 @use "./partials/mixins" as *;
 
+// hero section
+
 .hero {
   &__cover-b {
     display: flex;
@@ -12,7 +14,7 @@
     background-size: cover;
     width: 100%;
     margin: 80px 0 0 0;
-    height: 80vw;
+    height: 100vw;
     position: relative;
 
     @include for--tablet {
@@ -97,103 +99,93 @@
   }
 }
 
-.show {
-  transition: ease-in-out 1s;
-  margin: 0;
-  padding-top: 5vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+// start of body section
 
-  @include for--tablet {
-    transition: ease-in-out 1s;
-    padding: 2.5vw 0vw 0vw 5vw;
-    width: 100%;
-    align-items: flex-start;
-  }
-
-  @include for--desktop {
-    transition: ease-in-out 1s;
+.show{
+  padding: 5vw 2vw;
+  border-bottom: 1px solid $primary__band-silver;
+  
+  @include for--tablet{
+    padding: 0vw 2vw;
     display: flex;
     flex-direction: row;
-    width: 100%;
   }
-
-  &-date,
-  &-venue,
-  &-location {
-    font-size: 1rem;
-    text-align: left;
-    color: black;
-    width: 100%;
-    min-width: 10rem;
-    max-height: 1rem;
-
-    @include for--tablet {
+  &__date{
+    font-weight: 700;
+    
+  }
+  &__date, &__venue, &__location {
+    @include for--tablet{
+      width: 15vw;
+    }
+    
+    &--title{
+      color: $primary__band-silver;
       font-size: 0.875rem;
-      text-align: left;
-      padding: 2rem 1rem 2rem 1rem;
-      color: black;
-      width: 100%;
-      min-width: 3rem;
-      padding: 2rem 2rem 2rem 1rem;
-    }
-  }
-
-  &__title {
-    width: 50vw;
-
-    @include for--mobile {
-      font-family: "Avenir Demi";
-      font-size: 2rem;
-      margin-left: -3rem;
+      @include for--tablet{
+        visibility: hidden;
+      }
     }
 
-    @include for--tablet {
-      width: 20vw;
+  }
+
+  &__title{
+    padding: 2vw;
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: "Avenir Demi", sans-serif;
+    @include for--desktop{
+      padding-right: 5vw;
     }
+    &--grid{
+    @include for--mobile{
+      display: none;
+    }
+
+    @include for--tablet{
+      padding: 2vw 0vw 0vw 2vw;
+      display: flex;
+      flex-direction: row;
+      &--desktop{
+        display: flex;
+        width: 15vw;
+        font-family: "Avenir Demi";
+        font-size: 1rem;
+        color: $primary__band-silver;
+
+      }
+    }
+    
   }
 
-  &-date {
-    font-weight: bold;
-    color: #000
-  }
+ 
 
-  &-date:hover {
-    color: #000;
   }
 }
 
 .shows-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 20px;
-  padding: 20px 0;
-  font-size: 18px;
-  max-width: 100%;
-  font-family: 'Avenir Regular', sans-serif;
-  font-size: 1.5rem;
-  line-height: 1rem;
+  font-family: "Avenir Regular", sans-serif;
+  line-height: 2rem;
   font-weight: 300;
+  margin-bottom: 2vw;
 
   button,
   .button--grid {
-    display: flex;
-    justify-content: center;
+
     padding: 1rem 1rem;
-    margin: 1.05rem 0rem;
+    margin: 1rem 0rem;
+
     border: none;
     font-size: 20px;
     font-weight: 700;
-    width: 12.5rem;
+    width: 15vw;
+    min-width: 12.5rem;
     border-radius: 5px;
     color:#fff;
     background-color: $primary__band-gray;
 
     @include for--mobile {
-      width: 85vw;
+      width: 100%;
     }
 
     &:hover {
@@ -201,128 +193,6 @@
     }
   }
 
-  h1 {
-    text-align: left;
-    margin-right: auto;
-  }
-
-  .show-grid {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 60vw;
-    overflow: clip;
-
-    @include for--tablet {
-      width: 85vw;
-    }
-
-    @include for--desktop {
-      width: 70vw;
-    }
-
-    .show-column {
-      display: flex;
-      flex-direction: column;
-      align-items: start;
-      margin-left: 10px;
-      margin-right: 10px;
-      padding-bottom: 20px;
-      z-index: 1;
-
-      @include for--tablet {
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        margin-left: 10px;
-        margin-right: 10px;
-        padding-bottom: 20px;
-      }
-
-      &-title {
-
-        @include for--tablet {
-          font-size: 1rem;
-          margin-bottom: 1rem;
-          padding-left: 2rem;
-          color: $secondary__band-mercury;
-        }
-
-        &-ticket {
-          font-size: 1rem;
-          margin-bottom: 1rem;
-          padding-left: 2rem;
-          color: transparent;
-        }
-
-      }
-
-      .row-divider {
-        width: 500%;
-        border-bottom: 1px solid $secondary__band-mercury;
-        margin-bottom: 10px;
-      }
-    }
-  }
-}
-
-.show-mobile {
-  @include for--mobile {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 20px;
-    margin-bottom: 20px;
-    position: relative;
-    width: 85vw;
-
-    .show-column-title {
-      @include for--mobile {
-        color: $primary__band-silver;
-        font-size: 1rem;
-        margin-bottom: 0.2rem;
-        padding-left: 0rem;
-      }
-    }
-
-
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background-color: #ccc;
-    }
-
-    .show-date {
-      font-size: 1rem;
-      color: $primary__band-gray;
-      margin-bottom: 10px;
-
-
-    }
-
-    .show-venue {
-      font-size: 1rem;
-      color: $primary__band-gray;
-      margin-bottom: 10px;
-    }
-
-    .show-divider {
-      margin: 10px 0;
-      color: $primary__band-silver;
-    }
-
-    .show-location {
-      font-size: 1rem;
-      color: $primary__band-gray;
-      margin-bottom: 10px;
-    }
-  }
-}
 
 .hover {
   transition: 0.5s;
@@ -337,4 +207,5 @@
   background-color: $primary__band-silver;
   width: 800%;
   color: $secondary__band-black
+}
 }

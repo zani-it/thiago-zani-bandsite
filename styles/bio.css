@@ -497,7 +497,7 @@ html .comment__section {
   background-color: #fff;
 }
 html .comment__section--content {
-  padding: 5vw;
+  padding: 5vw 0vw;
   font-family: "Avenir Regular", sans-serif;
   line-height: 1.125rem;
   font-weight: 400;
@@ -609,7 +609,7 @@ html .comment__wrapper {
   border-top: 1px solid #afafaf;
   border-bottom: 1px solid #afafaf;
   margin-bottom: -1px;
-  padding: 1rem 2rem;
+  padding: 1rem;
 }
 html .comment__timestamp {
   color: #afafaf;
@@ -642,9 +642,19 @@ html .comment__input-error {
   border: 1px solid #d22d2d;
 }
 html .comment__input-error--message {
-  color: #ff0000;
+  color: #d22d2d;
   font-size: 0.75rem;
-  margin-top: -1rem;
+  margin-top: -1.1rem;
+  padding-top: 0.5rem;
+  margin-bottom: -0.5rem;
+  display: flex;
+  justify-self: start;
+}
+html .comment__input-error--message-none {
+  font-size: 0.75rem;
+  margin-top: -1.1rem;
+  padding-top: 0.5rem;
+  margin-bottom: -0.5rem;
   display: flex;
   justify-self: start;
 }
@@ -684,7 +694,7 @@ html .comment__avatar--sender {
   width: 36px;
   min-width: 36px;
   border-radius: 50%;
-  margin: 1.75rem 0.5rem 0.5rem 0rem;
+  margin: 1.75rem 1rem 0.5rem 0rem;
 }
 @media (min-width: 768px) {
   html .comment__avatar--sender {
@@ -768,10 +778,8 @@ html .footer__container {
 }
 @media (min-width: 1280px) {
   html .footer__container--colum-modifier {
-    display: flex;
-    justify-content: space-between;
+    transition: 0.5s;
     padding-left: 11vw;
-    width: 60vw;
   }
 }
 html .footer__container--text-modifier,
@@ -841,6 +849,18 @@ html .footer__container p--items--copyright {
   html .footer__container p--items--copyright {
     margin: -4.25rem 0rem 0rem -6rem;
     padding-top: 0rem;
+    visibility: hidden;
+  }
+}
+html .footer__container--text-modifier--items--copyright--header,
+html .footer__container p--items--copyright--header {
+  visibility: hidden;
+}
+@media (min-width: 1280px) {
+  html .footer__container--text-modifier--items--copyright--header,
+  html .footer__container p--items--copyright--header {
+    visibility: visible;
+    margin-left: 33%;
   }
 }
 @media (min-width: 768px) {

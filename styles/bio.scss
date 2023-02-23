@@ -515,7 +515,7 @@ html {
 
 
             &--content {
-                padding: 5vw;
+                padding: 5vw 0vw;
                 font-family: 'Avenir Regular', sans-serif;
                 line-height: 1.125rem;
                 font-weight: 400;
@@ -660,7 +660,7 @@ html {
             border-top: 1px solid $primary__band-silver;
             border-bottom: 1px solid $primary__band-silver;
             margin-bottom: -1px;
-            padding: 1rem 2rem;
+            padding: 1rem;
 
 
 
@@ -705,11 +705,22 @@ html {
             border: 1px solid $secondary__band-error;
             
             &--message{
-                color:#ff0000;
+                color: $secondary__band-error;
                 font-size: 0.75rem;
-                margin-top: -1rem;
+                margin-top: -1.1rem;
+                padding-top: 0.5rem;
+                margin-bottom: -0.5rem;
                 display: flex;
                 justify-self: start;
+
+                &-none{
+                    font-size: 0.75rem;
+                    margin-top: -1.1rem;
+                    padding-top: 0.5rem;
+                    margin-bottom: -0.5rem;
+                    display: flex;
+                    justify-self: start;
+                }
             }
         }
 
@@ -755,7 +766,7 @@ html {
         width: 36px;
         min-width: 36px;
         border-radius: 50%;
-        margin: 1.75rem 0.5rem 0.5rem 0rem;
+        margin: 1.75rem 1rem 0.5rem 0rem;
 
         @include for--tablet {
             transition: 0.5s;
@@ -847,12 +858,9 @@ html {
                     padding-left: 4vw;
                     width: 92vw;
                 }
-
                 @include for--desktop {
-                    display: flex;
-                    justify-content: space-between;
+                    transition: 0.5s;
                     padding-left: 11vw;
-                    width: 60vw;
                 }
             }
 
@@ -913,6 +921,15 @@ html {
                         @include for--desktop {
                             margin: -4.25rem 0rem 0rem -6rem;
                             padding-top: 0rem;
+                            visibility: hidden;
+                        }
+                        &--header{
+                            visibility: hidden;
+                            @include for--desktop {
+                                visibility: visible;
+                                margin-left: 33%;
+                            }
+
                         }
                     }
 

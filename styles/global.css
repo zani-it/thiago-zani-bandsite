@@ -22,16 +22,16 @@
     font-size: 3.75rem;
     line-height: 4.25rem;
     font-weight: 700;
-    margin: 0 0;
+    margin: 0;
   }
 }
-@media (min-width: 768px) and (max-width: 1279px) {
+@media (min-width: 768px) {
   h1 {
     font-family: "Avenir Demi", sans-serif;
     font-size: 3.75rem;
     line-height: 4.25rem;
     font-weight: 700;
-    margin: 0 0;
+    margin: 0;
   }
 }
 @media (max-width: 767px) {
@@ -40,7 +40,7 @@
     font-size: 1.5rem;
     line-height: 2rem;
     font-weight: 700;
-    margin: 0 0;
+    margin: 0;
   }
 }
 
@@ -50,25 +50,25 @@
     font-size: 2.25rem;
     line-height: 2.75rem;
     font-weight: 700;
-    margin: 0 0;
+    margin: 0;
   }
 }
-@media (min-width: 768px) and (max-width: 1279px) {
+@media (min-width: 768px) {
   h2 {
     font-family: "Avenir Demi", sans-serif;
     font-size: 2.25rem;
     line-height: 2.75rem;
     font-weight: 600;
-    margin: 0 0;
+    margin: 0;
   }
 }
 @media (max-width: 767px) {
   h2 {
     font-family: "Avenir Regular", sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.875rem;
     line-height: 2rem;
     font-weight: 700;
-    margin: 0 0;
+    margin: 0;
   }
 }
 
@@ -78,16 +78,16 @@
     font-size: 1.5rem;
     line-height: 2rem;
     font-weight: 600;
-    margin: 0 0;
+    margin: 0;
   }
 }
-@media (min-width: 768px) and (max-width: 1279px) {
+@media (min-width: 768px) {
   h3 {
     font-family: "Avenir Regular", sans-serif;
     font-size: 1rem;
     line-height: 1.5rem;
     font-weight: lighter;
-    margin: 0 0;
+    margin: 0;
   }
 }
 @media (max-width: 767px) {
@@ -96,67 +96,34 @@
     font-size: 1rem;
     line-height: 1.375rem;
     font-weight: 500;
-    margin: 0 0;
+    margin: 0;
   }
 }
 
 @media (min-width: 1280px) {
-  .font__body, h4, p {
+  .font__body, h4, p, a {
     font-family: "Avenir Regular", sans-serif;
     font-size: 0.875rem;
     line-height: 1.375rem;
     font-weight: 400;
-    margin: 0 0;
+    margin: 0;
   }
 }
-@media (min-width: 768px) and (max-width: 1279px) {
-  .font__body, h4, p {
+@media (min-width: 768px) {
+  .font__body, h4, p, a {
     font-family: "Avenir Regular", sans-serif;
     font-size: 0.875rem;
     line-height: 1.375rem;
     font-weight: 400;
-    margin: 0 0;
+    margin: 0;
   }
 }
 @media (max-width: 767px) {
-  .font__body, h4, p {
+  .font__body, h4, p, a {
     font-family: "Avenir Regular", sans-serif;
-    font-size: 0.813rem;
-    line-height: 1.125rem;
-    font-weight: 400;
-    margin: 0 0;
-  }
-}
-
-@media (max-width: 767px) {
-  a {
-    font-family: "Avenir Regular", sans-serif;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     line-height: 1.25rem;
-    font-weight: 300;
-    margin: 0 0;
-  }
-}
-@media (min-width: 768px) and (max-width: 1279px) {
-  a {
-    font-family: "Avenir Regular", sans-serif;
-    font-size: 1rem;
-    line-height: 1.5rem;
     font-weight: 400;
-    margin: 0 0;
+    margin: 0;
   }
-}
-@media (min-width: 1280px) {
-  a {
-    font-family: "Avenir Regular", sans-serif;
-    font-size: 1rem;
-    line-height: 1.5rem;
-    font-weight: 400;
-    margin: 0 0;
-  }
-}
-
-ul {
-  margin: 0;
-  padding: 0;
 }/*# sourceMappingURL=global.css.map */

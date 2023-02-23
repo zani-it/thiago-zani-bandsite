@@ -5,6 +5,25 @@ const apiAddressShows = 'https://project-1-api.herokuapp.com/showdates?api_key='
 const apiKey = 'd17ee7f2-34f4-4bae-b206-8af2fd2e6731';
 const container = document.querySelector('.shows-container');
 
+const titleElementWrapper = document.createElement('div');
+titleElementWrapper.classList.add('show__title--grid');
+
+const titleDateElement = document.createElement('div');
+titleDateElement.classList.add('show__title--grid--desktop');
+titleDateElement.textContent = 'DATE'
+titleElementWrapper.appendChild(titleDateElement);
+
+const titleVenueElement = document.createElement('div');
+titleVenueElement.classList.add('show__title--grid--desktop');
+titleVenueElement.textContent = 'VENUE'
+titleElementWrapper.appendChild(titleVenueElement);
+
+const titleLocationElement = document.createElement('div');
+titleLocationElement.classList.add('show__title--grid--desktop');
+titleLocationElement.textContent = 'LOCATION'
+titleElementWrapper.appendChild(titleLocationElement);
+
+container.appendChild(titleElementWrapper);
 
 // Define show data
 async function createShowElements() {
@@ -15,45 +34,52 @@ async function createShowElements() {
   console.log(showsData);
 
   for (const show of showsData) { 
+
     const showElement = document.createElement('div');
     showElement.classList.add('show');
     container.appendChild(showElement);
+
 //
     const dateWrapperElement = document.createElement('div');
-    dateWrapperElement.classList.add('show-date');
+    dateWrapperElement.classList.add('show__date');
     showElement.appendChild(dateWrapperElement);
   
-    const dateElementTitle = document.createElement('h2');
-    dateElementTitle.classList.add('__title--date');
-    dateElementTitle.textContent = 'Date';
+    const dateElementTitle = document.createElement('h3');
+    dateElementTitle.classList.add('show__date--title');
+    dateElementTitle.textContent = 'DATE';
     dateWrapperElement.appendChild(dateElementTitle);
   
     const dateElement = document.createElement('div');
-    dateElement.textContent = new Date(show.date).toLocaleDateString();
+    const options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };
+    dateElement.textContent = new Date(show.date).toLocaleDateString(undefined, options);
     dateWrapperElement.appendChild(dateElement);
 //
     const venueWrapperElement = document.createElement('div');
-    venueWrapperElement.classList.add('show-venue');
+    venueWrapperElement.classList.add('show__venue');
     showElement.appendChild(venueWrapperElement);
 
-    const venueElementTitle = document.createElement('h2');
-    venueElementTitle.classList.add('__title--venue');
-    venueElementTitle.textContent = 'Venue';
+    const venueElementTitle = document.createElement('h3');
+    venueElementTitle.classList.add('show__venue--title');
+    venueElementTitle.textContent = 'VENUE';
     venueWrapperElement.appendChild(venueElementTitle);
 
     const venueElement = document.createElement('div');
     venueElement.textContent = show.place;
-    showElement.appendChild(venueElement);
+    venueWrapperElement.appendChild(venueElement);
 //  
-    const venueColumnTitle = document.createElement('h2');
-    venueColumnTitle.classList.add('show-column-title');
-    venueColumnTitle.textContent = 'Venue';
+    const locationWrapperElement = document.createElement('div');
+    locationWrapperElement.classList.add('show__location');
+    showElement.appendChild(locationWrapperElement);
+
+    const locationElementTitle = document.createElement('h3');
+    locationElementTitle.classList.add('show__location--title');
+    locationElementTitle.textContent = 'LOCATION';
+    locationWrapperElement.appendChild(locationElementTitle)
 
     const locationElement = document.createElement('div');
-    locationElement.classList.add('show-location');
     locationElement.textContent = show.location;
-    showElement.appendChild(locationElement);
-
+    locationWrapperElement.appendChild(locationElement);
+//
 
     const buttonElement = document.createElement('button');
     buttonElement.classList.add('button--grid');

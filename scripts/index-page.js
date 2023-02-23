@@ -79,49 +79,38 @@ async function submitComment(event) {
 
   if (!name || !content) {
     formError.textContent = 'Please fill in both fields';
-
-    if (!name) {
-      nameInput.classList.add('comment__input-error');
-      formError.classList.add('comment__input-error--message');
-    } else {
-      nameInput.classList.remove('comment__input-error');
-      formError.classList.remove('comment__input-error--message');
-    }
-
-    if (!content) {
-      commentInput.classList.add('comment__input-error');
-      formError.classList.add('comment__input-error--message');
-    } else {
-      commentInput.classList.remove('comment__input-error');
-      formError.classList.remove('comment__input-error--message');
-    }
-
+    nameInput.classList.toggle('comment__input-error', !name);
+    commentInput.classList.toggle('comment__input-error', !content);
+    formError.classList.toggle('comment__input-error--message', !name || !content);
     return;
   }
 
   const timestamp = Date.now();
 
-  const response = await fetch(`${apiAddressComments}${apiKey}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      name: name,
+  try {
+    const response = await axios.post(`${apiAddressComments}${apiKey}`, {
+      name,
       comment: content,
-    })
-  });
+    });
 
-  if (response.ok) {
-    const comment = await response.json();
-    //clear previous loaded comments
-    commentList.innerHTML = '';
-    displayComments();
+    if (response.status === 200) {
+      const comment = response.data;
+      //clear previous loaded comments
+      commentList.innerHTML = '';
+      displayComments();
 
-    nameInput.value = '';
-    commentInput.value = '';
-    formError.textContent = 'Thanks for your comment!';
-  } else {
+      nameInput.value = '';
+      commentInput.value = '';
+      commentInput.classList.remove('comment__input-error');
+      nameInput.classList.remove('comment__input-error');
+      formError.classList.remove('comment__input-error--message');
+      formError.classList.add('comment__input-error--message-none');
+      formError.textContent = 'Thanks for your comment!';
+    } else {
+      formError.textContent = 'Error submitting comment. Please try again.';
+    }
+  } catch (error) {
+    console.error(error);
     formError.textContent = 'Error submitting comment. Please try again.';
   }
 }
