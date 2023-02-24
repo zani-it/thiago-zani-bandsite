@@ -12,6 +12,7 @@ async function displayComments() {
   // Fetch comments from API
   const response = await fetch(`${apiAddressComments}${apiKey}`);
   comments = await response.json();
+  console.log(comments);
 
   comments.sort(function (x, y) {
     return x.timestamp - y.timestamp;
@@ -69,7 +70,7 @@ async function displayComments() {
   }
 }
 
-// submitting and display comments
+// submitting and display comments 
 
 async function submitComment(event) {
   event.preventDefault();
@@ -87,11 +88,9 @@ async function submitComment(event) {
 
   const timestamp = Date.now();
 
+//USING AxIOS !!!
   try {
-    const response = await axios.post(`${apiAddressComments}${apiKey}`, {
-      name,
-      comment: content,
-    });
+    const response = await axios.post(`${apiAddressComments}${apiKey}`, { name, comment: content, });
 
     if (response.status === 200) {
       const comment = response.data;
