@@ -550,9 +550,14 @@ html body {
 }
 
 .show {
-  padding: 5vw 2vw;
+  padding: 5vw 2vw 5vw 2vw;
   border-bottom: 1px solid #afafaf;
   margin-bottom: -15px;
+}
+@media (min-width: 768px) {
+  .show {
+    padding: 0vw 2vw 5vw;
+  }
 }
 .show__column {
   padding-top: 1rem;
@@ -597,7 +602,7 @@ html body {
   }
 }
 .show__title {
-  padding: 2vw;
+  padding: 2vw 0vw;
   font-size: 2rem;
   font-weight: 700;
   font-family: "Avenir Demi", sans-serif;

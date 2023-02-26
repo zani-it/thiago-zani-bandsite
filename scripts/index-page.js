@@ -8,7 +8,7 @@ const apiLike = 'https://project-1-api.herokuapp.com/comments/';
 const apiKey = 'd17ee7f2-34f4-4bae-b206-8af2fd2e6731';
 
 async function displayComments() {
-  // Fetch comments from API
+  // get comments from API
   const response = await axios.get(`${apiAddressComments}${apiKey}`);
   comments = response.data;
   console.log(comments);

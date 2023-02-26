@@ -2,9 +2,12 @@
 @use './mixins' as*;
 
 .show {
-    padding: 5vw 2vw;
+    padding: 5vw 2vw 5vw 2vw;
     border-bottom: 1px solid $primary__band-silver;
     margin-bottom: -15px;
+        @include for--tablet{
+            padding: 0vw 2vw 5vw;
+        }
 
     &__column {
         padding-top: 1rem;
@@ -53,7 +56,7 @@
     }
 
     &__title {
-        padding: 2vw;
+        padding: 2vw 0vw;
         font-size: 2rem;
         font-weight: 700;
         font-family: "Avenir Demi", sans-serif;
