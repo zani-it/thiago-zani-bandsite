@@ -1,3 +1,5 @@
+@use './mixins' as *;
+
 $font-regular: "Avenir Regular", sans-serif;
 $font-bold: "Avenir Demi", sans-serif;
 $font-semi-bold: "Avenir Bold", sans-serif;
@@ -31,4 +33,35 @@ $font-semi-bold: "Avenir Bold", sans-serif;
   font-style: normal;
 }
 
+h1 {
+  @include font-styles($font-regular, 1.5rem, 2rem, 700);
+
+  @include for--tablet {
+    @include font-styles($font-bold, 3.75rem, 4.25rem, 700);
+  }
+}
+
+h2 {
+  @include font-styles($font-regular, 1.875rem, 2rem, 700);
+  @include for--tablet {
+    @include font-styles($font-bold, 2.25rem, 2.75rem, 600);
+  }
+}
+
+h3 {
+  @include font-styles($font-bold, 1rem, 1.375rem, 500);
+  @include for--desktop {
+    @include font-styles($font-bold, 1.5rem, 2rem, 600);
+  }
+  @include for--tablet {
+    @include font-styles($font-regular, 1rem, 1.5rem, lighter);
+  }
+}
+
+.font__body, h4, p, a {
+  @include font-styles($font-regular, 0.875rem, 1.25rem, 400);
+  @include for--tablet {
+    @include font-styles($font-regular, 0.875rem, 1.375rem, 400);
+  }
+}
 

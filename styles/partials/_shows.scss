@@ -1,0 +1,133 @@
+@use './variables' as*;
+@use './mixins' as*;
+
+.show {
+    padding: 5vw 2vw;
+    border-bottom: 1px solid $primary__band-silver;
+    margin-bottom: -15px;
+
+    &__column {
+        padding-top: 1rem;
+        @include for--tablet {
+            justify-content: space-between;
+            transition: 0.5s;
+            border-bottom: 2px solid $secondary__band-mercury;
+
+            &:hover {
+                background-color: $secondary__band-mercury;
+                cursor: pointer;
+            }
+
+            &.clicked {
+                background-color: $primary__band-silver;
+            }
+        }
+
+        @include for--tablet {
+            padding: 0vw 2vw;
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 0px;
+        }
+
+        &__date {
+            font-weight: 700;
+        }
+
+        &__date,
+        &__venue,
+        &__location {
+            @include for--tablet {
+                width: 15vw;
+            }
+
+            &--title {
+                color: $primary__band-silver;
+                font-size: 0.875rem;
+
+                @include for--tablet {
+                    visibility: hidden;
+                }
+            }
+        }
+    }
+
+    &__title {
+        padding: 2vw;
+        font-size: 2rem;
+        font-weight: 700;
+        font-family: "Avenir Demi", sans-serif;
+
+        @include for--desktop {
+            padding-right: 5vw;
+        }
+
+        &--grid {
+
+            @include for--mobile {
+                display: none;
+            }
+
+            @include for--tablet {
+                padding: 2vw 0vw 1vw 2vw;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+
+                &--horizontal {
+                    display: flex;
+                    width: 22vw;
+
+                    font-family: "Avenir Demi";
+                    font-size: 1rem;
+                    color: $primary__band-silver;
+                }
+            }
+
+            @include for--desktop {
+                max-width: 46vw;
+            }
+        }
+    }
+
+    button,
+    .button--grid {
+        padding: 1rem 1rem;
+        margin: 1rem 0rem;
+        border: none;
+        font-size: 20px;
+        font-weight: 700;
+        width: 15vw;
+        min-width: 12.5rem;
+        border-radius: 5px;
+        color: #fff;
+        background-color: $primary__band-gray;
+
+        @include for--mobile {
+            width: 100%;
+        }
+
+        &:hover {
+            background-color: $secondary__band-black;
+        }
+    }
+
+    &__divider {
+        border-bottom: 2px solid $secondary__band-mercury;
+    }
+}
+
+.shows-container {
+    font-family: "Avenir Regular", sans-serif;
+    line-height: 2rem;
+    font-weight: 300;
+
+    @include for--tablet {
+        margin-left: 3vw;
+    }
+
+    @include for--desktop {
+        margin-left: 20vw;
+        max-width: 65vw;
+    }
+}

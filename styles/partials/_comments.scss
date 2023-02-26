@@ -1,0 +1,326 @@
+@use './mixins' as*;
+@use './variables' as*;
+@use './fonts' as*;
+
+.comment {
+    &__section {
+        padding: 5vw 0vw;
+        width: 100%;
+        background-color: #fff;
+
+        &--content {
+            font-family: 'Avenir Regular', sans-serif;
+            line-height: 1.125rem;
+            font-weight: 400;
+
+            @include for--tablet {
+                width: 75vw;
+            }
+
+            @include for--desktop {
+                width: 50vw;
+            }
+        }
+
+        @include for--tablet {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &--title {
+        margin-left: 2vw;
+
+        @include for--tablet {
+            margin: 2vw 5vw;
+            align-self: flex-start;
+        }
+    }
+
+    &__label {
+        font-weight: 700;
+        font-size: 0.75rem;
+        color: $primary__band-silver;
+    }
+
+    &__text-area {
+        justify-content: center;
+        display: flex;
+        outline: none;
+        border: 1px solid $primary__band-silver;
+        font-size: 1rem;
+        min-width: 14rem;
+        min-height: 6rem;
+        margin: 1rem 0;
+        border-radius: 4px;
+        width: 100%;
+        resize: none;
+        @include font-styles($font-regular, 0.875rem, 1.25rem, 400);
+
+        &--name {
+            justify-content: center;
+            display: flex;
+            outline: none;
+            border: 1px solid $primary__band-silver;
+            font-size: 1rem;
+            min-width: 14rem;
+            min-height: 36px;
+            margin: 1rem 0;
+            border-radius: 4px;
+            height: 1.5rem;
+            margin-top: 0.5rem;
+            width: 100%;
+
+            &:focus {
+                border-color: $primary__band-gray;
+            }
+        }
+
+        &:focus {
+            border-color: $primary__band-gray;
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        @include for--tablet {
+            justify-content: center;
+        }
+
+        &--item {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 100%;
+
+            @include for--tablet {
+                justify-content: center;
+            }
+
+            &--input {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                width: 100%;
+
+            }
+
+        }
+    }
+
+    &__name {
+        font-weight: 700;
+        font-size: 1rem;
+    }
+
+    &__text {
+        font-family: 'Avenir Regular', sans-serif;
+        font-size: 0.813rem;
+        line-height: 1.125rem;
+        font-weight: 400;
+    }
+
+    &__item {
+        &--title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 0.5rem;
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        justify-content: flex-start;
+        border-top: 1px solid $primary__band-silver;
+        border-bottom: 1px solid $primary__band-silver;
+        margin-bottom: -1px;
+        padding: 1rem;
+    }
+
+    &__timestamp {
+        color: $primary__band-silver;
+        margin-left: 1rem;
+    }
+
+    &__button {
+        display: flex;
+        justify-content: center;
+        padding: 1rem 1rem;
+        border: none;
+        margin-bottom: 2rem;
+        margin-top: 1.5rem;
+        font-size: 20px;
+        font-weight: 700;
+        min-width: 14rem;
+        width: 101%;
+        border-radius: 5px;
+        color: #fff;
+        background-color: $primary__band-gray;
+
+        &:hover {
+            background-color: $secondary__band-black;
+        }
+
+        @include for--tablet {
+            max-width: 200px;
+            align-self: flex-end;
+        }
+    }
+
+    &__input-error {
+        border: 1px solid $secondary__band-error;
+
+        &--message {
+            color: $secondary__band-error;
+            font-size: 0.75rem;
+            display: flex;
+            justify-self: start;
+            margin-bottom: -1.15rem;
+
+            &-none {
+                font-size: 0.75rem;
+                margin-bottom: -1.15rem;
+                display: flex;
+                justify-self: start;
+            }
+        }
+    }
+
+    &__content {
+        padding-top: 0.25rem;
+        flex-wrap: wrap;
+        overflow-wrap: break-word;
+
+        @include for--tablet {
+            width: 35vw;
+        }
+    }
+}
+
+.comment__avatar {
+    border-radius: 50%;
+    margin: 0.5rem 0.5rem 0.5rem 0rem;
+    height: 36px;
+    width: 36px;
+    min-height: 36px;
+    min-width: 36px;
+    background-color: $secondary__band-mercury;
+
+    @include for--tablet {
+        height: 48px;
+        width: 48px;
+        min-height: 48px;
+        min-width: 48px;
+
+    }
+}
+
+.comment__item {
+    width: 100%;
+
+
+}
+
+.comment__avatar--sender {
+    background-image: url("../assets/images/mohan-muruge.jpg");
+    background-size: cover;
+    background-color: #ff0000;
+    height: 36px;
+    width: 36px;
+    min-width: 36px;
+    border-radius: 50%;
+    margin: 1.75rem 1rem 0.5rem 0rem;
+
+    @include for--tablet {
+        transition: 0.5s;
+        margin: 1.5rem;
+        height: 48px;
+        width: 48px;
+        min-width: 48px;
+    }
+}
+
+.comments {
+
+    font-family: 'Avenir Regular', sans-serif;
+    font-size: 0.813rem;
+    line-height: 1.125rem;
+    font-weight: 400;
+}
+
+.comment__like {
+    margin: 15px 5px;
+    margin-left: 60vw;
+
+    @include for--desktop {
+        margin-left: 40vw;
+    }
+
+    &-button {
+        position: absolute;
+
+        margin: 0;
+        background: none;
+        border: none;
+        z-index: 1;
+    }
+}
+
+.heart-shape {
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+    background-color: rgb(255, 0, 0);
+}
+
+.heart-shape:before,
+.heart-shape:after {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    content: '';
+    border-radius: 50%;
+    background-color: rgb(255, 0, 0);
+}
+
+.heart-shape:before {
+    bottom: 0px;
+    left: -10px;
+}
+
+.heart-shape:after {
+    top: -10px;
+    right: 0px;
+}
+
+.comment__like-button {
+    margin-top: -7px;
+    margin-left: -7px;
+    color: $primary__band-white;
+    font-weight: bold;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(-45deg);
+}
+
+.comment__delete-button {
+    border: none;
+    background-color: $primary__band-gray;
+    color: $primary__band-white;
+    font-weight: 700;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 70px;
+    margin-left: -90px;
+    transform: rotate(-45deg);
+}

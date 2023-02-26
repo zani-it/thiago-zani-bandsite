@@ -1,0 +1,13 @@
+
+@use './mixins' as*;
+@use './fonts' as*;
+
+
+html {
+  body {
+      margin: 0 0;
+      box-sizing: border-box;
+      overflow-x: hidden;
+  }
+}
+
