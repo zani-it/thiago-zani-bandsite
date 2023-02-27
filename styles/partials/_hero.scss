@@ -1,0 +1,151 @@
+
+@use './mixins' as*;
+@use './variables' as*;
+
+// hero bio
+
+.hero {
+    &__cover {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        background-image: url(../assets/images/hero-bio.jpg);
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        margin: 80px 0 0 0;
+        height: 50vw;
+        position: relative;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(50, 50, 50, 0.5);
+            //z-index: 1;
+        }
+
+        @include for--mobile {
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        &--title {
+            padding-left: 4vw;
+            color: $primary__band-white;
+            position: relative;
+            z-index: 2;
+
+            @include for--desktop {
+                padding-left: 10vw;
+            }
+        }
+    }
+}
+
+// hero shows
+
+.hero {
+  &__cover--b {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../assets/images/hero-shows.jpg);
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    margin: 80px 0 0 0;
+    height: 100vw;
+    position: relative;
+
+    @include for--tablet {
+      height: 50vw;
+    }
+
+    &--organizer {
+      display: flex;
+      justify-content: flex-start;
+      color: #fff;
+      align-items: flex-start;
+      width: 90vw;
+
+      @include for--mobile {
+        flex-direction: column;
+      }
+
+      @include for--tablet {
+        display: flex;
+        justify-content: center;
+        color: #fff;
+        align-items: center;
+        width: 90vw;
+      }
+
+    &--item {
+      margin-top: 20px;
+      position: relative;
+      z-index: 2;
+
+      @include for--desktop {
+      }
+
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(50, 50, 50, 0.5);
+    }
+
+    @include for--mobile {
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+    &--title {
+      padding-top: 2vw;
+      color: $primary__band-white;
+      position: relative;
+      z-index: 2;
+
+      @include for--tablet {
+      }
+
+      &--pre-hero {
+        font-family: "Avenir";
+        font-weight: 400;
+        position: relative;
+        z-index: 2;
+        font-size: 1rem;
+        font-weight: 400;
+        @include for--tablet {
+          font-size: 1.75rem;
+        }
+      }
+    }
+  }
+  &__sound-player {
+    margin: 5vw 0vw 0vw 0vw;
+    display: flex;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    border: none;
+  
+    @include for--tablet {
+      height: 180px;
+      width: 400px;
+      margin-left: 10vw;
+    }
+  }
+}
+

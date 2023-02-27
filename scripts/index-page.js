@@ -1,182 +1,230 @@
 const commentForm = document.getElementById('comment-form');
 const nameInput = document.getElementById('name-input');
 const commentInput = document.getElementById('comment-input');
-var comments = JSON.parse(localStorage.getItem('comments')) || [];
 const commentList = document.querySelector('.comments');
-var firstSubmit = true;
+const formError = document.getElementById('form-error');
+const apiAddressComments = 'https://project-1-api.herokuapp.com/comments?api_key=';
+const apiLike = 'https://project-1-api.herokuapp.com/comments/';
+const apiKey = 'd17ee7f2-34f4-4bae-b206-8af2fd2e6731';
+
+async function displayComments() {
+  // get comments from API
+  const response = await axios.get(`${apiAddressComments}${apiKey}`);
+  comments = response.data;
+
+  comments.sort(function (x, y) {
+    return x.timestamp - y.timestamp;
+  });
+
+  for (const comment of comments) {
+
+    const commentEl = document.createElement('article');
+    commentEl.classList.add('comment__item');
+
+    const titleEl = document.createElement('div');
+    titleEl.classList.add('comment__item--title');
+
+    const nameEl = document.createElement('h4');
+    nameEl.classList.add('comment__name');
+    nameEl.textContent = comment.name;
+
+    const timestampEl = document.createElement('span');
+    timestampEl.classList.add('comment__timestamp');
+    timestampEl.textContent = timeSince(comment.timestamp);
+
+    titleEl.appendChild(nameEl);
+    titleEl.appendChild(timestampEl);
+
+    commentEl.appendChild(titleEl);
+
+    const contentEl = document.createElement('div');
+    contentEl.classList.add('comment__content');
+    commentEl.appendChild(contentEl);
+
+    const textEl = document.createElement('p');
+    textEl.textContent = comment.comment;
+    contentEl.appendChild(textEl);
+
+    const contentLike = document.createElement('div');
+    contentLike.classList.add('comment__like');
+    contentLike.classList.add('heart-shape');
+    contentEl.appendChild(contentLike);
+
+    const contentLikeButton = document.createElement('div');
+    contentLikeButton.classList.add('comment__like-button');
+    contentLike.appendChild(contentLikeButton);
+
+    const contentLikeButtonLikes = document.createElement('span');
+    contentLikeButtonLikes.classList.add('comment__like-button-likes');
+    contentLikeButtonLikes.textContent = comment.likes;
+    contentLikeButton.appendChild(contentLikeButtonLikes);
+
+    const contentDeleteButton = document.createElement('button');
+    contentDeleteButton.textContent = 'Delete';
+    contentDeleteButton.classList.add('comment__delete-button');
+    contentLike.appendChild(contentDeleteButton);
 
 
+    //placeholder for avatar image
+    //set avatar id
+    const avatarId = comment.name;
+    //create elements
+    const avatarEl = document.createElement('div');
+    avatarEl.classList.add('comment__avatar');
+    //add class
+    const avatarImg = document.createElement('img');
+    avatarImg.classList.add('comment__avatar--img');
+    //fetch the avatar id image (api is public and generates images from names)
+    avatarImg.src = `https://api.multiavatar.com/${avatarId}.svg`;
+    avatarImg.alt = avatarId;
 
-function displayComment(comment) {
-  const commentEl = document.createElement('article');
-  commentEl.classList.add('comment__item');
+    avatarEl.appendChild(avatarImg);
 
-  const titleEl = document.createElement('div');
-  titleEl.classList.add('comment__item--title');
+    const commentWrapperEl = document.createElement('div');
+    commentWrapperEl.classList.add('comment__wrapper');
 
-  const nameEl = document.createElement('h4');
-  nameEl.classList.add('comment__name');
-  nameEl.textContent = comment.name;
+    commentWrapperEl.appendChild(avatarEl);
+    commentWrapperEl.appendChild(commentEl);
 
-  const timestampEl = document.createElement('span');
-  timestampEl.classList.add('comment__timestamp');
-  timestampEl.textContent = timeSince(comment.timestamp);
+    commentList.insertBefore(commentWrapperEl, commentList.firstChild);
 
-  titleEl.appendChild(nameEl);
-  titleEl.appendChild(timestampEl);
+    // Add event listener to like button
+    contentLikeButton.addEventListener('click', async () => {
+      try {
+        const response = await axios.put(`${apiLike}${comment.id}/like?api_key=${apiKey}`);
+        const updatedComment = response.data;
 
-  commentEl.appendChild(titleEl);
+        if (response.status === 200) {
+          comment.likes = updatedComment.likes; // Update comment.likes
+          contentLikeButton.textContent = comment.likes; // Update button text
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    });
 
-  const contentEl = document.createElement('div');
-  contentEl.classList.add('textc');
+    contentDeleteButton.addEventListener('click', async () => {
+      try {
 
-  const textEl = document.createElement('p');
-  textEl.classList.add('comment__content');
-  textEl.textContent = comment.content;
+        const response = await axios.delete(`${apiLike}${comment.id}?api_key=${apiKey}`);
+        if (response.status === 200) {
+          // Remove the comment from the UI
 
-  contentEl.appendChild(textEl);
+          commentWrapperEl.remove();
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    });
 
-  commentEl.appendChild(contentEl);
-
-  //will add images to avatar of last comments once assets are provided
-  const avatarEl = document.createElement('div');
-  //avatarEl.classList.add('comment__avatar');
-  
-  //avatarURL still undefined need a function to pull images from array after array of images is created by another function
-  var avatarImg = document.createElement('img');
-  //avatarImg.setAttribute('src', comment.avatarUrl);
-  avatarImg.classList.add('comment__avatar');
-  
-  
-  avatarImg.onerror = function() {
-    // set gray background if image not found
-    avatarImg.style.backgroundColor = '#ccc';
-  };
-  
-  avatarEl.appendChild(avatarImg);
-  
-  const commentWrapperEl = document.createElement('div');
-  commentWrapperEl.classList.add('comment__wrapper');
-  
-  commentWrapperEl.appendChild(avatarEl);
-  commentWrapperEl.appendChild(commentEl);
-  
-  commentList.insertBefore(commentWrapperEl, commentList.firstChild);
+  }
 }
 
-function submitComment(event) {
+// submitting and display comments 
+
+async function submitComment(event) {
   event.preventDefault();
 
   const name = nameInput.value.trim();
   const content = commentInput.value.trim();
 
   if (!name || !content) {
-    const formError = document.getElementById('form-error');
     formError.textContent = 'Please fill in both fields';
-
-    if (!name) {
-      nameInput.classList.add('comment__input-error');
-    } else {
-      nameInput.classList.remove('comment__input-error');
-    }
-
-    if (!content) {
-      commentInput.classList.add('comment__input-error');
-    } else {
-      commentInput.classList.remove('comment__input-error');
-    }
-
-
-    
-
+    nameInput.classList.toggle('comment__input-error', !name);
+    commentInput.classList.toggle('comment__input-error', !content);
+    formError.classList.toggle('comment__input-error--message', !name || !content);
     return;
   }
 
   const timestamp = Date.now();
 
-  const comment = { name, timestamp, content };
-  comments.shift(comment);
-  localStorage.setItem('comments', JSON.stringify(comments.slice(0, 3)));
-
-  submitDetection();
-
-  displayComment(comment);
-  nameInput.value = '';
-  commentInput.value = '';
-
-  nameInput.classList.remove('comment__input-error');
-  commentInput.classList.remove('comment__input-error');
-}
-
-function submitDetection() {
-  if (firstSubmit == true) {
-
-    const elementList = document.querySelector('.comments')
-    console.log(elementList)
-    const childNodes = Array.from(elementList.childNodes);
-    childNodes.reverse();
-    elementList.append(...childNodes);
-
-    firstSubmit = false
-
+  //USING AxIOS !!!
+  try {
+    const response = await axios.post(`${apiAddressComments}${apiKey}`, { name, comment: content, });
+    // check if the server received all ok status 200
+    if (response.status === 200) {
+      const comment = response.data;
+      //clear previous loaded comments
+      commentList.innerHTML = '';
+      //display comments 
+      displayComments();
+      // error submitting or empty fields messages
+      nameInput.value = '';
+      commentInput.value = '';
+      commentInput.classList.remove('comment__input-error');
+      nameInput.classList.remove('comment__input-error');
+      formError.classList.remove('comment__input-error--message');
+      formError.classList.add('comment__input-error--message-none');
+      formError.textContent = 'Thanks for your comment!';
+    } else {
+      formError.textContent = 'Error submitting comment. Please try again.';
+    }
+  } catch (error) {
+    console.error(error);
+    formError.textContent = 'Error submitting comment. Please try again.';
   }
-  
 }
 
 function timeSince(timestamp) {
   const options = {
     year: 'numeric',
-    month: 'short',
+    month: 'numeric',
     day: 'numeric',
     hour: 'numeric',
     minute: 'numeric',
     hour12: true
   };
   return new Date(timestamp).toLocaleString('en-US', options);
+
 }
 
-function clearComments() {
-  commentList.innerHTML = '';
-}
+function timeSince(timestamp) {
 
-function loadComments() {
-  if (comments.length < 3) {
-    let list =
-      [
-        {
-          "name": "Miles Acosta",
-          "timestamp": '02/17/2021',
-          "content": "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough."
-        },
-        {
-          "name": "Emilie Beach",
-          "timestamp": '01/09/2021',
-          "content": "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day."
-        },
-        {
-          "name": "Connor Walton",
-          "timestamp": '02/17/2021',
-          "content": "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains."
-        },
-      ]
+  const minute = 60 * 1000;
+  const hour = minute * 60;
+  const day = hour * 24;
+  const week = day * 7;
+  const month = day * 30;
 
-    comments = list
+  const now = new Date().getTime();
+  const diffTime = now - timestamp;
 
-    console.log(comments)
+  if (diffTime < minute) {
+    return 'just now';
   }
-
-
-  //comments.reverse();
-  comments.forEach((comment) => displayComment(comment));
-
-
+  else if (diffTime < hour) {
+    const num = Math.floor(diffTime / minute);
+    return `${num} minute${num === 1 ? '' : 's'} ago`;
+  }
+  else if (diffTime < day) {
+    const num = Math.floor(diffTime / hour);
+    return `${num} hour${num === 1 ? '' : 's'} ago`;
+  }
+  else if (diffTime < week) {
+    const num = Math.floor(diffTime / day);
+    return `${num} day${num === 1 ? '' : 's'} ago`;
+  }
+  else if (diffTime < month) {
+    const num = Math.floor(diffTime / month);
+    return `${num} month${num === 1 ? '' : 's'} ago`;
+  }
+  else {
+    const options = {
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+    };
+    return new Date(timestamp).toLocaleString('en-US', options);
+  }
 }
+
+//load comments after submit
 function init() {
-  loadComments()
+  displayComments();
 
+  commentForm.addEventListener('submit', async (event) => {
+    await submitComment(event);
 
-  commentForm.addEventListener('submit', submitComment);
+  });
 }
-
-
 init();

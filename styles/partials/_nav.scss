@@ -1,0 +1,126 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.navbar {
+  display: flex;
+
+  &__fix {
+    position: fixed;
+    justify-content: start;
+    align-items: center;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: $primary__band-gray;
+    box-shadow: 0px 0px 10px $secondary__band-black;
+    z-index: 9999;
+    
+    @include for--mobile {
+      flex-direction: column;
+      justify-content: center;
+    }
+    @include for--tablet {
+      justify-content: flex-start;
+      padding-left: 2vw;
+    }
+    @include for--desktop {
+      justify-content: flex-start;
+      padding-left: 7vw;
+    }
+  }
+
+  &__logo {
+    @include for--mobile {
+      justify-content: center;
+      margin: 1rem 0rem 0.65rem;
+    }
+    @include for--tablet {
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 2rem;
+    }
+    display: flex;
+  }
+
+  &__list {
+    margin: 0 0 0 -9vw;
+      @include for--mobile{
+        width: 103%;
+      }
+      @include for--tablet {
+        display: flex;
+        padding: 0rem 2rem;
+        margin: 0;
+      }
+
+    &--item {
+      list-style: none;
+      min-width: 50%;
+
+      & li, a {
+        color: $primary__band-white;
+        text-decoration: none;
+        padding-bottom: 5px;
+        transition: all 0.5s ease-in-out;
+          @include for--mobile {
+            display: flex;
+            justify-content: center;
+          }
+          @include for--tablet {
+            padding: 0rem 1.25rem;
+          }
+
+        &:hover {
+          border-bottom: 5px;
+          border-color: $primary__band-white;
+          border-style: none none solid none;
+            @include for--tablet {
+              padding-bottom: 28px;
+            }
+        }
+      }
+    }
+      @include for--mobile {
+        display: flex;
+        justify-content: center;
+      }
+
+    &--item--bio-btn{
+      display: flex;
+      justify-content: center;
+      color: $primary__band-white;
+      text-decoration: none;
+      padding-bottom: 5px;
+      border-bottom: 5px;
+      border-color: $primary__band-white;
+      border-style: none none solid none;
+      pointer-events: none;
+        @include for--tablet {
+          margin: 0 0 -32px 15px;
+          padding: 0 15px 27px;
+          align-items: center;
+        }
+    }
+
+    &--item--show-btn{
+      display: flex;
+      justify-content: center;
+      color: $primary__band-white;
+      text-decoration: none;
+      padding-bottom: 5px;
+      border-bottom: 5px;
+      border-color: $primary__band-white;
+      border-style: none none solid none;
+      pointer-events: none;
+        @include for--tablet {
+          margin: 0 0 -32px 19px;
+          padding: 0 0px 27px;
+          align-items: center;
+        }
+    }
+  }
+}
