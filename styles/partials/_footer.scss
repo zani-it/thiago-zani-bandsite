@@ -77,9 +77,12 @@
 
         &--text-modifier,
         p {
+            font-family: "Avenir";
+            font-weight: 300;
             color: $primary__band-white;
 
             &--subtext {
+            
                 @include for--mobile {
                     margin: 1rem 0rem 1rem;
                 }
@@ -96,10 +99,9 @@
                 & a {
                     text-decoration: none;
                     color: $primary__band-white;
-                    font-family: 'Avenir Regular', sans-serif;
                     font-size: 0.813rem;
                     line-height: 1.125rem;
-                    font-weight: 400;
+                    font-weight: 300;
                     margin: 0 0;
                     transition: all 0.5s ease-in-out;
 
@@ -108,7 +110,6 @@
                     }
 
                     &:hover {
-                        font-family: 'Avenir Demi', sans-serif;
 
                         @include for--desktop {
                             font-size: 1.125rem;
@@ -140,14 +141,11 @@
                     }
                 }
 
-                &--text-wrapper {
-                    @include for--tablet {
-                        font-family: 'Avenir Demi', sans-serif;
-                    }
+                &--text-box {
 
                     @include for--desktop {
-                        font-family: 'Avenir Demi', sans-serif;
                         font-size: 1.125rem;
+                        font-weight: 700;
                     }
                 }
             }

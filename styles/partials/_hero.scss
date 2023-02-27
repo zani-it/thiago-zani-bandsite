@@ -49,7 +49,7 @@
 // hero shows
 
 .hero {
-  &__cover-b {
+  &__cover--b {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -121,10 +121,12 @@
       }
 
       &--pre-hero {
+        font-family: "Avenir";
+        font-weight: 400;
         position: relative;
         z-index: 2;
         font-size: 1rem;
-        font-weight: 300;
+        font-weight: 400;
         @include for--tablet {
           font-size: 1.75rem;
         }

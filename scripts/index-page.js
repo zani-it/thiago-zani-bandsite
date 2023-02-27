@@ -11,12 +11,10 @@ async function displayComments() {
   // get comments from API
   const response = await axios.get(`${apiAddressComments}${apiKey}`);
   comments = response.data;
-  console.log(comments);
 
   comments.sort(function (x, y) {
     return x.timestamp - y.timestamp;
   });
-  console.log(comments);
 
   for (const comment of comments) {
 
@@ -67,11 +65,18 @@ async function displayComments() {
     contentLike.appendChild(contentDeleteButton);
 
 
+    //placeholder for avatar image
+    //set avatar id
+    const avatarId = comment.name;
+    //create elements
     const avatarEl = document.createElement('div');
     avatarEl.classList.add('comment__avatar');
-
+    //add class
     const avatarImg = document.createElement('img');
     avatarImg.classList.add('comment__avatar--img');
+    //fetch the avatar id image (api is public and generates images from names)
+    avatarImg.src = `https://api.multiavatar.com/${avatarId}.svg`;
+    avatarImg.alt = avatarId;
 
     avatarEl.appendChild(avatarImg);
 
@@ -88,7 +93,7 @@ async function displayComments() {
       try {
         const response = await axios.put(`${apiLike}${comment.id}/like?api_key=${apiKey}`);
         const updatedComment = response.data;
-        console.log(updatedComment);
+
         if (response.status === 200) {
           comment.likes = updatedComment.likes; // Update comment.likes
           contentLikeButton.textContent = comment.likes; // Update button text
@@ -100,12 +105,11 @@ async function displayComments() {
 
     contentDeleteButton.addEventListener('click', async () => {
       try {
-        console.log('Delete button clicked');
 
         const response = await axios.delete(`${apiLike}${comment.id}?api_key=${apiKey}`);
         if (response.status === 200) {
           // Remove the comment from the UI
-          console.log('Comment removed from API');
+
           commentWrapperEl.remove();
         }
       } catch (error) {

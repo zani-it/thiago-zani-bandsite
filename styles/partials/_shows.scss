@@ -33,13 +33,10 @@
             margin-bottom: 0px;
         }
 
-        &__date {
-            font-weight: 700;
-        }
-
         &__date,
         &__venue,
         &__location {
+            font-weight: 300;
             @include for--tablet {
                 width: 15vw;
             }
@@ -53,17 +50,19 @@
                 }
             }
         }
+        &__date {
+            font-weight: 700;
+        }
+
     }
 
     &__title {
         padding: 2vw 0vw;
         font-size: 2rem;
         font-weight: 700;
-        font-family: "Avenir Demi", sans-serif;
-
-        @include for--desktop {
-            padding-right: 5vw;
-        }
+            @include for--desktop {
+                padding-right: 5vw;
+            }
 
         &--grid {
 
@@ -80,9 +79,8 @@
                 &--horizontal {
                     display: flex;
                     width: 22vw;
-
-                    font-family: "Avenir Demi";
                     font-size: 1rem;
+                    font-weight: 400;
                     color: $primary__band-silver;
                 }
             }
@@ -103,7 +101,7 @@
         width: 15vw;
         min-width: 12.5rem;
         border-radius: 5px;
-        color: #fff;
+        color: $primary__band-white;
         background-color: $primary__band-gray;
 
         @include for--mobile {
@@ -120,17 +118,17 @@
     }
 }
 
-.shows-container {
-    font-family: "Avenir Regular", sans-serif;
-    line-height: 2rem;
-    font-weight: 300;
+.shows{
+    &__container {
+        line-height: 2rem;
+        font-weight: 300;
 
-    @include for--tablet {
-        margin-left: 3vw;
+        @include for--tablet {
+            margin-left: 3vw;
     }
-
-    @include for--desktop {
-        margin-left: 20vw;
-        max-width: 65vw;
+        @include for--desktop {
+            margin-left: 20vw;
+            max-width: 65vw;
+        }
     }
 }

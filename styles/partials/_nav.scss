@@ -78,7 +78,6 @@
           border-bottom: 5px;
           border-color: $primary__band-white;
           border-style: none none solid none;
-          font-family: "Avenir Demi";
             @include for--tablet {
               padding-bottom: 28px;
             }
@@ -99,7 +98,6 @@
       border-bottom: 5px;
       border-color: $primary__band-white;
       border-style: none none solid none;
-      font-family: "Avenir Demi";
       pointer-events: none;
         @include for--tablet {
           margin: 0 0 -32px 15px;
@@ -117,7 +115,6 @@
       border-bottom: 5px;
       border-color: $primary__band-white;
       border-style: none none solid none;
-      font-family: "Avenir Demi";
       pointer-events: none;
         @include for--tablet {
           margin: 0 0 -32px 19px;

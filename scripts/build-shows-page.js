@@ -1,7 +1,7 @@
 
 const apiAddressShows = 'https://project-1-api.herokuapp.com/showdates?api_key=';
 const apiKey = 'd17ee7f2-34f4-4bae-b206-8af2fd2e6731';
-const container = document.querySelector('.shows-container');
+const container = document.querySelector('.shows__container');
 
 const titleElementWrapper = document.createElement('div');
 titleElementWrapper.classList.add('show__title--grid');
@@ -27,8 +27,6 @@ container.appendChild(titleElementWrapper);
 async function createShowElements() {
   const response = await axios.get(`${apiAddressShows}${apiKey}`);
   const showsData = response.data;
-
-  console.log(showsData);
 
   for (const show of showsData) {
 
