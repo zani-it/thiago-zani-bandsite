@@ -4,3 +4,4 @@ Thumbs.db
 *.css
 assets/.DS_Store
 assets/reference.html
+.vscode
